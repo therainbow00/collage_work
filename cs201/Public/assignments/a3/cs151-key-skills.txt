@@ -1,0 +1,123 @@
+
+'''
+Press this key to execute a command: enter
+Keys that let you run a previously typed command again: up/down arrows
+Key to press to auto-complete a filename or command: tab
+Shortcut for current directory (one character): .
+Shortcut for directory one level up from current: ..
+Shortcut for your home directory (one character): ~
+Shortcut for the top of the entire file system (one character): /
+Characters to put around a filename that has spaces:
+Wildcard character: *
+
+Fill in the blank, what is the linux command to do each of the following.
+
+Get how long since last system reboot:
+Get information about disk free space:
+Get which user is currently logged in on the terminal: hostname
+Get what computer are you currently running commands on: who
+Get which directory are you inside of:
+Clear the terminal screen: clear
+See which other users are currently logged in: finger
+Help about a command (manual): man
+Change directory: cd
+Make a new directory: mkdir
+List directory contents: ls
+Flag/option to use with previous command to list details of files:
+Copy file(s): cp
+Remove files: rm
+Remove directory: rm dir
+Move or rename a file or directory: mv
+A terminal text editor: nano
+Change your password: passwd
+Print out first few lines of a file:
+Change file permissions:
+Display current system memory usage:
+See current time and date:
+Give the complete linux terminal command to complete each of the following tasks. Tasks such as these could be asked about.
+
+Create a new directory HELLO in your home directory:
+Copy the contents of jkinne's GREAT directory into your home directory:
+Change directory to your home directory:
+Check to see who is logged in:
+List the contest of the directory ~cs151/ including the sizes of the files:
+Python Keywords and Functions
+What is the python keyword or function for each of the following.
+
+exit the current loop: break
+in a loop, go to next iteration of the loop: continue
+determine whether two objects are the same object (not just value):
+load a module (two keywords): import
+declare a function: def
+loop with only condition:
+conditional statements (three keywords):
+loop with that iterates through a list:
+keyword to send a value back from a function: return
+boolean operator, True only if both sides are True: ==
+boolean operator, True if either side is True: or
+boolean operator, negates: not
+boolean values (two keywords):
+remove from a list by position: del
+handle an exception, basic use (2 keywords): except
+raise/indicate an exception (2 keywords):
+test if something is inside of a list/string/tuple/dictionary: in
+special value for a variable that has no value: none
+empty statement that does not do anything:
+function to write to the screen: print
+functions to convert to integer, floating point number, or string (3 functions): int(), float(), str()
+function to generate a sequence of numbers: range()
+function to get the length of a string, list, or tuple: len()
+What is the name of the following programming concept.
+
+text data type: string
+data type for True and False: boolean
+data type that stores numbers with fractional parts (e.g., 3.14 or 2.2): float
+data type that stores only integers:
+Python Operators and Expressions
+What are the Python3 operators for each of the following.
+
+multiplication, subtraction, addition: *, -, +
+integer division: %
+floating point division:
+remainder:
+exponentiation:
+testing membership in a string, tuple, or list:
+Evaluate the following Python3 expressions. Expressions similar to these could be asked.
+
+4 - 2 * 1: 2
+1 + 2 ** 3: 9
+7 // 2:
+'hello'[0:2]:
+range(0, 4):
+0
+1
+2
+3
+
+'3' + '2': '32'
+int('3') + int('2'): 5
+'3' * 2: '33'
+'Hello'.upper(): HELLO
+len('hi there'): 8
+Basic Python Programs
+Write a complete and correct Python3 program to do the following. Programs of similar complexity as these could be asked.
+
+Print the integers from 1 to 10 along with those numbers squared.
+Take two integers as input from the user and print a rectangle of *'s with those dimensions.
+Ask the user for the answer. If they type "42", print "but what is the question.". If they don't type "42" ask again, and keep asking until they type "42".
+Print the powers of 2 up to 1024 (which is 2**10).
+Play Computer
+Write down all variables in each of the following programs and keep track of their values as well as what is printed on the screen. Programs of similar complexity as these could be asked.
+
+def fun(n):
+  if n <= 0: return
+  print(n)
+  fun(n//2)
+fun(42)
+for i in range(0, 5):
+  for j in range(i, 5):
+    print('x'*j)
+L = 'what is the meaning of this?'.split()
+for x in L:
+  print(x, 'a' in x)
+'''
