@@ -3,7 +3,7 @@
 
 int main()
 {
-    char string[] = "I have 5 letters to my name";
+    char string[] = "I have 7 letters to my name";
     int i;
 
     for (i = 0; i < strlen(string); i++)
@@ -17,4 +17,5 @@ int main()
             printf("index %d is: %c\n", i, string[i]);
         }
     }
+    return 0;
 }
