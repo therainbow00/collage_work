@@ -2,23 +2,20 @@
 
 int main(int argc, char *argv[])
 {
-    int i, j, num, k;
-    char a, b, result;
-    scanf("%d", &num);
+    int i, j, k;
+    char a, b;
+    scanf("%d", &k);
     //printf("1\n");
     //printf("(1)\n");
-    for (i = 0; i < num; i++)
+    for (i = 0; j < k; j++)
     {
-        for (j = 0; j < i; j++)
-        {
-            putchar('a');
-        }
+        putchar('a');
+    }
 
-        for (j = i; j <= num; j++)
-        {
-            putchar('b');
-            //printf("\n(j): %d, (i): %d", j, i);
-        }
+    for (k = i; k <= k; k++)
+    {
+        putchar('b');
+        //printf("\n(j): %d, (i): %d", j, i);
     }
     printf("\n");
     return 0;
