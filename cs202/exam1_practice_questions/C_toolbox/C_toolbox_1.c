@@ -1,3 +1,4 @@
+// loop through a string and print each character on its own line
 #include <stdio.h>
 #include <string.h>
 

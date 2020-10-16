@@ -1,3 +1,4 @@
+// swap function that is passed pointers to two integers and swaps the values at those addresses
 #include <stdio.h>
 
 void swap(int *x, int *y)

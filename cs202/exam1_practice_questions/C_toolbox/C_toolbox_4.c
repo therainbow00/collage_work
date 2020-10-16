@@ -1,3 +1,4 @@
+// create an array of 5 integers with malloc and set the values to 1, 2, 3, 4, 5
 #include <stdio.h>
 #include <stdlib.h>
 
