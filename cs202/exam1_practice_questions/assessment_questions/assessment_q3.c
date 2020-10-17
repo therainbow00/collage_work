@@ -8,5 +8,8 @@ int main()
     printf("Interger: ");
     scanf("%d", &num);
 
-    printf("%d\n", num >> 2);
+    //printf("%d\n", num >> 1);
+    double x = (double) num;
+    double y = num >> 1;
+    printf("%.1lf\n", y);
 }
