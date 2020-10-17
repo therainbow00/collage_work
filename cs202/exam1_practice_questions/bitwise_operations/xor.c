@@ -8,5 +8,5 @@ int main()
     printf("Interger: ");
     scanf("%d", &num1);
 
-    printf("%d & %d = %d\n", num, num1, num & num1);
+    printf("%d ^ %d = %d\n", num, num1, num ^ num1);
 }
