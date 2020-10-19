@@ -11,7 +11,7 @@ struct node
 
 struct node * new_node()
 {
-    struct node *p = malloc(sizeof(struct node));
+    struct node *p = (struct node *) malloc(sizeof(struct node));
 
     p->data = 0;
     p->left = p->right = p->parent = NULL;
@@ -134,7 +134,7 @@ struct node * bst_lookup(struct node *root, int data_to_lookup)
     {
         if (data_to_lookup == p->data)
         {
-            return 0;
+            return p;
         }
         else if (data_to_lookup < p->data)
         {
@@ -155,29 +155,39 @@ void bst_delete(struct node *root, struct node *p_to_delete)
 
 int main()
 {
-    struct node * root = tree_demo();
+    struct node * root = NULL;
 
-    bst_print(root, 0);
-
-    struct node *p = bst_lookup(root, 3);
-    if (p == NULL)
+    /*
+    n = 1000000
+    each operation is around-ish log(n) time
+    N operations
+    total time is around-ish N * log(N)
+    M = 10 * N, total is around-iah M * log(M) = 10 * N * log(10 * N)
+    each lookup operation is around-ish log(N)
+    */
+    int found = 0;
+    for (int i = 0; i < 10000; i++)
     {
-        printf("Not found\n");
+        int val = rand();
+        if (root == NULL)
+        {
+            root = new_node();
+            root->data = val;
+        }
+        else
+        {
+            bst_insert(root, val);
+        }
+        struct node * p = bst_lookup(root, rand());
+        if (p != NULL)
+        {
+             found++;
+        }
     }
-    else
-    {
-        printf("Yes found\n");
-    }
-    printf("Inserting 20...\n");
-    bst_insert(root, 20);
-
-    printf("Inserting 11...\n");
-    bst_insert(root, 11);
-
-    bst_print(root, 0);
-
-    int x = bst_print(root, 0);
-    printf("Height of tree: %d\n", x);
-
+    printf("Found %d times\n", found);
+    /*
+    int depth = bst_print(root, 0);
+    printf("depth: %d\n", depth);
+    */
     return 0;
 }

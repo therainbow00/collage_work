@@ -71,12 +71,21 @@ int main()
                 }
                 temp = val;
                 t = strtok(NULL, ",");
-                if (i < 7 )
+                if (i < i + 1)
                 {
+                    if (i == 7)
+                    {
+                        average = count / 7;
+                        printf("\n7 day average: %d\n", average);
+                        printf("\n");
+                        i = 0;
+                        count = 0;
+                    }
                     count += val;
-                    printf("i: %d\n", i);
+                    printf("\ni: %d | count: %d\n", i, count);
                     i++;
                 }
+                /*
                 if (i >= 7)
                 {
                     if (i < (7 * 2))
@@ -86,12 +95,11 @@ int main()
                         i++;
                     }
                 }
+                */
                 printf("# of new cases per day: %d\n", diff);
             }
-            average = count / 7;
-            average1 = count1 / 7;
-            printf("first 7 days: %d\n", average);
-            printf("next 7 days: %d\n", average1);
+            //average1 = count1 / 7;
+            //printf("next 7 days: %d\n", average1);
         }
     }
     return 0;
