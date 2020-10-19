@@ -47,7 +47,7 @@ can use http://www.easysurf.cc/wdate5.htm
 int main()
 {
     FILE *f = fopen("/u1/junk/kinne/covid-19/time_series_covid19_confirmed_US.csv", "r");
-    int val, i = 0, diff, temp = 0, temp1 = 0, average, count = 0, average1;
+    int val, i, diff, temp = 0, count1 = 0, average, count = 0,;
     char * line = NULL;
     char * t;
     char * begin;
@@ -62,7 +62,6 @@ int main()
             t = strtok(NULL, ",");
             while (t != NULL)
             {
-                printf("t: %s\n", t);
                 val = atoi(t);
                 diff = val - temp;
                 if (diff < 0)
@@ -72,29 +71,27 @@ int main()
                 temp = val;
                 printf("# of new cases per day: %d\n", diff);
                 t = strtok(NULL, ",");
-                if (i < 7)
+                if (i < 7 )
                 {
-                    temp1 += val;
+                    count += val;
                     printf("i: %d\n", i);
                     i++;
                 }
-                average = temp1 / 7;
-
-                if (i >= 7 )
+                if (i >= 7)
                 {
                     if (i < (7 * 2))
                     {
-                        count += val;
+                        count1 += val;
                         printf("i: %d | (7 * 2): %d\n", i, (7 * 2));
                         i++;
                     }
                 }
-                average1 = count / 7;
             }
-            printf("7 days: %d\n", average);
+            average = count / 7;
+            average1 = count1 / 7;
+            printf("first 7 days: %d\n", average);
             printf("next 7 days: %d\n", average1);
         }
     }
-
     return 0;
 }
