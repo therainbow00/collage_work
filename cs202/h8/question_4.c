@@ -47,7 +47,7 @@ can use http://www.easysurf.cc/wdate5.htm
 int main()
 {
     FILE *f = fopen("/u1/junk/kinne/covid-19/time_series_covid19_confirmed_US.csv", "r");
-    int val, i = 0, diff, temp = 0, count1 = 0, average, average1, count = 0;
+    int val, i = 0, diff, temp = 0, average, count = 0, day = 21, largest_average = 0, temp1 = 0;
     char * line = NULL;
     char * t;
     char * begin;
@@ -62,7 +62,8 @@ int main()
             t = strtok(NULL, ",");
             while (t != NULL)
             {
-                printf("t = %s\n", t);
+                day++;
+                printf("t = %s, day: %d\n", t, day);
                 val = atoi(t);
                 diff = val - temp;
                 if (diff < 0)
@@ -73,33 +74,37 @@ int main()
                 t = strtok(NULL, ",");
                 if (i < i + 1)
                 {
-                    if (i == 7)
+                    count += val;
+                    if (i == 6)
                     {
                         average = count / 7;
-                        printf("\n7 day average: %d\n", average);
+                        printf("7 day average: %d\n", average);
                         printf("\n");
                         i = 0;
                         count = 0;
+                        temp1 = average;
+                        if (largest_average == average)
+                        {
+                            printf("Both averages are the same\n");
+                        }
+                        else
+                        {
+                            if (largest_average < average)
+                            {
+                                printf("average is larger\n");
+                            }
+                            else
+                            {
+                                printf("largest_average is larger\n");
+                            }
+                        }
+                        temp1 = largest_average;
                     }
-                    count += val;
-                    printf("\ni: %d | count: %d\n", i, count);
+                    printf("i: %d | count: %d\n", i, count);
                     i++;
                 }
-                /*
-                if (i >= 7)
-                {
-                    if (i < (7 * 2))
-                    {
-                        count1 += val;
-                        printf("i: %d | (7 * 2): %d\n", i, (7 * 2));
-                        i++;
-                    }
-                }
-                */
                 printf("# of new cases per day: %d\n", diff);
             }
-            //average1 = count1 / 7;
-            //printf("next 7 days: %d\n", average1);
         }
     }
     return 0;
