@@ -47,7 +47,7 @@ can use http://www.easysurf.cc/wdate5.htm
 int main()
 {
     FILE *f = fopen("/u1/junk/kinne/covid-19/time_series_covid19_confirmed_US.csv", "r");
-    int val, i = 0, diff, temp = 0, average, count = 0, day = 21, largest_average = 0, temp1 = 0;
+    int val, i = 0, diff = 0, temp = 0, average, count = 0, day = 21, largest_average = 0, temp_average = 0, val_temp = 0, max_7_day_average = 0, val_day = 0;
     char * line = NULL;
     char * t;
     char * begin;
@@ -63,6 +63,7 @@ int main()
             while (t != NULL)
             {
                 day++;
+                printf("# of new cases per day: %d\n", diff);
                 printf("t = %s, day: %d\n", t, day);
                 val = atoi(t);
                 diff = val - temp;
@@ -77,33 +78,48 @@ int main()
                     count += val;
                     if (i == 6)
                     {
+                        printf("i: %d | count: %d\n", i, count);
                         average = count / 7;
-                        printf("7 day average: %d\n", average);
-                        printf("\n");
+                        printf("7 day average: %d\n\n", average);
                         i = 0;
                         count = 0;
-                        temp1 = average;
-                        if (largest_average == average)
+                        /*
+                        if (temp_average == average)
                         {
-                            printf("Both averages are the same\n");
+                            printf("Both averages are the same, average: %d\n", average);
+                            printf("\n");
+                        }
+                        else if (temp_average < average)
+                        {
+                            printf("temp_average: %d < average: %d\n", temp_average, average);
+                            temp_average = average;
+                            printf("average is larger, average: %d\n", average);
+                            printf("\n");
                         }
                         else
                         {
-                            if (largest_average < average)
-                            {
-                                printf("average is larger\n");
-                            }
-                            else
-                            {
-                                printf("largest_average is larger\n");
-                            }
+                            printf("average: %d < temp_average: %d\n", average, temp_average);
+                            printf("temp_average is larger, temp_average = %d\n", temp_average);
+                            printf("\n");
                         }
-                        temp1 = largest_average;
+                        */
+                        if (val_temp > max_7_day_average)
+                        {
+                            max_7_day_average = val_temp;
+                        }
+                        printf("maximun 7 day average = %d, day: %d\n\n", max_7_day_average, val_day);
+                        //temp_average = largest_average;
                     }
                     printf("i: %d | count: %d\n", i, count);
+                    printf("val: %d, val_temp: %d\n", val, val_temp);
+                    if (val > val_temp)
+                    {
+                        //printf("day: %d, val_temp: %d\n", day, val_temp);
+                        val_day = day;
+                        val_temp = val;
+                    }
                     i++;
                 }
-                printf("# of new cases per day: %d\n", diff);
             }
         }
     }
