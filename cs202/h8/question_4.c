@@ -75,11 +75,11 @@ int main()
                 t = strtok(NULL, ",");
                 if (i < i + 1)
                 {
-                    count += val;
-                    if (i == 6)
+                    if (i == 7)
                     {
-                        printf("i: %d | count: %d\n", i, count);
+                        //printf("i: %d | count: %d\n", i, count);
                         average = count / 7;
+                        printf("val: %d, val_temp: %d\n", val, val_temp);
                         printf("7 day average: %d\n\n", average);
                         i = 0;
                         count = 0;
@@ -111,13 +111,14 @@ int main()
                         //temp_average = largest_average;
                     }
                     printf("i: %d | count: %d\n", i, count);
-                    printf("val: %d, val_temp: %d\n", val, val_temp);
                     if (val > val_temp)
                     {
                         //printf("day: %d, val_temp: %d\n", day, val_temp);
+                        printf("val: %d, val_temp: %d\n", val, val_temp);
                         val_day = day;
                         val_temp = val;
                     }
+                    count += val;
                     i++;
                 }
             }
