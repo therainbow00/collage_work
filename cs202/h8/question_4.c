@@ -63,8 +63,6 @@ int main()
             while (t != NULL)
             {
                 day++;
-                printf("# of new cases per day: %d\n", diff);
-                printf("t = %s, day: %d\n", t, day);
                 val = atoi(t);
                 diff = val - temp;
                 if (diff < 0)
@@ -79,7 +77,7 @@ int main()
                     {
                         //printf("i: %d | count: %d\n", i, count);
                         average = count / 7;
-                        printf("val: %d, val_temp: %d\n", val, val_temp);
+                        //printf("val: %d, val_temp: %d\n", val, val_temp);
                         printf("7 day average: %d\n\n", average);
                         i = 0;
                         count = 0;
@@ -110,15 +108,20 @@ int main()
                         printf("maximun 7 day average = %d, day: %d\n\n", max_7_day_average, val_day);
                         //temp_average = largest_average;
                     }
+                    printf("\nbefore count adds val\n");
+                    printf("count: %d, val: %d\n", count, val);
+                    count += val;
+                    printf("after count adds val\n\n");
                     printf("i: %d | count: %d\n", i, count);
+                    printf("# of new cases per day: %d\n", diff);
+                    printf("t = %s, day: %d\n", t, day);
                     if (val > val_temp)
                     {
                         //printf("day: %d, val_temp: %d\n", day, val_temp);
-                        printf("val: %d, val_temp: %d\n", val, val_temp);
+                        //printf("val: %d, val_temp: %d\n", val, val_temp);
                         val_day = day;
                         val_temp = val;
                     }
-                    count += val;
                     i++;
                 }
             }
