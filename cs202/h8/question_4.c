@@ -47,7 +47,8 @@ can use http://www.easysurf.cc/wdate5.htm
 int main()
 {
     FILE *f = fopen("/u1/junk/kinne/covid-19/time_series_covid19_confirmed_US.csv", "r");
-    int val, i = 0, diff = 0, temp = 0, average, count = 0, day = 21, largest_average = 0, temp_average = 0, val_temp = 0, max_7_day_average = 0, val_day = 0;
+    int val, i = 0, diff = 0, temp = 0, average, count = 0, day = 21, largest_average = 0, temp_average = 0, val_temp = 0, max_7_day_average = 0, val_day = 0, max_count = 0, num_of_max_7_day_average = 0;
+    double percent;
     char * line = NULL;
     char * t;
     char * begin;
@@ -75,10 +76,15 @@ int main()
                 {
                     if (i == 7)
                     {
-                        //printf("i: %d | count: %d\n", i, count);
+                        /*
+                        printf("======================\n");
+                        printf("count: %d\n", count);
+                        printf("======================\n");
+                        */
                         average = count / 7;
                         //printf("val: %d, val_temp: %d\n", val, val_temp);
-                        printf("7 day average: %d\n\n", average);
+                        printf("\n7 day average: %d\n\n", average);
+                        max_count += count;
                         i = 0;
                         count = 0;
                         /*
@@ -106,15 +112,18 @@ int main()
                             max_7_day_average = val_temp;
                         }
                         printf("maximun 7 day average = %d, day: %d\n\n", max_7_day_average, val_day);
+                        num_of_max_7_day_average++;
                         //temp_average = largest_average;
                     }
-                    printf("\nbefore count adds val\n");
-                    printf("count: %d, val: %d\n", count, val);
+                    //printf("count: %d\n", count);
+                    //printf("\nbefore count adds val\n");
                     count += val;
-                    printf("after count adds val\n\n");
-                    printf("i: %d | count: %d\n", i, count);
+                    //printf("after count adds val\n\n");
+                    //printf("count: %d\n", count);
+                    //printf("count: %d, val: %d\n", count, val);
+                    //printf("i: %d | count: %d\n", i, count);
                     printf("# of new cases per day: %d\n", diff);
-                    printf("t = %s, day: %d\n", t, day);
+                    printf("val = %d, day: %d\n", val, day);
                     if (val > val_temp)
                     {
                         //printf("day: %d, val_temp: %d\n", day, val_temp);
@@ -125,6 +134,19 @@ int main()
                     i++;
                 }
             }
+            /*
+            printf("\n");
+            printf("-------------\n");
+            printf("max_count: %d\n", max_count);
+            printf("-------------\n");
+            printf("\n- - - - - - - -\n");
+            printf("num_of_max_7_day_average: %d\n", num_of_max_7_day_average);
+            printf("- - - - - - - -\n");
+            printf("\n################\n");
+            percent = (double) max_count / (double) num_of_max_7_day_average;
+            printf("%.1lf percent\n", percent);
+            printf("################\n");
+            */
         }
     }
     return 0;
