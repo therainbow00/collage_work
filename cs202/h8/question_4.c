@@ -113,6 +113,7 @@ int main()
                         }
                         printf("maximun 7 day average = %d, day: %d\n\n", max_7_day_average, val_day);
                         num_of_max_7_day_average++;
+                        printf("%d\n", num_of_max_7_day_average);
                         //temp_average = largest_average;
                     }
                     //printf("count: %d\n", count);
