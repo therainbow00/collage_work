@@ -84,7 +84,7 @@ int main()
                         average = count / 7;
                         //printf("val: %d, val_temp: %d\n", val, val_temp);
                         printf("\n7 day average: %d\n\n", average);
-                        max_count += count;
+                        //max_count += count;
                         i = 0;
                         count = 0;
                         /*
@@ -112,7 +112,7 @@ int main()
                             max_7_day_average = val_temp;
                         }
                         printf("maximun 7 day average = %d, day: %d\n\n", max_7_day_average, val_day);
-                        num_of_max_7_day_average++;
+                        //num_of_max_7_day_average++;
                         printf("%d\n", num_of_max_7_day_average);
                         //temp_average = largest_average;
                     }

@@ -19,13 +19,14 @@ int main(int argc, char *argv[]) {
     int total = 0;
     for (int i = 1; i <= argc; i++)
     {
-        if (argv[i] == NULL)
-        {
-            printf("Usage: ./c_sum.o n1 n2 n3 ...\n");
-        }
-        else
+        if (argv[i] != NULL)
         {
             total += atoi(argv[i]);
+        }
+        else if (argv[1] == NULL)
+        {
+            printf("Usage: ./c_sum.o n1 n2 n3 ...\n");
+            return 0;
         }
     }
     printf("%d\n", total);
