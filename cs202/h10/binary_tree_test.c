@@ -275,7 +275,7 @@ int main(int argc, char *argv[]) {
     int val = rand() % mod_by;
 
     // h10: if print is set, print val
-    if (print)
+    if (print == 1)
     {
         printf("%d\n", val);
     }
@@ -288,7 +288,7 @@ int main(int argc, char *argv[]) {
       bst_insert(root, val);
   }
   // h10: if print is set, print the tree
-  if (print)
+  if (print == 1)
   {
       bst_print(val);
   }
@@ -298,6 +298,7 @@ int main(int argc, char *argv[]) {
   int best = floor(log2(num_nodes))+1; // best possible depth
 
   // h10: print off the results
+
 
   // free the memory from the tree
   bst_free(root);

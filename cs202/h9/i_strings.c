@@ -1,7 +1,7 @@
 /*
   Read from console.  Sample transcript...
 
-cs202@cs:~/solutions/h9$ ./i_strings.o 
+cs202@cs:~/solutions/h9$ ./i_strings.o
 Some word please (will be s1): whyohwhyohwhy
 Another word (will be s2): yo
 Some character: o
@@ -11,7 +11,7 @@ s2 is at position 2 of s1
 first o in s1 is at index 3
 s2 is at position 7 of s1
 
-cs202@cs:~/solutions/h9$ ./i_strings.o 
+cs202@cs:~/solutions/h9$ ./i_strings.o
 Some word please (will be s1): heregoesnothing
 Another word (will be s2): Goes
 Some character: k
@@ -20,7 +20,7 @@ length of s2: 4
 No Goes in s1
 No k in s1
 
-cs202@cs:~/solutions/h9$ ./i_strings.o 
+cs202@cs:~/solutions/h9$ ./i_strings.o
 Some word please (will be s1): BecauseISaidSo
 Another word (will be s2): Said
 Some character: b
@@ -43,6 +43,6 @@ Notes
 #include <ctype.h>
 
 int main(int argc, char *argv[]) {
-    
-  return 0;
+    printf("Some word please (will be s1): ");
+    return 0;
 }
