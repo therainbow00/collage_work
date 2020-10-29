@@ -198,16 +198,10 @@ int bst_num_nodes(struct node *root) {
   int total = 1;
 
   // add number of nodes in root->left
-  if (p->left)
-  {
-      total++;
-  }
+  total += bst_num_nodes(p->left);
 
   // add number of nodes in root->right
-  if (p->right)
-  {
-      total++;
-  }
+  total += bst_num_nodes(p->right);
 
   // return total
   return total; // change to total when code is complete
