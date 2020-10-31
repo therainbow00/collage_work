@@ -281,7 +281,7 @@ int main(int argc, char *argv[]) {
     // h10: if print is set, print val
     if (print == 0)
     {
-        //printf("Inserting: %d ", val);
+        printf("%d ", val);
         //return NULL;
     }
 
