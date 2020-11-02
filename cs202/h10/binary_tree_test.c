@@ -270,6 +270,8 @@ int main(int argc, char *argv[]) {
   // seed for random numbers
   srand(start);
 
+
+
   // start with empty tree
   struct node * root = NULL;
 
