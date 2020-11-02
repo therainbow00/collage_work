@@ -1,7 +1,7 @@
 /*
   Read from command-line arguments.  Sample transcript...
 
-cs202@cs:~/solutions/h9$ ./e_bits.o 
+cs202@cs:~/solutions/h9$ ./e_bits.o
 Usage: ./e_bits.o n i
 
 cs202@cs:~/solutions/h9$ ./e_bits.o 8 3
@@ -40,6 +40,25 @@ Invalid value for i, should be between 0 and 31.
 #include <ctype.h>
 
 int main(int argc, char *argv[]) {
-  
+  for (int i = 0; i < argc; i++)
+  {
+      if (argc == 1)
+      {
+          printf("Usage: %s n i\n", argv[0]);
+          return 0;
+      }
+      else if (argc == 3)
+      {
+          if (atoi(argv[2]) > 32)
+          {
+              printf("Invalid value for i, should be between 0 and 31.\n");
+              return 0;
+          }
+          char hex[] = "0x";
+          printf("Number in hex: %s%d\n", hex, atoi(argv[1]));
+          printf("%sth bit from the right is: %d\n", argv[2], atoi(argv[1]) >> atoi(argv[2]));
+          return 0;
+      }
+  }
   return 0;
 }
