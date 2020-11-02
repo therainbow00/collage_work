@@ -273,11 +273,11 @@ int main(int argc, char *argv[]) {
   // start with empty tree
   struct node * root = NULL;
 
-  int temp = 0;
+  //int temp = 0;
   if (print == 1)
   {
       printf("num_to_insert, mod_by, seed : %d, %d, %d\n", how_many_to_insert, mod_by, seed);
-      printf("Inserting...\n");
+      printf("Inserting: ");
   }
   // h10: print out the parameters we are using
   for(int i = 0; i < how_many_to_insert; i++) {
@@ -287,9 +287,7 @@ int main(int argc, char *argv[]) {
     // h10: if print is set, print val
     if (print == 1)
     {
-        //printf("Inserting: ");
         printf("%d ", val);
-        //return NULL;
     }
 
     if (root == NULL) {
@@ -299,16 +297,11 @@ int main(int argc, char *argv[]) {
     else
       bst_insert(root, val);
 
-    //printf("(temp)%d = (temp)%d + (root->data)%d\n", temp, temp, root->data);
-    temp += val;
-    //printf("(temp)%d = (temp)%d + (root->data)%d\n", temp, temp, root->data);
-    //printf("%d\n", temp);
   }
   printf("\n");
   // h10: if print is set, print the tree
   if (print == 1)
   {
-      //printf("Inserting: %d\n", temp);
       printf("Tree...\n");
       bst_print(root);
   }
