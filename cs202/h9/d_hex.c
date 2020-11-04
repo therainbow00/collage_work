@@ -27,30 +27,15 @@ int main(int argc, char *argv[]) {
 
   printf("Enter in he(x) or unsigned (d)ecimal? ");
   char string[1];
-  char hex[2];
+  int hex;
   int decimal;
   scanf("%s", string);
-  //char bits[] = "0x";
-  unsigned char num = 0xff;
-  //int interger = 0xff;
-  //char result[101];
-
 
   if (string[0] == 'x')
   {
       printf("Hex int: ");
-      scanf("%s", hex);
-      //printf("%s\n", hex);
-      //strcat(bits, hex);
-      //sprintf(result, "%x", *bits);
-      //printf("%s\n", bits);
-      //strcpy((char*) num, bits);
-      //printf("%s\n", num);
-      //interger = atoi(num);
-      unsigned char s = (unsigned char) bits;
-      printf("hex: %x, decimal: %d\n", s, s);
-      //printf("hex: %x, decimal: %d\n", num, num);
-      //printf("%d\n", atoi(bits));
+      scanf("%x", &hex);
+      printf("hex: %x, decimal: %d\n", hex, hex);
       return 0;
   }
   else if (string[0] == 'd')

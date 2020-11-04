@@ -266,68 +266,66 @@ int main(int argc, char *argv[]) {
       start = seed;
       end = seed;
   }
-
   // seed for random numbers
   srand(start);
 
-
-
-  // start with empty tree
-  struct node * root = NULL;
-
-  //int temp = 0;
-  if (print == 1)
+  for (int i = start; i <= end; i++)
   {
-      printf("num_to_insert, mod_by, seed : %d, %d, %d\n", how_many_to_insert, mod_by, seed);
-      printf("Inserting: ");
-  }
-  // h10: print out the parameters we are using
-  for(int i = 0; i < how_many_to_insert; i++) {
-    // pick a random value to insert into the tree
-    int val = rand() % mod_by;
+    // start with empty tree
+    struct node * root = NULL;
 
-    // h10: if print is set, print val
+    //int temp = 0;
     if (print == 1)
     {
-        printf("%d ", val);
+        printf("num_to_insert, mod_by, seed : %d, %d, %d\n", how_many_to_insert, mod_by, seed);
+        printf("Inserting: ");
+    }
+    // h10: print out the parameters we are using
+    for(int i = 0; i < how_many_to_insert; i++) {
+        //pick a random value to insert into the tree
+        int val = rand() % mod_by;
+
+        // h10: if print is set, print val
+        if (print == 1)
+        {
+            printf("%d ", val);
+        }
+
+        if (root == NULL) {
+            root = new_node();
+            root->data = val;
+        }
+        else
+        bst_insert(root, val);
+
+    }
+    printf("\n");
+    // h10: if print is set, print the tree
+    if (print == 1)
+    {
+        printf("Tree...\n");
+        bst_print(root);
     }
 
-    if (root == NULL) {
-      root = new_node();
-      root->data = val;
+    int depth = bst_depth(root);
+    int num_nodes = bst_num_nodes(root);
+    int best_possible_depth = floor(log2(num_nodes))+1; // best possible depth
+
+    // h10: print off the results
+    if (print == 0)
+    {
+        printf("num_to_insert, mod_by, seed : %d, %d, %d\n", how_many_to_insert, mod_by, seed);
     }
-    else
-      bst_insert(root, val);
+    printf("  num_nodes, depth, best_possible_depth, off_by_factor\n");
+    double off_by_factor = (double) depth / (double) best_possible_depth;
+    printf("  %d, %d, %d, %lf\n", num_nodes, depth, best_possible_depth, off_by_factor);
+    printf("\n");
 
+    // free the memory from the tree
+    bst_free(root);
+
+    // h10: after getting all of that working, put it all into a
+    //  for loop where you set the seed from start up through end.
   }
-  printf("\n");
-  // h10: if print is set, print the tree
-  if (print == 1)
-  {
-      printf("Tree...\n");
-      bst_print(root);
-  }
-
-  int depth = bst_depth(root);
-  int num_nodes = bst_num_nodes(root);
-  int best_possible_depth = floor(log2(num_nodes))+1; // best possible depth
-
-  // h10: print off the results
-  if (print == 0)
-  {
-      printf("num_to_insert, mod_by, seed : %d, %d, %d\n", how_many_to_insert, mod_by, seed);
-  }
-  printf("  num_nodes, depth, best_possible_depth, off_by_factor\n");
-  double off_by_factor = (double) depth / (double) best_possible_depth;
-  printf("  %d, %d, %d, %lf\n", num_nodes, depth, best_possible_depth, off_by_factor);
-  printf("\n");
-
-  // free the memory from the tree
-  bst_free(root);
-
-  // h10: after getting all of that working, put it all into a
-  //  for loop where you set the seed from start up through end.
-
-
   return 0;
 }

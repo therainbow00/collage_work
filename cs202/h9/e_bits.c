@@ -42,7 +42,7 @@ Invalid value for i, should be between 0 and 31.
 int main(int argc, char *argv[]) {
   for (int i = 0; i < argc; i++)
   {
-      if (argc == 1)
+      if (argc < 3)
       {
           printf("Usage: %s n i\n", argv[0]);
           return 0;
@@ -55,7 +55,8 @@ int main(int argc, char *argv[]) {
               return 0;
           }
           char hex[] = "0x";
-          printf("Number in hex: %s%d\n", hex, atoi(argv[1]));
+          //int convert = atoi(argv[1]);
+          printf("Number in hex: %s%x\n", hex, atoi(argv[1]));
           printf("%sth bit from the right is: %d\n", argv[2], atoi(argv[1]) >> atoi(argv[2]));
           return 0;
       }
