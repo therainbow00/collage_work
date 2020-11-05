@@ -161,6 +161,14 @@ struct node * linked_list_delete(struct node *head, struct node *p_to_delete) {
   // cases to deal with...
 
   // head or p_to_delete is NULL
+  if (head == NULL)
+  {
+      return NULL;
+  }
+  else if (p_to_delete == NULL)
+  {
+      return head;
+  }
 
   // head == p_to_delete
 

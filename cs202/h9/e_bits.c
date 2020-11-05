@@ -55,9 +55,8 @@ int main(int argc, char *argv[]) {
               return 0;
           }
           char hex[] = "0x";
-          //int convert = atoi(argv[1]);
           printf("Number in hex: %s%x\n", hex, atoi(argv[1]));
-          printf("%sth bit from the right is: %d\n", argv[2], atoi(argv[1]) >> atoi(argv[2]));
+          printf("%sth bit from the right is: %d\n", argv[2], (atoi(argv[1]) >> atoi(argv[2])) & 1);
           return 0;
       }
   }
