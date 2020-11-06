@@ -31,16 +31,34 @@ not palindromic bits
 
 int main(int argc, char *argv[]) {
   printf("Enter a number in hex: ");
-  int hex, i;
+  int hex, c[101] = {0}, i = 101 - 1;
   scanf("%x", &hex);
-  for (i = 31; i >= 0; i--)
+  printf("In binary: ");
+  //unsigned int n;
+  //printf("enter the no ( max range 255)\n");
+  //scanf("%d",&n);
+  //int c[101] = {0};
+  //int i = 101 - 1;
+  //printf("binary representation is: ");
+  while (hex != 0)
   {
-      int k = hex >> i;
-      if (k & 1)
+      c[i--] = hex & 1;
+      hex = hex >> 1;
+  }
+  for (int j = 0; j < 101; j++)
+  {
+      printf("%d", c[j]);
+  }
+  printf("\n");
+  for (int j = 0, k = 101 - 1; j < k; j++, k--)
+  {
+      if (c[j] != c[k])
       {
-
+          printf("Not palindrome\n");
+          return 0;
       }
   }
+  printf("it's palindrome\n");
 
   return 0;
 }

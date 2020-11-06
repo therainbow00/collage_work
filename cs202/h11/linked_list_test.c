@@ -128,8 +128,18 @@ int linked_list_max(struct node *head) {
 // hint: loop until p->next == NULL
 // if head == NULL, return NULL
 struct node *linked_list_tail(struct node *head) {
-
-  return NULL;
+  struct node * p = head;
+  if (p == NULL)
+  {
+      return NULL;
+  }
+  for (struct node *p = head; p != NULL; p = p->next)
+  {
+      if (p->next == NULL)
+      {
+          return p;
+      }
+  }
 }
 
 
@@ -138,6 +148,7 @@ struct node *linked_list_tail(struct node *head) {
 // hint: loop through and swap next and prev for each node,
 //   and return the last node as the new tail
 struct node *linked_list_reverse(struct node *head) {
+  struct node *p = head;
 
   return NULL;
 }
