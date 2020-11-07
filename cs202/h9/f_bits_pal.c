@@ -28,10 +28,11 @@ not palindromic bits
 #include <string.h>
 #include <time.h>
 #include <ctype.h>
+#include <math.h>
 
 int main(int argc, char *argv[]) {
   printf("Enter a number in hex: ");
-  int hex, c[101] = {0}, i = 101 - 1;
+  int hex;
   scanf("%x", &hex);
   printf("In binary: ");
   //unsigned int n;
@@ -40,11 +41,76 @@ int main(int argc, char *argv[]) {
   //int c[101] = {0};
   //int i = 101 - 1;
   //printf("binary representation is: ");
-  while (hex != 0)
+  //printf("%x\n", hex);
+  //int count = 0;
+  //printf("%x, %d\n", hex, hex);
+  char first_string[101], first_string1[101];
+  //char first_string1[101];
+  int first;
+  for (int i = 31; i >= 0; i--)
   {
-      c[i--] = hex & 1;
-      hex = hex >> 1;
+      printf("%x", (hex >> i) & 1);
+      //first += (hex >> i) & 1;
+      //sprint((hex >> i) & 1, first_string, 2);
+      //sprint(first_string, (hex >> i) & 1, "%s");
+      //printf("\n");
+      sprintf(first_string, "%x", (hex >> i) & 1);
+      //printf("\n%c\n", first_string);
+      strcpy(first_string1, first_string);
+      //printf("\n%s", first_string1);
+      //&first += (hex >> i) & 1;
+      //printf("%x ", pow(2, i));
+      //count++;
+      //hex >>= i;
   }
+  for (int j = 0; j < strlen(first_string1); j++)
+  {
+      printf("%s", first_string1[j]);
+  }
+  //printf("\nfirst: %s", first_string1);
+  //printf("\n%x", first);
+  /*
+  printf("\nhere");
+  for (int k = 0; k < strlen(first_string1); k++)
+  {
+      printf("\nfirst: %s", first_string1[k]);
+  }
+  printf("\nhere (1)");
+  */
+  printf("\n");
+  /*
+  char second_string[101];
+  char second_string1[101];
+  int second[101];
+  for (int j = 0; j < 32; j++)
+  {
+      printf("%x", (hex >> j) & 1);
+      sprintf(second_string, "%s", (hex >> j) & 1);
+      strcpy(second_string1, second_string);
+      //itoa((hex >> j) & 1, second_string, 2);
+      //&second += (hex >> j) & 1;
+  }
+  printf("\nsecond: %s", second_string1);
+  printf("\n");
+  */
+
+  //printf("%d\n", count);
+  /*
+  while (hex)
+  {
+      if (hex & 1)
+      {
+          printf("1");
+      }
+      else
+      {
+          printf("0");
+      }
+      hex >>= 1;
+  }
+  printf("\n");
+  */
+  /*
   for (int j = 0; j < 101; j++)
   {
       printf("%d", c[j]);
@@ -59,6 +125,7 @@ int main(int argc, char *argv[]) {
       }
   }
   printf("it's palindrome\n");
+  */
 
   return 0;
 }
