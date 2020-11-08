@@ -44,18 +44,42 @@ Notes
 
 int main(int argc, char *argv[]) {
     char s1[101], s2[101], some_char[1];
-    int length_s1, length_s2;
+    int length_s1, length_s2, length_some_char;
+
     printf("Some word please (will be s1): ");
     scanf("%s", s1);
     length_s1 = strlen(s1);
+    printf("%s\n", s1);
+
     printf("Another word (will be s2): ");
     scanf("%s", s2);
     length_s2 = strlen(s2);
+    printf("%s\n", s2);
+
     printf("Some character: ");
     scanf("%s", some_char);
+    length_some_char = strlen(some_char);
 
     printf("length of s1: %d\n", length_s1);
     printf("length of s2: %d\n", length_s2);
+
+
+    int var = -1;
+    for (int i = 0; i < length_s1; i++)
+    {
+        if (strncmp((s1[i] + i), s2, length_some_char) != 0)
+        {
+            i = var;
+            s1[i] = var;
+            printf("s2 is at position %d of s1\n", s1[i]);
+            break;
+        }
+        else
+        {
+            printf("No %s in s1\n", s2);
+            break;
+        }
+    }
 
     return 0;
 }
