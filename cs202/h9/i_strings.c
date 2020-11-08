@@ -43,6 +43,19 @@ Notes
 #include <ctype.h>
 
 int main(int argc, char *argv[]) {
+    char s1[101], s2[101], some_char[1];
+    int length_s1, length_s2;
     printf("Some word please (will be s1): ");
+    scanf("%s", s1);
+    length_s1 = strlen(s1);
+    printf("Another word (will be s2): ");
+    scanf("%s", s2);
+    length_s2 = strlen(s2);
+    printf("Some character: ");
+    scanf("%s", some_char);
+
+    printf("length of s1: %d\n", length_s1);
+    printf("length of s2: %d\n", length_s2);
+
     return 0;
 }
