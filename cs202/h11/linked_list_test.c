@@ -94,14 +94,31 @@ int linked_list_count_greater_than(struct node *head, int x) {
 // return the total sum of all nodes' data
 // if head is NULL, return 0
 int linked_list_sum(struct node *head) {
+  //printf("here\n");
   struct node * h = head;
-  if (h->data == NULL)
+  //printf("here (1)\n");
+  //printf("%d - total\n", total);
+  int total = 0;
+  //printf("%d - total\n", total);
+  //printf("here (2)\n");
+  if (h == NULL)
   {
+      //printf("here (3)\n");
       return 0;
   }
-  int total = 0;
-  total += linked_list_sum(h->next);
+  //printf("here (4)\n");
+  while (h->data != NULL)
+  {
+      //printf("here (5)\n");
+      total += h->data;
+      //printf("here (6)\n");
+      //printf("%d - total\n", total);
+      h = h->next;
+  }
+  //printf("here (7)\n");
   return total;
+  //printf("here (8)\n");
+  linked_list_sum(h->next);
 }
 
 
@@ -148,9 +165,22 @@ struct node *linked_list_tail(struct node *head) {
 // hint: loop through and swap next and prev for each node,
 //   and return the last node as the new tail
 struct node *linked_list_reverse(struct node *head) {
-  struct node *p = head;
-
-  return NULL;
+  struct node *h = head;
+  struct node *prev = NULL;
+  struct node *next = NULL;
+  if (h == NULL)
+  {
+      return NULL;
+  }
+  while (h != NULL)
+  {
+      next = h->next;
+      h->next = prev;
+      prev = h;
+      h = next;
+  }
+  h = prev;
+  return h;
 }
 
 
@@ -158,8 +188,29 @@ struct node *linked_list_reverse(struct node *head) {
 // return the number of nodes that are smaller than the previous node
 // if head is NULL, return 0
 int linked_list_outOfOrder(struct node *head) {
-
-  return 0;
+  struct node *h = head;
+  struct node *n = NULL;
+  struct node *p = NULL;
+  int count = 0;
+  if (h == NULL)
+  {
+      return 0;
+  }
+  while (h != NULL)
+  {
+      n = h->next;
+      p = h->prev;
+      if (p == NULL || n == NULL)
+      {
+          count += 0;
+      }
+      else if (n < p)
+      {
+          count++;
+      }
+      h = n;
+  }
+  return count;
 }
 
 
