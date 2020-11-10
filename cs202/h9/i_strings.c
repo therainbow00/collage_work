@@ -67,10 +67,10 @@ int main(int argc, char *argv[]) {
     int var = -1;
     for (int i = 0; i < length_s1; i++)
     {
-        if (strncmp((s1[i] + i), s2, length_some_char) != 0)
+        if (strncmp((s1 + i), s2, length_some_char) == 0)
         {
-            i = var;
-            s1[i] = var;
+            var = i;
+            var = s1[i];
             printf("s2 is at position %d of s1\n", s1[i]);
             break;
         }

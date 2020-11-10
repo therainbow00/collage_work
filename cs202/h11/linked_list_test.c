@@ -94,31 +94,18 @@ int linked_list_count_greater_than(struct node *head, int x) {
 // return the total sum of all nodes' data
 // if head is NULL, return 0
 int linked_list_sum(struct node *head) {
-  //printf("here\n");
   struct node * h = head;
-  //printf("here (1)\n");
-  //printf("%d - total\n", total);
   int total = 0;
-  //printf("%d - total\n", total);
-  //printf("here (2)\n");
   if (h == NULL)
   {
-      //printf("here (3)\n");
       return 0;
   }
-  //printf("here (4)\n");
-  while (h->data != NULL)
+  while (h != NULL)
   {
-      //printf("here (5)\n");
       total += h->data;
-      //printf("here (6)\n");
-      //printf("%d - total\n", total);
       h = h->next;
   }
-  //printf("here (7)\n");
   return total;
-  //printf("here (8)\n");
-  linked_list_sum(h->next);
 }
 
 
@@ -132,9 +119,13 @@ int linked_list_max(struct node *head) {
       return 0;
   }
   int max = 0;
-  if (h->data < max)
+  while (h != NULL)
   {
-      max = linked_list_max(h->next);
+      if (h->data > max)
+      {
+          max = h->data;
+      }
+      h = h->next;
   }
   return max;
 }
@@ -221,11 +212,13 @@ int linked_list_outOfOrder(struct node *head) {
 // remember to free the memory after adjusting pointer, etc.
 struct node * linked_list_delete(struct node *head, struct node *p_to_delete) {
   // cases to deal with...
+  struct node * h = head;
+  struct node * d = p_to_delete;
 
   // head or p_to_delete is NULL
-  if (head == NULL)
+  if (h == NULL)
   {
-      return NULL;
+      return 0;
   }
   else if (p_to_delete == NULL)
   {
@@ -233,6 +226,19 @@ struct node * linked_list_delete(struct node *head, struct node *p_to_delete) {
   }
 
   // head == p_to_delete
+  if (h != NULL && h->data == p_to_delete)
+  {
+      h = h->next;
+      free(h);
+      return 0;
+  }
+  while (h != NULL && h->data != p_to_delete)
+  {
+      h->prev = h;
+      h = h->next;
+  }
+  h->prev = h->next;
+  free(h);
 
   // p_to_delete is not head (so p_to_delete->prev is not NULL, but p_to_delete->next could be)
 
