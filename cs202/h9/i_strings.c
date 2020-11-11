@@ -69,20 +69,22 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < length_s1; i++)
     {
         printf("here (1)\n");
-        if (strncmp((s1 + i), s2, length_some_char) == 0)
+        if (strncmp(s1 + i, s2, length_s2) == 0)
         {
             printf("here (2)\n");
             var = i;
             printf("var - %d\n", var);
-            var = s1[i];
+            //var = s1[i];
             printf("var - %d\n", var);
-            printf("s2 is at position %d of s1\n", s1[i]);
+            printf("s2 is at position %d of s1\n", var);
             break;
         }
     }
     printf("here (3)\n");
-    var = -1;
-    printf("No %s in s1\n", s2);
+    if (var == -1)
+    {
+        printf("No %s in s1\n", s2);
+    }
 
     return 0;
 }

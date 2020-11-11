@@ -141,7 +141,7 @@ struct node *linked_list_tail(struct node *head) {
   {
       return NULL;
   }
-  for (struct node *p = head; p != NULL; p = p->next)
+  for (p = head; p != NULL; p = p->next)
   {
       if (p->next == NULL)
       {
@@ -220,19 +220,19 @@ struct node * linked_list_delete(struct node *head, struct node *p_to_delete) {
   {
       return 0;
   }
-  else if (p_to_delete == NULL)
+  else if (d == NULL)
   {
-      return head;
+      return h;
   }
 
   // head == p_to_delete
-  if (h != NULL && h->data == p_to_delete)
+  if (h == p_to_delete)
   {
       h = h->next;
       free(h);
-      return 0;
+      return h;
   }
-  while (h != NULL && h->data != p_to_delete)
+  while (h != NULL && h != p_to_delete)
   {
       h->prev = h;
       h = h->next;
@@ -242,7 +242,7 @@ struct node * linked_list_delete(struct node *head, struct node *p_to_delete) {
 
   // p_to_delete is not head (so p_to_delete->prev is not NULL, but p_to_delete->next could be)
 
-  return head;
+  return h;
 }
 
 
