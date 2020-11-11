@@ -47,16 +47,22 @@ int main(int argc, char *argv[]) {
     int length_s1, length_s2, length_some_char;
 
     printf("Some word please (will be s1): ");
+    //gets(s1);
+    //fgets(s1, 101, stdin);
     scanf("%s", s1);
     length_s1 = strlen(s1);
-    printf("%s\n", s1);
+    //printf("%s", s1);
 
     printf("Another word (will be s2): ");
+    //gets(s2);
+    //fgets(s2, 101, stdin);
     scanf("%s", s2);
     length_s2 = strlen(s2);
-    printf("%s\n", s2);
+    //printf("%s\n", s2);
 
     printf("Some character: ");
+    //gets(some_char);
+    //fgets(some_char, 101, stdin);
     scanf("%s", some_char);
     length_some_char = strlen(some_char);
 
@@ -69,6 +75,7 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < length_s1; i++)
     {
         printf("here (1)\n");
+        printf("s1 + i = %s, i = %d, length_s2 = %d\n", s1 + i, i, length_s2);
         if (strncmp(s1 + i, s2, length_s2) == 0)
         {
             printf("here (2)\n");
@@ -83,7 +90,9 @@ int main(int argc, char *argv[]) {
     printf("here (3)\n");
     if (var == -1)
     {
-        printf("No %s in s1\n", s2);
+        printf("here (4)\n");
+        printf("%s\n", s2);
+        printf("\n");
     }
 
     return 0;
