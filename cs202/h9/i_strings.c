@@ -43,31 +43,19 @@ Notes
 #include <ctype.h>
 
 int main(int argc, char *argv[]) {
-    char s1[] = "whyohwhyohwhy", s2[] = "yo", some_char[] = "o";
-    //s1[] = "thewindblows";
-    //s2[] = "wind";
-    //some_char[] = "w";
+    char s1[101], s2[101], some_char[2];
     int length_s1, length_s2, length_some_char;
 
-    //printf("Some word please (will be s1): ");
-    //gets(s1);
-    //fgets(s1, 101, stdin);
-    //scanf("%s", s1);
+    printf("Some word please (will be s1): ");
+    gets(s1);
     length_s1 = strlen(s1);
-    printf("%s\n", s1);
 
-    //printf("Another word (will be s2): ");
-    //gets(s2);
-    //fgets(s2, 101, stdin);
-    //scanf("%s", s2);
+    printf("Another word (will be s2): ");
+    gets(s2);
     length_s2 = strlen(s2);
-    printf("%s\n", s2);
 
-    //printf("Some character: ");
-    //gets(some_char);
-    //fgets(some_char, 101, stdin);
-    //scanf("%s", some_char);
-    printf("%s\n", some_char);
+    printf("Some character: ");
+    gets(some_char);
     length_some_char = strlen(some_char);
 
     printf("length of s1: %d\n", length_s1);
@@ -75,43 +63,35 @@ int main(int argc, char *argv[]) {
 
 
     int var = -1;
+    int count_first = 0;
     int count = 0;
-    //int live = 0;
-    //printf("here\n");
     for (int i = 0; i < length_s1; i++)
     {
-
-        //printf("s1[%d] = %c\n", i, s1[i]);
-        //printf("here (1)\n");
-        //printf("s1 + %d = %s, length_s2 = %d\n", i, s1 + i, length_s2);
         if (strncmp(s1 + i, s2, length_s2) == 0)
         {
-            //printf("here (2)\n");
             var = i;
-            //printf("var - %d\n", var);
-            //var = s1[i];
-            //printf("s[%d] = %c\n", i, s1[i]);
             printf("s2 is at position %d of s1\n", var);
-            //live++;
+            count++;
         }
-        else if (strncmp(s1 + i, some_char, length_some_char) == 0 && count == 0)
+        else if (strncmp(s1 + i, some_char, length_some_char) == 0 && count_first == 0)
         {
             var = i;
             printf("first %s in s1 is at index %d\n", some_char, var);
-            count++;
-        }
-        else if (strncmp(s1 + i, some_char, length_some_char) != 0)
-        {
-            printf("No %s in s1\n", some_char);
+            count_first++;
         }
     }
-    //printf("here (3)\n");
+    for (int j = 0; j < length_s1; j++)
+    {
+        if (strncmp(s1 + j, some_char, length_some_char) != 0 && count == 1)
+        {
+            printf("No %s in s1\n", some_char);
+            break;
+        }
+    }
     if (var == -1)
     {
-        //printf("here (4)\n");
         printf("No %s in s1\n", s2);
         printf("No %s in s1\n", some_char);
-        //printf("\n");
     }
 
     return 0;
