@@ -4,7 +4,7 @@
 cs202@cs:~/solutions/h9$ ./g_file_head.o
 Usage: ./g_file_head.o file1.txt file2.txt ...
 
-cs202@cs:~/solutions/h9$ ./g_file_head.o a_empty.c 
+cs202@cs:~/solutions/h9$ ./g_file_head.o a_empty.c
 ** file: a_empty.c **
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +13,7 @@ cs202@cs:~/solutions/h9$ ./g_file_head.o a_empty.c
 #include <ctype.h>
 **  end **
 
-cs202@cs:~/solutions/h9$ ./g_file_head.o a_empty.c /u1/junk/kinne/text-samples/shakespeare.txt 
+cs202@cs:~/solutions/h9$ ./g_file_head.o a_empty.c /u1/junk/kinne/text-samples/shakespeare.txt
 ** file: a_empty.c **
 #include <stdio.h>
 #include <stdlib.h>
@@ -51,6 +51,44 @@ cs202@cs:~/solutions/h9$ ./g_file_head.o nofile a_empty.c nofile2
 #include <ctype.h>
 
 int main(int argc, char *argv[]) {
-  
+  //printf("i = %d\n", i);
+  if (argc == 1)
+  {
+      printf("Usage: %s file1.txt file2.txt ...\n", argv[0]);
+  }
+  else if (argc == 2)
+  {
+      //printf("i = %d\n", i);
+      char s[1001];
+      //int line = 0;
+      FILE *m;
+      m = fopen("a_empty.c", "r");
+      printf("** file: %s **\n", argv[1]);
+      int length = strlen(m);
+      for (int i = 0; i < length; i++)
+      {
+          fgets(s, 1001, m);
+          printf("%s", s);
+      }
+      fclose(m);
+      printf("**  end **\n");
+  }
+  else if (argc == 3)
+  {
+      printf("** file: %s **\n", argv[1]);
+      char s[1001];
+      //int line = 0;
+      FILE *m;
+      m = fopen("a_empty.c", "r");
+      int length = strlen(m);
+      for (int i = 0; i < length; i++)
+      {
+          fgets(s, 1001, m);
+          printf("%s", s);
+      }
+      fclose(m);
+      printf("**  end **\n");
+      printf("** file: %s **\n", argv[2]);
+  }
   return 0;
 }
