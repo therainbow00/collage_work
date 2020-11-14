@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
       char s[1001];
       //int line = 0;
       FILE *m;
-      m = fopen("a_empty.c", "r");
+      m = fopen(argv[1], "r");
       printf("** file: %s **\n", argv[1]);
       int length = strlen(m);
       for (int i = 0; i < length; i++)
@@ -87,8 +87,33 @@ int main(int argc, char *argv[]) {
           printf("%s", s);
       }
       fclose(m);
+
       printf("**  end **\n");
       printf("** file: %s **\n", argv[2]);
+      char s1[1001], c;
+      FILE *n;
+      n = fopen(argv[2], "r");
+      int length_n = strlen(n);
+      //c = fgetc(n);
+      //int count = 0;
+      for (int j = 0; j < length_n; j++)
+      {
+          //count++;
+          //printf("%c\n", n[j]);
+          //fscanf(n, "%s", s1);
+          fgets(s1, 1001, n);
+          printf("%s", s1);
+          //puts(s1);
+      }
+      /*
+      for (c = fgetc(n); c < 101; c = fgetc(n))
+      {
+          printf("%c", c);
+      }
+      */
+      fclose(n);
+      //printf("number of characters: %d\n", count);
+      printf("**  end **\n");
   }
   return 0;
 }
