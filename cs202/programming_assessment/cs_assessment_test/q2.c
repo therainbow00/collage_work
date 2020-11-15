@@ -9,13 +9,13 @@ lower case letter x appears
 int main(int argc, char *argv[])
 {
     char c;
-    int count, c1;
+    int count;
 
     FILE *f;
     f = fopen(argv[1], "r");
-    while ((c1 = fgetc(f)) != EOF)
+    while ((c = fgetc(f)) != EOF)
     {
-        if (c1 == 'x')
+        if (c == 'x')
         {
             count++;
         }
