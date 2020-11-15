@@ -1,3 +1,7 @@
+/*
+Write a C program that sums the squares of the odd numbers from 1 to 37
+*/
+
 #include <stdio.h>
 #include <math.h>
 

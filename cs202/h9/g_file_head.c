@@ -51,21 +51,18 @@ cs202@cs:~/solutions/h9$ ./g_file_head.o nofile a_empty.c nofile2
 #include <ctype.h>
 
 int main(int argc, char *argv[]) {
-  //printf("i = %d\n", i);
-  if (argc == 1)
+  if (argc <= 1)
   {
       printf("Usage: %s file1.txt file2.txt ...\n", argv[0]);
   }
   else if (argc == 2)
   {
-      //printf("i = %d\n", i);
       char s[1001];
-      //int line = 0;
       FILE *m;
       m = fopen(argv[1], "r");
       printf("** file: %s **\n", argv[1]);
       int length = strlen(m);
-      for (int i = 0; i < length; i++)
+      for (int i = 0; i <= length; i++)
       {
           fgets(s, 1001, m);
           printf("%s", s);
@@ -73,47 +70,98 @@ int main(int argc, char *argv[]) {
       fclose(m);
       printf("**  end **\n");
   }
-  else if (argc == 3)
+  else if (argc >= 3)
   {
       printf("** file: %s **\n", argv[1]);
       char s[1001];
-      //int line = 0;
       FILE *m;
-      m = fopen("a_empty.c", "r");
-      int length = strlen(m);
-      for (int i = 0; i < length; i++)
+      m = fopen(argv[1], "r");
+      if (m == NULL)
       {
-          fgets(s, 1001, m);
-          printf("%s", s);
+          printf("** unable to open **\n");
       }
-      fclose(m);
-
-      printf("**  end **\n");
+      else
+      {
+          int length = strlen(m);
+          for (int i = 0; i <= length; i++)
+          {
+              fgets(s, 1001, m);
+              printf("%s", s);
+          }
+          fclose(m);
+          printf("**  end **\n");
+      }
       printf("** file: %s **\n", argv[2]);
-      char s1[1001], c;
+      char s1[1001];
       FILE *n;
       n = fopen(argv[2], "r");
-      int length_n = strlen(n);
-      //c = fgetc(n);
-      //int count = 0;
-      for (int j = 0; j < length_n; j++)
+      if (n == NULL)
       {
-          //count++;
-          //printf("%c\n", n[j]);
-          //fscanf(n, "%s", s1);
-          fgets(s1, 1001, n);
-          printf("%s", s1);
-          //puts(s1);
+          printf("** unable to open **\n");
       }
-      /*
-      for (c = fgetc(n); c < 101; c = fgetc(n))
+      else
       {
-          printf("%c", c);
+          int length_n = strlen(n);
+          for (int j = 0; j <= length_n; j++)
+          {
+              fgets(s1, 1001, n);
+              printf("%s", s1);
+          }
+          fclose(n);
+          printf("**  end **\n");
       }
-      */
-      fclose(n);
-      //printf("number of characters: %d\n", count);
-      printf("**  end **\n");
+      if (argv[3] == NULL)
+      {
+          return 0;
+      }
+      else
+      {
+          printf("** file: %s **\n", argv[3]);
+          char s2[1001];
+          FILE *x;
+          x = fopen(argv[3], "r");
+          if (x == NULL)
+          {
+              printf("** unable to open **\n");
+          }
+          else
+          {
+              int length_n = strlen(n);
+              for (int j = 0; j <= length_n; j++)
+              {
+                  fgets(s1, 1001, n);
+                  printf("%s", s1);
+              }
+              fclose(n);
+              printf("**  end **\n");
+          }
+      }
+      if (argv[4] == NULL)
+      {
+          return 0;
+      }
+      else
+      {
+          printf("** file: %s **\n", argv[4]);
+          char s3[1001];
+          FILE *g;
+          g = fopen(argv[4], "r");
+          if (g == NULL)
+          {
+              printf("** unable to open **\n");
+          }
+          else
+          {
+              int length_g = strlen(g);
+              for (int r = 0; r <= length_g; r++)
+              {
+                  fgets(s3, 1001, g);
+                  printf("%s", s3);
+              }
+              fclose(g);
+              printf("**  end **\n");
+          }
+      }
   }
   return 0;
 }
