@@ -184,7 +184,110 @@ int bst_num_nodes(struct node *root) {
 /*
  */
 struct node * bst_smallest(struct node *root) {
+  if (root == NULL) return NULL;
+  // note that after here in the function root is not NULL
+
+  // method 1, using recursion
+  if (root->left == NULL) return root;
+  else { // root->left != NULL
+    return bst_smallest(root->left);
+  }
+
+  /*
+
+  // method 2, using loop
+  while (root->left != NULL) {
+    root = root->left;
+  }
+  // if we are here, root->left == NULL
+  return root;
+
+  */
 }
+
+/*
+ */
+struct node * bst_largest(struct node *root) {
+}
+
+/*
+ */
+int bst_totalSum(struct node * root) {
+  // base case: root == NULL
+  if (root == NULL) return 0;
+
+  int total = 0;
+
+  // left
+  total += bst_totalSum(root->left);
+
+  // right
+  total += bst_totalSum(root->right);
+
+  // self
+  total += root->count;
+
+  return total;
+}
+
+/*
+  return the number nodes
+ */
+int bst_numNodes(struct node * root) {
+  // same as totalSum but +1 instead of +root->count
+}
+
+/*
+ */
+void bst_printBetween(struct node *root, char *s1, char *s2) {
+}
+
+/*
+  How many nodes have a count less than or equal to some value
+ */
+int bst_numNodes_lessThan(struct node *root, int count_cutoff) {
+  if (root == NULL)
+  {
+      return 0;
+  }
+
+  int total = 0;
+
+  // left
+  //if (root->left != NULL) total += bst_numNodes_lessThan(root->left, count_cutoff);
+  total += bst_numNodes_lessThan(root->left, count_cutoff);
+
+  // right
+  //if (root->right != NULL) total += bst_numNodes_lessThan(root->right, count_cutoff);
+  total += bst_numNodes_lessThan(root->right, count_cutoff);
+
+  // self
+  if (root->count <= count_cutoff)
+  {
+      total++;
+  }
+
+  return total;
+}
+
+/*
+ */
+void bst_reverseOrder(struct node *root) {
+}
+
+/*
+ */
+void bst_numLeft_numRight(struct node *root) {
+}
+
+/*
+ */
+void bst_totalHeight(struct node *root) {
+}
+
+
+
+
 
 int main(int argc, char *argv[]) {
   FILE * f = NULL;
@@ -216,6 +319,11 @@ int main(int argc, char *argv[]) {
       s[i] = tolower(s[i]);
     //printf("%s\n", s);
     // todo: fix the punctuation
+    //int i = 0; while (s[i] != '\0' && ispunct(s[i])) i++;
+    //char *ss = &s[i];
+    //i = strlen(ss);
+    //(while i >= 0 && ispunct(ss[i])) i--;
+    //ss[i+1] = '\0';
 
     struct node *p = bst_lookup(root, s);
     if (p == NULL) {
@@ -227,7 +335,12 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  bst_print(root);
+  //bst_print(root);
+
+  struct node * p = bst_smallest(root);
+  //printf("%s (%d)\n", p->word, p->count);
+  //printf("%d\n", bst_totalSum(root));
+  printf("%d\n", bst_numNodes_lessThan(root, 1));
 
   fclose(f);
 
