@@ -22,20 +22,29 @@ For k=10, the printout would be -
 
 int main()
 {
-    int k;
+    int k, x = 1;
     printf("Interger please: ");
     scanf("%d", &k);
+    /*
+    while (x <= k)
+    {
 
+    }
+    */
     for (int i = 1; i <= k; i++)
     {
         printf("%d, ", i);
     }
     printf("\n");
-    for (int j = 2; j <= k; j++)
+    for (int j = 1; j <= k; j++)
     {
-        if (j % 2 == 0)
+        if ((j * 2) > k)
         {
-            printf("%d, ", j);
+            break;
+        }
+        else
+        {
+            printf("%d, ", j * 2);
         }
     }
     printf("\n");
@@ -45,7 +54,10 @@ int main()
         {
             break;
         }
-        printf("%d, ", l * 3);
+        else
+        {
+            printf("%d, ", l * 3);
+        }
     }
     printf("\n");
     for (int a = 1; a < k; a++)
@@ -72,5 +84,33 @@ int main()
         }
     }
     printf("\n");
+
+    /*
+    for (int i = 1; i <= k; i++)
+    {
+        printf("%d, ", i);
+        if (i % 2 == 0)
+        {
+            printf("\n");
+            printf("%d, ", i);
+        }
+        if ((i * 3) < k)
+        {
+            printf("\n");
+            printf("%d, ", i * 3);
+        }
+        if ((i * 4) < k)
+        {
+            printf("\n");
+            printf("%d, ", i * 4);
+        }
+        if ((i * 5) < k)
+        {
+            printf("\n");
+            printf("%d, ", i * 5);
+        }
+    }
+    printf("\n");
+    */
     return 0;
 }
