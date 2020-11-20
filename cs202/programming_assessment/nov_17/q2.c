@@ -34,10 +34,10 @@ int main()
     int count = 0;
     while ((c = fgetc(stdin)) != EOF)
     {
-        if (count != 6)
+        count++;
+        if (count <= 5)
         {
             printf("%c", c);
-            count++;
         }
         else if (c == '\n')
         {

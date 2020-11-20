@@ -22,95 +22,24 @@ For k=10, the printout would be -
 
 int main()
 {
-    int k, x = 1;
+    int k, i, j;
     printf("Interger please: ");
     scanf("%d", &k);
-    /*
-    while (x <= k)
-    {
 
-    }
-    */
-    for (int i = 1; i <= k; i++)
+    for (i = 1; i <= k; i++)
     {
-        printf("%d, ", i);
+        for (j = 1; j <= k; j++)
+        {
+            if ((i * j) > k)
+            {
+                break;
+            }
+            else
+            {
+                printf("%d, ", i * j);
+            }
+        }
+        printf("\n");
     }
-    printf("\n");
-    for (int j = 1; j <= k; j++)
-    {
-        if ((j * 2) > k)
-        {
-            break;
-        }
-        else
-        {
-            printf("%d, ", j * 2);
-        }
-    }
-    printf("\n");
-    for (int l = 1; l < k; l++)
-    {
-        if ((l * 3) > k)
-        {
-            break;
-        }
-        else
-        {
-            printf("%d, ", l * 3);
-        }
-    }
-    printf("\n");
-    for (int a = 1; a < k; a++)
-    {
-        if ((a * 4) > k)
-        {
-            break;
-        }
-        else
-        {
-            printf("%d, ", a * 4);
-        }
-    }
-    printf("\n");
-    for (int b = 1; b < k; b++)
-    {
-        if ((b * 5) > k)
-        {
-            break;
-        }
-        else
-        {
-            printf("%d, ", b * 5);
-        }
-    }
-    printf("\n");
-
-    /*
-    for (int i = 1; i <= k; i++)
-    {
-        printf("%d, ", i);
-        if (i % 2 == 0)
-        {
-            printf("\n");
-            printf("%d, ", i);
-        }
-        if ((i * 3) < k)
-        {
-            printf("\n");
-            printf("%d, ", i * 3);
-        }
-        if ((i * 4) < k)
-        {
-            printf("\n");
-            printf("%d, ", i * 4);
-        }
-        if ((i * 5) < k)
-        {
-            printf("\n");
-            printf("%d, ", i * 5);
-        }
-    }
-    printf("\n");
-    */
     return 0;
 }
