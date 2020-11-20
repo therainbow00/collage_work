@@ -165,7 +165,31 @@ struct node * bst_lookup(struct node *root, int data_to_lookup) {
 void bst_delete(struct node *root, struct node *p_to_delete) {
 }
 
+int bst_totalSum(struct node * root) {
+  // base case: root == NULL
+  if (root == NULL)
+  {
+      return 0;
+  }
 
+  int total = 0;
+
+  // left
+  //printf("root: %d (%d)\n", root, root->data);
+  total += bst_totalSum(root->left);
+  //printf("total (%d) += bst_totalSum(root->left (%d))\n", total, root->left);
+
+  // right
+  //printf("root: %d (%d)\n", root, root->data);
+  total += bst_totalSum(root->right);
+  //printf("total (%d) += bst_totalSum(root->right (%d))\n", total, root->right);
+
+  // self
+  total += root->data;
+  //printf("total (%d) += root->data (%d)\n", total, root->data);
+
+  return total;
+}
 
 int main(int argc, char *argv[]) {
 
@@ -174,8 +198,14 @@ int main(int argc, char *argv[]) {
   bst_print(root, 0);
 
   struct node *p = bst_lookup(root, 3);
-  if (p == NULL) printf("Not found\n");
-  else printf("Yes found\n");
+  if (p == NULL)
+  {
+      printf("Not found\n");
+  }
+  else
+  {
+      printf("Yes found\n");
+  }
 
   printf("Inserting 20...\n");
   bst_insert(root, 20);
@@ -184,6 +214,9 @@ int main(int argc, char *argv[]) {
   bst_insert(root, 11);
 
   bst_print(root, 0);
+
+  int sum = bst_totalSum(root);
+  printf("Total sum of tree: %d\n", sum);
 
   /*  printf("Inserting random values...\n");
   for(int i=0; i < 30; i++) {

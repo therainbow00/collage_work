@@ -214,7 +214,10 @@ struct node * bst_largest(struct node *root) {
  */
 int bst_totalSum(struct node * root) {
   // base case: root == NULL
-  if (root == NULL) return 0;
+  if (root == NULL)
+  {
+      return 0;
+  }
 
   int total = 0;
 

@@ -31,7 +31,7 @@ int main()
         printf("%d, ", i);
     }
     printf("\n");
-    for (int j = 2; j <= (k / 2); j++)
+    for (int j = 2; j <= k; j++)
     {
         if (j % 2 == 0)
         {
