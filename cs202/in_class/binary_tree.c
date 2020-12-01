@@ -179,17 +179,17 @@ int bst_totalSum(struct node * root) {
   // left
   printf("\n---------------------------------\n");
   printf("left\n");
-  printf("root: %d (%d)\n", root, root->data);
+  printf("root: %p (%d)\n", root, root->data);
   total += bst_totalSum(root->left);
-  printf("total (%d) += bst_totalSum(root->left (%d))\n", total, root->left);
+  printf("total (%d) += bst_totalSum(root->left (%p))\n", total, root->left);
   printf("---------------------------------\n");
 
   // right
   printf("\n---------------------------------\n");
   printf("right\n");
-  printf("root: %d (%d)\n", root, root->data);
+  printf("root: %p (%d)\n", root, root->data);
   total += bst_totalSum(root->right);
-  printf("total (%d) += bst_totalSum(root->right (%d))\n", total, root->right);
+  printf("total (%d) += bst_totalSum(root->right (%p))\n", total, root->right);
   printf("---------------------------------\n");
 
   // self
@@ -222,6 +222,12 @@ int main(int argc, char *argv[]) {
 
   printf("Inserting 2...\n");
   bst_insert(root, 2);
+
+  printf("Inserting 5...\n");
+  bst_insert(root, 5);
+
+  printf("Inserting 7...\n");
+  bst_insert(root, 7);
 
   printf("Inserting 3...\n");
   bst_insert(root, 3);
