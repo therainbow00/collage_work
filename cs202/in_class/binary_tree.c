@@ -35,6 +35,7 @@ struct node * tree_demo() {
     *n3 = new_node(),
     *n4 = new_node();
 
+/*
   n1->data = 10; // (*n1).data = 10;
   n1->left = n2;
   n1->right = n3;
@@ -50,6 +51,7 @@ struct node * tree_demo() {
   n2->left = n4;
 
   return n1;
+*/
 }
 
 // bst_print
@@ -175,18 +177,26 @@ int bst_totalSum(struct node * root) {
   int total = 0;
 
   // left
-  //printf("root: %d (%d)\n", root, root->data);
+  printf("\n---------------------------------\n");
+  printf("left\n");
+  printf("root: %d (%d)\n", root, root->data);
   total += bst_totalSum(root->left);
-  //printf("total (%d) += bst_totalSum(root->left (%d))\n", total, root->left);
+  printf("total (%d) += bst_totalSum(root->left (%d))\n", total, root->left);
+  printf("---------------------------------\n");
 
   // right
-  //printf("root: %d (%d)\n", root, root->data);
+  printf("\n---------------------------------\n");
+  printf("right\n");
+  printf("root: %d (%d)\n", root, root->data);
   total += bst_totalSum(root->right);
-  //printf("total (%d) += bst_totalSum(root->right (%d))\n", total, root->right);
+  printf("total (%d) += bst_totalSum(root->right (%d))\n", total, root->right);
+  printf("---------------------------------\n");
 
   // self
+  printf("\n---------------------------------\n");
   total += root->data;
-  //printf("total (%d) += root->data (%d)\n", total, root->data);
+  printf("total (%d) += root->data (%d)\n", total, root->data);
+  printf("---------------------------------\n");
 
   return total;
 }
@@ -207,11 +217,14 @@ int main(int argc, char *argv[]) {
       printf("Yes found\n");
   }
 
-  printf("Inserting 20...\n");
-  bst_insert(root, 20);
+  printf("Inserting 1...\n");
+  bst_insert(root, 1);
 
-  printf("Inserting 11...\n");
-  bst_insert(root, 11);
+  printf("Inserting 2...\n");
+  bst_insert(root, 2);
+
+  printf("Inserting 3...\n");
+  bst_insert(root, 3);
 
   bst_print(root, 0);
 

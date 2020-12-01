@@ -31,13 +31,13 @@ And w
 int main()
 {
     char c;
-    int count = 0;
+    int count = 1;
     while ((c = fgetc(stdin)) != EOF)
     {
-        count++;
         if (count <= 5)
         {
             printf("%c", c);
+            count++;
         }
         else if (c == '\n')
         {

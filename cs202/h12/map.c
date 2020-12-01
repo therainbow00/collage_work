@@ -45,7 +45,7 @@ char myMaze[NUM_ROWS][12] = {
   2. User option to choose which maze - by command-line argument.
  */
 
-int myRow=1, myColumn=1;
+int myRow=1, myColumn=1, myRowM = 1, myColumnM = 1;
 
 char chTyped;
 
@@ -54,9 +54,9 @@ void reDisplay() {
   //char s[1000];
   int i;
 
-  // mvprintw is like printf but you tell it where on the screen to print - 
+  // mvprintw is like printf but you tell it where on the screen to print -
   // which row and column.
-  mvprintw(0,0,"Maze of doom..."); 
+  mvprintw(0,0,"Maze of doom...");
 
   // prints the maze
   for(i=0; i < NUM_ROWS; i++)
@@ -64,6 +64,8 @@ void reDisplay() {
 
   // print me.
   mvprintw(2 + myRow, myColumn, "@");
+
+  mvprintw(6 + myRowM, myColumnM, "M");
 
   mvprintw(20, 0, "Press q to quit.");
 
@@ -76,7 +78,7 @@ void reDisplay() {
 int main(int argc, char *argv[]) {
 
   WINDOW * mainwin;
-  mainwin = initscr(); // create the screen  
+  mainwin = initscr(); // create the screen
   noecho(); // don't display characters that are typed
   cbreak(); // don't wait for enter key for us to get characters
 
@@ -109,7 +111,12 @@ int main(int argc, char *argv[]) {
       myColumn++;
     }
 
-    
+    if (myMaze[myRowM][myColumnM+1] == ' '){
+      myColumnM++;
+    }
+    else{
+      myColumnM = 1;
+    }
 
     reDisplay();
     //scanf("%c",&ch);
@@ -117,7 +124,7 @@ int main(int argc, char *argv[]) {
   }
 
 
-  // before we quit, clean up the screen...  we'll leave it 
+  // before we quit, clean up the screen...  we'll leave it
   // blank and nice.
   delwin(mainwin);
   endwin();
