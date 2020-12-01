@@ -201,6 +201,24 @@ int bst_totalSum(struct node * root) {
   return total;
 }
 
+int bst_total_sum(struct node * root)
+{
+    int total = 0;
+    if (root == NULL)
+    {
+        return 0;
+    }
+    else
+    {
+        total += root->data;
+    }
+
+    bst_total_sum(root->left);
+    bst_total_sum(root->right);
+
+    return total;
+}
+
 int main(int argc, char *argv[]) {
 
   struct node * root = tree_demo();
@@ -236,6 +254,9 @@ int main(int argc, char *argv[]) {
 
   int sum = bst_totalSum(root);
   printf("Total sum of tree: %d\n", sum);
+
+  int sum_1 = bst_total_sum(root);
+  printf("numbers added up in tree: %d\n", sum_1);
 
   /*  printf("Inserting random values...\n");
   for(int i=0; i < 30; i++) {
