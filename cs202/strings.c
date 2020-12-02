@@ -51,6 +51,16 @@ int main()
         }
     }
 
+    int length = strlen(str);
+    for (int x = 0; x < strlen(str); x++)
+    {
+        for (int y = 0; y < length; y++)
+        {
+            printf("%c\n", str[x]);
+        }
+        length = strlen(str) - 1;
+    }
+
     printf("Number of characters (a - z) in string: %d\n", letter_count);
     printf("Number of characters in string: %d\n", character_count);
 

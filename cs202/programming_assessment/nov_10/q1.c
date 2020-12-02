@@ -28,16 +28,6 @@ int main()
     }
     printf("\n");
     i = 0;
-    while (i != (k + 1))
-    {
-        if (i < k)
-        {
-            printf("%c", letters[1]);
-        }
-        i++;
-    }
-    printf("\n");
-    i = 0;
     while (i != k)
     {
         if (i < (k - 2))
@@ -51,5 +41,28 @@ int main()
         i++;
     }
     printf("\n");
+    i = 0;
+    while (i != k)
+    {
+        if (i <= (k - 2))
+        {
+            printf("%c", letters[2]);
+        }
+        else if (i > (k - 2))
+        {
+            printf("%c", letters[i]);
+        }
+        i++;
+    }
+    printf("\n");
+    i = 0;
+    while (i != (k + 1))
+    {
+        if (i < k)
+        {
+            printf("%c", letters[1]);
+        }
+        i++;
+    }
     return 0;
 }
