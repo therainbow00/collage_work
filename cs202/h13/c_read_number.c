@@ -8,11 +8,11 @@
 
 int main(int argc, char *argv[]) {
   int num;
-  printf("Enter a number please: ");
+  printf("Number please (floating point): ");
   scanf("%d", &num);
+  float f_num = (float) num;
 
-  printf("2x the number of %d is: %d\n", num, num * 2);
-  printf("3x the number of %d is: %d\n", num, num * 3);
+  printf("2 * %.2lf = %.2lf\n", f_num, f_num * 2);
 
   return 0;
 }

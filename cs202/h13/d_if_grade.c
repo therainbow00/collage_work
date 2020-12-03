@@ -8,56 +8,57 @@
 
 int main(int argc, char *argv[]) {
   int num_grade;
-  printf("Enter a number grade: ");
+  printf("Grade please (floating point #): ");
   scanf("%d", &num_grade);
+  float f_num_grade = (float) num_grade;
 
-  if (num_grade <= 100 && num_grade >= 93)
+  if (f_num_grade <= 100 && f_num_grade >= 93)
   {
-      printf("Letter grade: A\n");
+      printf("A\n");
   }
-  else if (num_grade <= 93 && num_grade >= 90)
+  else if (f_num_grade <= 93 && f_num_grade >= 90)
   {
-      printf("Letter grade: A-\n");
+      printf("A-\n");
   }
-  else if (num_grade <= 90 && num_grade >= 87)
+  else if (f_num_grade <= 90 && f_num_grade >= 87)
   {
-      printf("Letter grade: B+\n");
+      printf("B+\n");
   }
-  else if (num_grade <= 87 && num_grade >= 83)
+  else if (f_num_grade <= 87 && f_num_grade >= 83)
   {
-      printf("Letter grade: B\n");
+      printf("B\n");
   }
-  else if (num_grade <= 83 && num_grade >= 80)
+  else if (f_num_grade <= 83 && f_num_grade >= 80)
   {
-      printf("Letter grade: B-\n");
+      printf("B-\n");
   }
-  else if (num_grade <= 80 && num_grade >= 77)
+  else if (f_num_grade <= 80 && f_num_grade >= 77)
   {
-      printf("Letter grade: C+\n");
+      printf("C+\n");
   }
-  else if (num_grade <= 77 && num_grade >= 73)
+  else if (f_num_grade <= 77 && f_num_grade >= 73)
   {
-      printf("Letter grade: C\n");
+      printf("C\n");
   }
-  else if (num_grade <= 73 && num_grade >= 70)
+  else if (f_num_grade <= 73 && f_num_grade >= 70)
   {
-      printf("Letter grade: C-\n");
+      printf("C-\n");
   }
-  else if (num_grade <= 70 && num_grade >= 67)
+  else if (f_num_grade <= 70 && f_num_grade >= 67)
   {
-      printf("Letter grade: D+\n");
+      printf("D+\n");
   }
-  else if (num_grade <= 67 && num_grade >= 63)
+  else if (f_num_grade <= 67 && f_num_grade >= 63)
   {
-      printf("Letter grade: D\n");
+      printf("D\n");
   }
-  else if (num_grade <= 63 && num_grade >= 60)
+  else if (f_num_grade <= 63 && f_num_grade >= 60)
   {
-      printf("Letter grade: D-\n");
+      printf("D-\n");
   }
-  else if (num_grade <= 60)
+  else if (f_num_grade <= 60)
   {
-      printf("Letter grade: F\n");
+      printf("F\n");
   }
 
 
