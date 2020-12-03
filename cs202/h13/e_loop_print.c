@@ -7,8 +7,17 @@
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
+  int start, stop;
+  printf("Start (int): ");
+  scanf("%d", &start);
 
+  printf("Stop (int): ");
+  scanf("%d", &stop);
 
+  for (start; start <= stop; start++)
+  {
+      printf("%d\n", start);
+  }
 
   return 0;
 }
