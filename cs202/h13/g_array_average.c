@@ -5,10 +5,30 @@
  */
 
 #include <stdio.h>
+#include <time.h>
 
 int main(int argc, char *argv[]) {
+  int arr[11], i, count = 0, greater_average = 0, j;
+  float average;
+  size_t length = (sizeof(arr) / sizeof(int)) - 1;
 
+  for (i = 0; i < length; i++)
+  {
+      printf("Int please: ");
+      scanf("%d", &arr[i]);
+      count += arr[i];
+  }
+  average = (float) count / (float) length;
+  printf("average is %lf\n", average);
 
+  for (j = 0; j < length; j++)
+  {
+      if (arr[j] > average)
+      {
+          greater_average++;
+      }
+  }
+  printf("%d of the #s were > than the average.\n", greater_average);
 
   return 0;
 }
