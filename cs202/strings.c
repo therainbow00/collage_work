@@ -35,9 +35,9 @@ int main()
 
     printf("\n------------------------------\n\n");
 
-    for (int j = strlen(str) - 1; j > 0; j--)
+    for (int j = strlen(str) - 1; j >= 0; j--)
     {
-        if (j == strlen(str))
+        if (j == strlen(str) - 1)
         {
             printf("str[%d]: NULL\n", j);
         }
