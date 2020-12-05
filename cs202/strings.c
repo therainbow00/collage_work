@@ -58,7 +58,7 @@ int main()
         {
             printf("%c\n", str[x]);
         }
-        length = strlen(str) - 1;
+        length--;
     }
 
     printf("Number of characters (a - z) in string: %d\n", letter_count);
