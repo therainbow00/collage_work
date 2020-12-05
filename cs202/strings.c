@@ -4,7 +4,7 @@
 int main()
 {
     char str[51];
-    int i, letter_count = 0, character_count = 0;
+    int i, letter_count = 0, character_count = 0, count = 0, j, x, y;
     printf("Enter a string (max characters: 50): ");
 
     fgets(str, 50, stdin);
@@ -35,7 +35,7 @@ int main()
 
     printf("\n------------------------------\n\n");
 
-    for (int j = strlen(str) - 1; j >= 0; j--)
+    for (j = strlen(str) - 1; j >= 0; j--)
     {
         if (j == strlen(str) - 1)
         {
@@ -51,14 +51,17 @@ int main()
         }
     }
 
-    int length = strlen(str);
-    for (int x = 0; x < strlen(str); x++)
+    //int length = strlen(str);
+    count = 0;
+    for (x = 0; x < strlen(str); x++)
     {
-        for (int y = 0; y < length; y++)
+        for (y = 0; y <= count; y++)
         {
-            printf("%c\n", str[x]);
+            printf("%c", str[y]);
         }
-        length--;
+        //length--;
+        count++;
+        printf("\n");
     }
 
     printf("Number of characters (a - z) in string: %d\n", letter_count);
