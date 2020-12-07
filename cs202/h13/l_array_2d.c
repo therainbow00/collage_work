@@ -9,10 +9,10 @@
 
 int main(int argc, char *argv[]) {
   int arr[5][5], row_col[3], i, j, h, c, b;
-  for (i = 0; i < 5; i++)
+  for (i = 0; i < ((sizeof(arr) / sizeof(int)) / 5); i++)
   {
       printf("5 intergers please: ");
-      for (int j = 0; j < 5; j++)
+      for (j = 0; j < ((sizeof(arr) / sizeof(int)) / 5); j++)
       {
           scanf("%d", &arr[i][j]);
       }
