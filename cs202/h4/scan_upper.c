@@ -4,7 +4,7 @@
 
 int main()
 {
-	int c;
+	char c;
 	while ((c = fgetc(stdin)) != EOF)
 	{
 		printf("%c", toupper(c));
