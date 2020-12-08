@@ -6,10 +6,26 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char *argv[]) {
+  int num, *m, i, n;
+  printf("How many integers? ");
+  scanf("%d", &num);
 
+  m = (int *) malloc(num * sizeof(int));
 
+  for (i = 0; i < num; i++)
+  {
+      printf("Integer please: ");
+      scanf("%d", &m[i]);
+  }
 
+  printf("In reverse, that is...\n");
+
+  for (n = num - 1; n >= 0; n--)
+  {
+      printf("%d\n", m[n]);
+  }
   return 0;
 }
