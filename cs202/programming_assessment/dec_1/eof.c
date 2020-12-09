@@ -3,20 +3,20 @@
 
 int main()
 {
-    char c;
+    int c;
     int count = 0;
 
     while ((c = fgetc(stdin)) != EOF)
     {
-        if (count == 3)
-        {
-            printf("*");
-            count = 0;
-        }
-        else
+        if (count == 0)
         {
             printf("%c", c);
             count++;
+        }
+        else
+        {
+            printf("*");
+            count = 0;
         }
     }
     return 0;

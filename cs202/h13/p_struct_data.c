@@ -16,21 +16,21 @@ struct info
     float high_tem;
 };
 
-void get_data(struct info *data)
+void get_data(struct info **data)
 {
-    struct info * d = (struct info *) malloc(sizeof(struct info));
+    *data = (struct info *) malloc(sizeof(struct info));
 
     printf("Year: ");
-    scanf("%d", &d->year);
+    scanf("%d", &(*data)->year);
 
     printf("Month: ");
-    scanf("%50s", d->month);
+    scanf("%50s", (*data)->month);
 
     printf("Day: ");
-    scanf("%d", &d->day);
+    scanf("%d", &(*data)->day);
 
     printf("Temperature (a floating point #): ");
-    scanf("%f", &d->high_tem);
+    scanf("%f", &(*data)->high_tem);
 }
 void print_data(struct info *data)
 {
@@ -48,8 +48,9 @@ int main(int argc, char *argv[]) {
   struct info * data = NULL;
   if (data == NULL)
   {
-      get_data(data);
+      get_data(&data);
       print_data(data);
+      free(data);
   }
 
   return 0;

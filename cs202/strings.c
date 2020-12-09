@@ -51,16 +51,12 @@ int main()
         }
     }
 
-    //int length = strlen(str);
-    count = 0;
     for (x = 0; x < strlen(str); x++)
     {
-        for (y = 0; y <= count; y++)
+        for (y = 0; y <= x; y++)
         {
             printf("%c", str[y]);
         }
-        //length--;
-        count++;
         printf("\n");
     }
 
