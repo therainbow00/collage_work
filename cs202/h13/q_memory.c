@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
          "  &dummy1: %p\n"
          "  &dummy2: %p\n"
          "  &main:   %p\n"
-         "  &printf: %p\n", arr_g, arr_g, array, array, dynamic_arr_p, dynamic_arr_p, dummy1, dummy2, main, printf);
+         "  &printf: %p\n", &arr_g[0], &arr_g[1], &array, &array, &dynamic_arr_p[0], &dynamic_arr_p[1], &dummy1, &dummy2, &main, &printf);
 
 
   return 0;
