@@ -10,7 +10,7 @@ int main()
     int a, count = 1;
     while ((a = fgetc(stdin)) != EOF)
     {
-        printf("%d: ", count);
+        printf("%4d: ", count);
         if (a == '\n')
         {
             count++;
