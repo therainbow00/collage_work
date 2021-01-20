@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 
 # a >= 0, b > 0
 
