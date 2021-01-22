@@ -1,0 +1,50 @@
+HOMEWORK 1
+Directions: Show Work
+
+1) Find the gcd of 100001 and 63637.
+a = 100001
+b = 63637
+a = 100001
+r = a % b
+r = 36364
+Answer = 9091
+
+2) Find the gcd of 90123 and 275831.
+a = 90123
+b = 275831
+r = a % b
+r = a % b
+r = 90123
+Answer = 2731
+
+3) Reduce the fraction   78459/1072273    to lowest terms.
+first step: find the gcd of the two integers
+second step: divide num and den by the gcd
+
+4) Prove that the square root of 3 is irrational (not a fraction).
+if sqr(3) is a / b where a, b are whole numbers
+Can assume that a, b do not have any common factors
+sqr(3) = a / b
+3 = a^2 / b^2
+Multiply both sides by b^2
+3 * b^2 = a^2
+3 | a^2
+3 | (a * a)
+3 | a  because 3 is prime
+a = 3 * c  where c is some integer
+
+3 * b^2 = a^2
+3 * b^2 = (3 * c) * (3 * c)
+3 * b^2 = 9 * c^2
+b^2 = 3 * c^2
+3 | b
+Contradiction!!
+
+5) Prove that the square root of 6 is irrational (not a fraction).
+
+6) The square root of 4 is rational:  2/1.  Do the steps
+of the previous problem for 4. Why don't these steps prove that
+the square root of 4 is irrational?
+
+7) Look at agreed_on_facts in Course Resources. We need to add
+another fact to the list of agreed_on_facts. What is it?
