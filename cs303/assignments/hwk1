@@ -18,8 +18,12 @@ r = 90123
 Answer = 2731
 
 3) Reduce the fraction   78459/1072273    to lowest terms.
-first step: find the gcd of the two integers
+first step: find the gcd of the two integers = 26153
 second step: divide num and den by the gcd
+78459 / 26153 = 3
+1072273 / 26153 = 41
+
+Answer = 3 / 41
 
 4) Prove that the square root of 3 is irrational (not a fraction).
 if sqr(3) is a / b where a, b are whole numbers
