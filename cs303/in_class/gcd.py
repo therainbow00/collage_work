@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 # a >= 0, b > 0
 # factors of a0
 
