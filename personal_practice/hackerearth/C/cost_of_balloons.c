@@ -12,3 +12,11 @@ int main(){
 */
 
 // Write your code here
+#include <stdio>
+
+int main()
+{
+    int t;
+    scanf("%d", &t);
+
+}
