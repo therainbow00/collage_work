@@ -17,7 +17,10 @@ int main(){
 int main()
 {
     int t;
+    printf("number of test cases (1 - 10): ");
     scanf("%d", &t);
+
+
 
     return 0
 }
