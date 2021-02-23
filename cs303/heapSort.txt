@@ -1,0 +1,24 @@
+Sorting integers.
+
+Store them in an array.
+
+item  X  30  15  97  56  43  72  105  80  33
+index 0   1   2   3   4   5   6    7   8   9
+variable N = 9 number of items in the array
+
+we can think of the array as a complete binary tree.
+left and right children of a node. Move the data to make a max-heap
+(the data in each node is >= the data of its children)
+
+i = index in the array
+left_child(i) = 2(i), if 2(i) <= N
+right_child(i) = 2(i) + 1, if 2(i) + 1 <= N
+parent(i) = i // 2, if i // 2 > 0
+
+                           (30)1
+
+                  (15)2             (97)3
+
+            (56)4      (43)5    (72)6   (105)7
+
+      (80)8    (33)9
