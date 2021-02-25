@@ -47,7 +47,7 @@ get data: 30, 15, 97, 56, 43, 72, 105, 80, 33   N = 9
 ================================
 
 
-what si the largest index that has a left child?
+what is the largest index that has a left child?
 at index i. So its left child is at index 2(i) if 2(i) <= N
 N is the index of the last item in the array. solve for i.
 
