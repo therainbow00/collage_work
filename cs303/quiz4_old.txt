@@ -26,3 +26,10 @@ data at parent is larger than its children
 new:       2(53)
        4(70)   5(14)
     8(30)
+
+def swap(oi, lci):  #oi original index; lci larger_child_index
+    A[oi], A[lci] = A[lci], A[oi]
+
+    #tmp = A[oi]
+    #A[oi] = A[lci]
+    #A[lci] = temp
