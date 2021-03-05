@@ -14,11 +14,19 @@ Fake Directions (do this tomorrow on the real test):
 1) Reduce the fraction: a/b
 a= 522910903; b= 507436351
 
+answer: 811/787
 
 
 2) Prove sqrt(11) is irrational.
 
-
+11 = a^2/b^2
+11*b^2 = a^2
+11|a^2
+11|a
+a = 11*c
+11b^2 = 11*c*11*c
+b^2 = 11*c^2
+11|b
 
 
 
@@ -50,7 +58,14 @@ Directions.  For problems 4 and 5 below write a formulas in terms of n
       for j in range(k):
         STEP
 
+    N   STEPs
+2^0 1     1
+2^1 2     2
+    3     3
+2^2 4     4
+2^3 8     8
 
+answer: (n^2 + n) / 2
 
 6.  Arrays as binary trees.
 
@@ -73,4 +88,12 @@ c) How many nodes are in the bottom level?
 
 
 value: X 10 50 60 35 25 45 30 16  4  21  23  20
+index: 0  1  2  3  4  5  6  7  8  9  10  11  12
+
+                       (10)1
+               (50)2                          (60)3
+       (35)4             (25)5           (45)6    (30)7
+  (16)8     (4)9    (21)10    (23)11  (20)12
+
+value: X 60 50 45 35 25 20 30 16  4  21  23  10
 index: 0  1  2  3  4  5  6  7  8  9  10  11  12

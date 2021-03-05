@@ -9,13 +9,13 @@ b0 = int(input("Type an integer: "))
 a = a0
 b = b0
 r = a % b
-steps = 0
+#steps = 0
 # GCD part
 while r > 0:
     a = b
     b = r
     r = a % b
-    steps += 1
+    #steps += 1
 print(b)
 # end of GCD
 #print(a0 % b)
