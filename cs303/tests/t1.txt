@@ -1,0 +1,139 @@
+303                        TEST 1             Mar 05/2021
+
+
+
+Directions:
+            Log into Zoom.
+            Turn on your computer camera.
+            Log into your account on the cs server.
+            This file,  t1.txt, is in your home directory.
+            Use nano or other file editor to  answer each
+            question in t1.txt. Save (Write) t1.txt.
+            Exit the editor. You are Done.  See you Tuesday!
+
+1) Reduce the fraction: a/b
+a= 514358939; b= 508555171
+
+a = 3627355
+b = 2176413
+r = 1450942
+
+a = 2176413
+b = 1450942
+r = 725471
+
+a = 1450942
+b = 725471
+r = 0
+
+answer: a/b = 709/701
+
+2) Prove sqrt(3) is irrational.
+
+sqrt(3) = a / b
+3 = a^2 / b^2
+3 * b^2 = a^2
+3 | a^2
+3 | (a * a)
+3 | a
+
+a = 3 * c
+
+3 * b^2 = a^2
+3 * b^2 = (3 * c) * (3 * c)
+3 * b^2 = 9 * c^2
+b^2 = 3 * c^2
+3 | b^2
+3 | b * b
+3 | b
+
+
+
+3) Use Mathematical Induction to show that:
+
+     S(n):  5+7+9+...+(2*n+3) = n^2 + 4*n
+
+   is true for all integers, n,  n>0.
+
+   5 = 2n + 3       7 = 2(2) + 3
+   5 = 2(1) + 3     7 = 4 + 3
+   5 = 2 + 3        7 = 7
+   5 = 5
+
+   5 = (1)^2 + 4(1) 5 + 7 = (2)^2 + 4(2)
+   5 = 1 + 4        5 + 7 = 4 + 8
+   5 = 5            12 = 12
+
+   n^2 + 4n + 2(n + 1) + 3 = (n + 1)^2 + 4(n + 1)
+   n^2 + 4n + 2n + 2 + 3 = (n + 1)(n + 1) + 4n + 4
+                           (n^2 + n + n + 1) + 4n + 4
+   n^2 + 4n + 2n + 5 = (n^2 + 2n + 1) + 4n + 4
+   n^2 + 6n + 5 = n^2 + 6n + 5
+
+   answer: n^2 + 6n + 5 = n^2 + 6n + 5
+
+
+
+FORMULAS
+
+1+2+3+...+n = (n^2+n)/2
+1+3+5+...+(2n-1) = n^2
+2+4+6+...+(2n) = n^2 + n
+
+Directions.  For problems 4 and 5 below write a formulas in terms of n
+             for the number of STEPs executed.
+
+
+
+4. for i in range(n):
+     for j in range(n):
+       for j in range(3):
+         STEP
+answer: 3n^2
+
+
+5.  for k in range(1,n+1):
+      for j in range(k):
+        STEP
+
+        N   STEPs
+    2^0 1     1
+    2^1 2     2
+        3     3
+    2^2 4     4
+    2^3 8     8
+
+    answer: (n^2 + n) / 2
+
+
+6.  Arrays as binary trees.
+
+    Given array, A,  below:
+
+value: X 10 60 50 35 25 45 30 21 23
+index: 0  1  2  3  4  5  6  7  8  9
+note: A[1]=10,  A[8]=21, A[9]=23
+
+a) How many numbers are stored in the tree?
+answer: 9
+
+b) How many levels does the tree have?
+answer: 3 levels
+
+c) How many nodes are in the bottom level?
+answer: 2 nodes
+
+7. Run siftDown(1)  index=1
+  Show the results below:
+
+
+value: X 10 60 50 35 25 45 30 21 23
+index: 0  1  2  3  4  5  6  7  8  9
+
+                        (60)1
+            (35)2                          (50)3
+    (23)4             (25)5           (45)6    (30)7
+(21)8     (10)9
+
+answer: value: X 60 35 50 23 25 45 30 21 10
+        index: 0  1  2  3  4  5  6  7  8  9
