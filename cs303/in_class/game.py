@@ -18,7 +18,8 @@ The Game: 3 doors, a prize behind each door
     Contestant picks a door 1 or 2 or 3
 
     Monty shows the goat behind one of the doors, which is NOT
-    the contestant's door.
+    the contestant's door. Pick a door that has a goat behind it
+    and is NOT the contestants's choice.
 
     Monty says do you want to keep the door you have already picked or
           OR would you like to switch door to the left over door?
@@ -39,14 +40,37 @@ The Game: 3 doors, a prize behind each door
 '''
 
 doors = [0, 0, 0]
-for k in range(10000):
+stick_count = 0
+switch_count = 0
+for k in range(10000): #play game 10000
     '''
     set up the prizes
     0 means goat
     1 means fabulous prize
     '''
-    for j in range(3):
+    for j in range(3): #putting in the goats
         doors[j] = 0
     #put 1 behind of the three doors
-    doors[random.randint(0, 2)] = 1
+    pd = random.randint(0, 2)
+    doors[pd] = 1 #storing the fabulous prize
     #make the contestant's choice
+    cc = random.randint(0, 2) #contestants choice
+    '''
+    Monty shows a goat behind a door that is not the contestant's door
+    md is Monty's bad door; md != cc  door[md] == 0
+    '''
+    #value for md, Monty's door
+    for md in range(3):
+        if md != cc and doors[md] == 0:
+            break
+    '''
+    md =
+    Monty gives the contestant a a decision: keep cc or change it.
+    cn = 3 - (cc + md)
+    '''
+    if cc == pd:
+        stick_count += 1
+    #if cn == pd:
+    #    switch_count += 1
+print('stick with first choice: ', stick_count)
+print('switch: ', switch_count)
