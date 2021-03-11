@@ -4,7 +4,7 @@ import random
 lst = [0, 0, 0]
 for i in range(10000):
     lst[random.randint(0, 2)] += 1
-    #print(random.randint(0, 2))
+    print(random.randint(0, 2))
 print(lst)
 '''
 
