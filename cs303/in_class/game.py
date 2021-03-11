@@ -66,11 +66,11 @@ for k in range(10000): #play game 10000
     '''
     md =
     Monty gives the contestant a a decision: keep cc or change it.
-    cn = 3 - (cc + md)
     '''
+    cn = 3 - (cc + md)
     if cc == pd:
         stick_count += 1
-    #if cn == pd:
-    #    switch_count += 1
+    if cn == pd:
+        switch_count += 1
 print('stick with first choice: ', stick_count)
 print('switch: ', switch_count)
