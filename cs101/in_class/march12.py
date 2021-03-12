@@ -11,10 +11,11 @@ def nested_loop():
     print('counter:', counter)
 
 def nested_while(name):
+    name = ''
     while name != 'your name':
         #print('please type your name: ')
         name = input('please type your name: ')
-        while name != 'john':
+        while name != 'john' or name != 'John':
             name = input('please try again: ')
             print(name)
         print('hi john')
