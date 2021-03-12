@@ -26,7 +26,9 @@ while True:
         break
     else:
         turn += 1
-        continue
+        #continue
 print('Game Over')
-#print(var)
-#print(random.choice(range(100)))
+'''
+print(var)
+print(random.choice(range(100)))
+'''
