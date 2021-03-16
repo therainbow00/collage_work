@@ -1,0 +1,64 @@
+Sorting integers.
+
+Store them in an array.
+
+item  X  30  15  97  56  43  72  105  80  33
+index 0   1   2   3   4   5   6    7   8   9
+variable N = 9 number of items in the array
+
+we can think of the array as a complete binary tree.
+left and right children of a node. Move the data to make a max-heap
+(the data in each node is >= the data of its children)
+
+i = index in the array
+left_child(i) = 2(i), if 2(i) <= N
+right_child(i) = 2(i) + 1, if 2(i) + 1 <= N
+parent(i) = i // 2, if i // 2 > 0
+
+                           (30)1
+
+                  (15)2             (97)3
+
+            (56)4      (43)5    (72)6   (105)7
+
+      (80)8    (33)9
+
+HeapSort: big steps:
+
+    1. build the max heap
+        the data at each node is >= to data of its children
+        binary tree each node can have up to 2 children
+        left child, right child
+
+        N = number of nodes in the max heap.
+
+        tree (max heap) is stored in a array; root node at index 1.
+        if i is the index of some node, then the 2(i) (if 2(i) <= N) is the index of the left child of node i, and 2(i) + 1 (if 2(i) + 1 <= N) is the index of the right child of node i.
+
+get data: 30, 15, 97, 56, 43, 72, 105, 80, 33   N = 9
+           1   2   3   4   5   6    7   8   9
+
+    2. once we have a max heap, the max value will be at the root at index 1
+
+        repeat:
+           swap(1, N)   puts the largest value at the end of array
+           N--          heap is one smaller
+           siftDown(1)  remake into a max heap
+================================
+
+
+what is the largest index that has a left child?
+at index i. So its left child is at index 2(i) if 2(i) <= N
+N is the index of the last item in the array. solve for i.
+
+i <= N // 2
+i <= 4      nodes 1, 2, 3, 4 have at least one child
+            nodes 5, 6, 7, 8, 9 have no children by default are already max heaps
+
+i is an index in the array
+solve the problem of a bad guy at index i.
+bad guy: data at index i is not >= to the data at children
+REQUIRMENTS
+left-hand heap is a max heap
+right-hand heap is a max heap
+def siftDown(i):
