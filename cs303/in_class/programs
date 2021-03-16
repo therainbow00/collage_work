@@ -1,4 +1,5 @@
 1.  file: game.py
+    Due 3/18
     Plays the Monty Hall game 10000 times
     Each game hides a fabulous prize behind one door (pd)
     Then the "contestant" picks a door (cc)
@@ -21,6 +22,7 @@ stategy produces. And the number of wins that the second
 stategy produces.
 
 2. file: Bday.py
+   Due 3/19
    There are 365 days in a year.
    There is a party (pre covid).
    Get the number of people at the party from the user.
@@ -31,7 +33,7 @@ stategy produces.
    Repeat 1000 times:
      Make a party. That is
        Make a collection of pz birthdays
-         note:  random.randint(0,365)   is a birthday
+         note:  random.randint(1,365)   is a birthday
        If two numbers in the collection are equal,
        then two people have the same birthday and COUNT this collection
 
@@ -42,7 +44,7 @@ stategy produces.
    what size does the probability become over 0.5?
 
 3. Modular Arithmetic.  Below is the mod 5  (%5)  multiplication table.
-
+   Due 3/19
          y
 
     * 0 1 2 3 4
@@ -60,3 +62,17 @@ It should check that mod 5  multiplication is associative:
     2  3 4      2 3  4
     2   2        1   4
       4            4
+
+4. example: if a * b = 0, than at least one of a, b is also 0
+    modular arithemetic mod 6
+
+0, 1, 2, 3, 4, 5
+
+    (2 * 3) % 6 = 0neither 2 nor 3 is 0
+
+mod 7
+0, 1, 2, 3, 4, 5, 6
+
+1 * 7 = 7
+
+if the modulus is a prime number, then  a * b = 0 means at least one
