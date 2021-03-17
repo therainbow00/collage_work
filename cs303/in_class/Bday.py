@@ -7,19 +7,24 @@ for i in range(num_parties):
     party = []
     for j in range(pz):
         bday = random.randint(1, 365)
+        '''
         print('bday: ' + str(bday))
         print('first print: ' + str(party))
+        '''
         if len(party) == 0:
             party.append(bday)
         else:
-            #print('after append: ' + str(party))
-            if bday == party[j]:
-                count += 1
-            else:
+            for k in range(len(party)):
+                #print('after append: ' + str(party))
+                if bday == party[k]:
+                    count += 1
+            if count == 0:
                 party.append(bday)
+        '''
         print('element in party: ' + str(party[j]))
         print('count: ' + str(count))
         print('second print: ' + str(party))
+        '''
         '''
         if its already in the list than make count one large
         otherwise add it to the list
