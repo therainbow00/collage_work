@@ -31,7 +31,7 @@ while (count / num_parties) < 0.5:
             if its already in the list than make count one large
             otherwise add it to the list
             '''
-        print('count: ' + str(count))
+        print('count:', count)
         pz += 1
         #print(count / num_parties)
-print('Party size = ' + str(pz))
+print('Party size =', pz)
