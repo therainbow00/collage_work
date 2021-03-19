@@ -20,11 +20,11 @@ for i in range(num_parties):
                     count += 1
             if count == 0:
                 party.append(bday)
-        '''
-        print('element in party: ' + str(party[j]))
+
+        #print('element in party: ' + str(party[j]))
         print('count: ' + str(count))
-        print('second print: ' + str(party))
-        '''
+        #print('second print: ' + str(party))
+
         '''
         if its already in the list than make count one large
         otherwise add it to the list

@@ -1,7 +1,7 @@
 import random
 num_parties = 1000
 
-pz = 1
+pz = 0
 count = 0 #number of parties that have 2 people with same bday
 while (count / num_parties) < 0.5:
     for i in range(num_parties):
@@ -22,16 +22,17 @@ while (count / num_parties) < 0.5:
                         count += 1
                 if count == 0:
                     party.append(bday)
-            '''
-            print('element in party: ' + str(party[j]))
+
+            #print('element in party: ' + str(party[j]))
             print('count: ' + str(count))
-            print('second print: ' + str(party))
-            '''
+            #print('second print: ' + str(party))
+
             '''
             if its already in the list than make count one large
             otherwise add it to the list
             '''
         print('count:', count)
+        print('party size:', count)
         pz += 1
         #print(count / num_parties)
 print('Party size =', pz)
