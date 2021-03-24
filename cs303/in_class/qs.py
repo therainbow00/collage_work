@@ -13,9 +13,16 @@ def partition(A, p, r):
     for j in range(p, r):
         if A[j] <= x:
             i += 1
-            A[i], A[j] = A[j], A[i] #swap
+            A[i], A[j] = A[j], A[i]
     A[i + 1], A[r] = A[r], A[i + 1]
     return i + 1
+
+def qs(A, p, r):                # r - p = number steps from p to r
+    if p > r: #time to stop
+        return
+    pp = partition(A, p, r) #pivot position
+    qs(A, p, pp - 1)        #pp - 1 - p = number of steps; Smaller than r - p
+    qs(A, pp + 1, r)        #r - (pp + 1) = number of steps
 
 print(A)
 partition(A, 0, 6)

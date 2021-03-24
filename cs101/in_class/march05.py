@@ -1,10 +1,12 @@
 def sum():
-    # sum starting from 0 up to variable number, 10 + 11 + 12 + 13 + .... + number - 1 the length of this list is number - 10
-    #                                            0, 1, 2, 3, ... + number - 1
-    #I am getting number - 1 + 10 at the end, while I wan to have number - 1
-    #print the list below
-    #   -number, -number + 1, ..., 0
-    # [0,1,2,3,...,n]
+    '''
+    sum starting from 0 up to variable number, 10 + 11 + 12 + 13 + .... + number - 1 the length of this list is number - 10
+                                                0, 1, 2, 3, ... + number - 1
+    I am getting number - 1 + 10 at the end, while I wan to have number - 1
+    print the list below
+       -number, -number + 1, ..., 0
+    [0,1,2,3,...,n]
+    '''
     list_number = [913, 123, 342, 23]
     print(list_number[2])
     #Ex: print a list of number such that if each number is even add 10, if its odd add 20:
@@ -20,14 +22,18 @@ def sum():
         i = i + 10  #setting the starting point
         #odd
         i = i + 20
-        #print('total before update', total, i)
-        #total += i # total = total + i
-        #print('total after update ', total)
-        #print('i =', i)
+        '''
+        print('total before update', total, i)
+        total += i # total = total + i
+        print('total after update ', total)
+        print('i =', i)
+        '''
 
-    #print('total after for', total)
-    #i = 0
-    #while i < number:
-    #    print('i =', i)
-    #    i += 1
+    '''
+    print('total after for', total)
+    i = 0
+    while i < number:
+        print('i =', i)
+        i += 1
+    '''
 sum()

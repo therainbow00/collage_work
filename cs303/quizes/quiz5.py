@@ -9,3 +9,11 @@ for i in range(10000):
     sum += outcome
 print(sum / 10000)
 print((4 * 1 + 3 * 2 + 2 * 3 + 1 * 4 ) / 10)
+
+'''
+lst = [1, 1, 1, 1, 2, 2, 2, 3, 3, 4]
+s = 0
+for i in range(10000):
+    s += random.choice(lst)
+print(s / 10000)
+'''
