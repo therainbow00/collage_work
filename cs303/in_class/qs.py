@@ -18,12 +18,17 @@ def partition(A, p, r):
     return i + 1
 
 def qs(A, p, r):                # r - p = number steps from p to r
-    if p > r: #time to stop
+    if p >= r: #time to stop
         return
     pp = partition(A, p, r) #pivot position
     qs(A, p, pp - 1)        #pp - 1 - p = number of steps; Smaller than r - p
     qs(A, pp + 1, r)        #r - (pp + 1) = number of steps
 
 print(A)
-partition(A, 0, 6)
+print(partition(A, 0, 6))
 print(A)
+#A, 0, 3;  A, 5, 6
+print(partition(A, 0, 3))
+print(A)
+#A, 0, 3
+print(partition(A, 0, 3))
