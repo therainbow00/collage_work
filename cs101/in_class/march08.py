@@ -30,10 +30,14 @@ def conditional_sum2(end1):
             total += i * 3
         i += 1
     return total
-
+'''
 upper_bound = int(input('Enter an upper bound: '))
 #conditional_sum()
 print(conditional_sum(upper_bound))
 print('---------------------------conditional_sum2-----')
 #conditional_sum2()
 print(conditional_sum2(upper_bound))
+'''
+print(conditional_sum(11))
+x = 20
+print(conditional_sum(x))
