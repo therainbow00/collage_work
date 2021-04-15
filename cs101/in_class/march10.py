@@ -32,3 +32,13 @@ print('Game Over')
 print(var)
 print(random.choice(range(100)))
 '''
+
+var = 10
+while var > 0:
+    print(var)
+    var -= 1
+
+print('--------')
+
+for i in range(10, 0, -1):
+    print(i)
