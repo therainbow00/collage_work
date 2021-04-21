@@ -1,0 +1,37 @@
+a graph, G = (V, E)     V is a set of vertices (points)
+                        E is a set of edges that connect points.
+                        edges connect vertices
+
+Computer representation of Graphs
+
+1) incidence matrix
+      (1 means the edge and vertex touch)
+
+    e0 e1 e2 e3
+v0  1  1  1  1
+v1  0  0  1  1
+v2  1  0  0  0
+
+incid = [
+            [1, 1, 1, 1],
+            [0, 0, 1, 1],
+            [1, 0, 0, 0]
+        ]
+
+2) Adjacency matrix
+      (two vertices are said to be adjacent
+      if they are connected by an edge)
+      1 means the vertices are connected by an edge
+      0 means the vertices are NOT connected by an edge.
+      2 means the vertices are connected by two edges
+
+    v0 v1 v2
+v0  1  2  1
+v1  2  0  0
+v2  1  0  0
+
+adj = [
+            [1, 2, 1],
+            [2, 0, 0],
+            [1, 0, 0]
+      ]
