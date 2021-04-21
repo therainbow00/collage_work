@@ -1,18 +1,17 @@
 dic_class = {991012390012: 'matt'}
-num = 0
+num = 1
 
 def assignment(name, Id):
     #global dic_class
 
     global num
     while True:
-        num += 1
         Id = int(input('Please enter your ID: '))
-        print(len(str(Id)))
-        if len(str(Id)) < 8:
+        if len(Id) < 8:
             break
         name = input('Please enter your name: ')
         dic_class[Id] = name
+        num += 1
     print('number: ', num)
 
 Id = int(input('Please enter your ID: '))
