@@ -1,14 +1,22 @@
-#number of rows is the number of vertices
+'''
+incidence matrix
+number of rows is the number of vertices
+colums correspond to edges
+'''
 incid = [
-            [1, 1, 1, 1],
-            [0, 0, 1, 1],
-            [1, 0, 0, 0]
+            #e  e  e  e     colums correspond to edges
+            #0  1  2  3
+            [1, 1, 1, 1],   #v0     1 means the vertex and edge touch
+            [0, 0, 1, 1],   #v1     rows correspond to vertices
+            [1, 0, 0, 0]    #v2
         ]
-
+#Adjacency matrix
 adj = [
-        [1, 2, 1],
-        [2, 0, 0],
-        [1, 0, 0]
+        #v  v  v
+        #0  1  2
+        [1, 2, 1],  #v0     1 means there is a edge that connects the pair of vertices
+        [2, 0, 0],  #v1
+        [1, 0, 0]   #v2
       ]
 
 #incid[i] is the list corresponding to row i
