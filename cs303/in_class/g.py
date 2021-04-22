@@ -15,7 +15,7 @@ adj = [
         #v  v  v
         #0  1  2
         [1, 2, 1],  #v0     1 means there is a edge that connects the pair of vertices
-        [2, 0, 0],  #v1
+        [2, 0, 0],  #v1     2 means there are two edges that connect v0, v1
         [1, 0, 0]   #v2
       ]
 
