@@ -1,4 +1,5 @@
 import random
+import pprint
 
 # writting a simple tic tac toe
 tic_tac_toe = {'TL': 0, 'TC': 0, 'TR': 0,
@@ -15,16 +16,17 @@ while 0 in tic_tac_toe.values():
         if tic_tac_toe[TTT[user]] == 0:
             tic_tac_toe[TTT[user]] = 1
             turn += 1
-            print(tic_tac_toe)
+            pprint.pprint(tic_tac_toe)
         else:
-            user = int(input('The place is not available, Enter a new number less than 9: '))
+            print('The place is not avilable!')
+            continue
     else:
         com = random.randint(0, 9)
         if tic_tac_toe[TTT[com]] == 0:
             tic_tac_toe[TTT[com]] = 1
             turn += 1
-            print(tic_tac_toe)
+            pprint.pprint(tic_tac_toe)
         else:
             continue
         #print(TTT[user])
-print(tic_tac_toe)
+pprint.pprint(tic_tac_toe)
