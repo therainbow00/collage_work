@@ -18,14 +18,19 @@ def user_move(board, player):
     move = int(input('Enter your move (1 - 9): '))
     place = 1
     row = 0
+    found = False
     if move >= 1 and move <= 9:
-        for col in range(len(board)):
-            if move == place:
-                board[row][col] = player
+        for times in range(len(board)):
+            for col in range(len(board)):
+                if move == place:
+                    board[row][col] = player
+                    found = True
+                    break
+                else:
+                    place += 1
+            if found == True:
                 break
-            else:
-                place += 1
-        row += 1
+            row += 1
     else:
         print(f'Invalid move "{move}".')
 '''
@@ -50,7 +55,6 @@ def user_move(board, player):
     else:
         print(f'Invalid move "{move}".')
 '''
-
 
 def check_for_winner(board, player):
     #check rows
