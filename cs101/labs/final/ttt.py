@@ -22,7 +22,7 @@ def user_move(board, player):
     if move >= 1 and move <= 9:
         for times in range(len(board)):
             for col in range(len(board)):
-                if move == place:
+                if move == place and board[row][col] == ' ':
                     board[row][col] = player
                     found = True
                     break
