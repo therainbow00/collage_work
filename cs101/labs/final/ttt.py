@@ -33,28 +33,6 @@ def user_move(board, player):
             row += 1
     else:
         print(f'Invalid move "{move}".')
-'''
-    if move == 1:
-        board[0][0] = player
-    elif move == 2:
-        board[0][1] = player
-    elif move == 3:
-        board[0][2] = player
-    elif move == 4:
-        board[1][0] = player
-    elif move == 5:
-        board[1][1] = player
-    elif move == 6:
-        board[1][2] = player
-    elif move == 7:
-        board[2][0] = player
-    elif move == 8:
-        board[2][1] = player
-    elif move == 9:
-        board[2][2] = player
-    else:
-        print(f'Invalid move "{move}".')
-'''
 
 def check_for_winner(board, player):
     #check rows
@@ -64,6 +42,7 @@ def check_for_winner(board, player):
         return player
     if board[2][0] == player and board[2][1] == player and board[2][2] == player:
         return player
+
     #check cols
     if board[0][0] == player and board[1][0] == player and board[2][0] == player:
         return player
@@ -71,6 +50,7 @@ def check_for_winner(board, player):
         return player
     if board[0][2] == player and board[1][2] == player and board[2][2] == player:
         return player
+
     #check diags
     if board[0][0] == player and board[1][1] == player and board[2][2] == player:
         return player
