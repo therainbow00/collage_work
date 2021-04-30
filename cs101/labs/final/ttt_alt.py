@@ -83,6 +83,11 @@ def check_for_winner(board, player):
         continue
 
     #check diags
+    col = 0
+    for row in range(len(board) - 1):
+        if board[row][col] == player:
+
+
     if board[0][0] == player and board[1][1] == player and board[2][2] == player:
         return player
     if board[0][2] == player and board[1][1] == player and board[2][0] == player:
