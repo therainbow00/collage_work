@@ -13,4 +13,10 @@
 
 int main(void)
 {
+    printf("Input a hex number: ");
+    unsigned int u;
+    scanf("%u", &u);
+
+    printf("Dec\tOct\tHex\n");
+    printf("%u\t%o\t%X\n", u, u, u);
 }
