@@ -16,4 +16,12 @@
 
 int main(void)
 {
+    printf("Input a hex number: ");
+    unsigned int u;
+    scanf("%u", &u);
+
+    for (int i; i < 31; i--)
+    {
+
+    }
 }
