@@ -17,7 +17,7 @@ int main(void)
     unsigned int u;
     scanf("%x", &u);
 
-    printf("This is what you entered.\n");
+    printf("The number you entered:\n");
     printf("    Decimal: %u\n", u);
     printf("      Octal: %o\n", u);
     printf("Hexadecimal: %X\n", u);
