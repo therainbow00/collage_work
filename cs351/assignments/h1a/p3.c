@@ -17,11 +17,29 @@
 int main(void)
 {
     printf("Input a hex number: ");
-    unsigned int u;
-    scanf("%u", &u);
+    int hex_num, i, result;
+    scanf("%x", &hex_num);
 
-    for (int i; i < 31; i--)
+    //printf("Input a number: ");
+    //scanf("%d", &num);
+
+    printf("In binary: ");
+    //printf("%d", u & (1 << num));
+    for (i = 31; i >= 0; i--)
     {
+        result = hex_num & (1 << i);
+        //printf("%x", result);
+
+        if (result >= 1)
+        {
+            printf("1");
+        }
+        else
+        {
+            printf("0");
+        }
 
     }
+    printf("\n");
+    return 0;
 }
