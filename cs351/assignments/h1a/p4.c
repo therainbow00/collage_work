@@ -18,8 +18,34 @@
 
 int bittest(uint32_t num, int i)
 {
+    int _true = 1;
+    int _false = 0;
+    if ((num & (1 << i)) != 0)
+    {
+        return _true;
+    }
+    else
+    {
+        return _false;
+    }
 }
 
 int main(int argc, char *argv[])
 {
+    float decimal;
+    printf("Input a decimal number: ");
+    scanf("%f", &decimal);
+    uint32_t decimal_int = (uint32_t) decimal;
+    int count = 0;
+
+    for (int i = 31; i >= 0; i--)
+    {
+        if (bittest(decimal, i) != 0)
+        {
+            count++;
+        }
+        //printf("%d\n", bittest(decimal, i));
+    }
+    printf("%08X: %d\n", decimal_int, count);
+    return 0;
 }
