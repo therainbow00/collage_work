@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include <math.h>
 
 /** 1pt
  * Complete the following program:
@@ -43,7 +42,7 @@ int main(void)
     for (int i = 0; i <= 31; i++)
     {
         printf("%2d: ", i);
-        printbinary((int) pow(2, i));
+        printbinary(1 << i);
         printf("\n");
     }
     return 0;
