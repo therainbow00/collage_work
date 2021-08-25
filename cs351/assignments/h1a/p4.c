@@ -44,7 +44,6 @@ int main(int argc, char *argv[])
         {
             count++;
         }
-        //printf("%d\n", bittest(decimal, i));
     }
     printf("%08X: %d\n", decimal_int, count);
     return 0;

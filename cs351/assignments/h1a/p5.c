@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <math.h>
 
 /** 1pt
  * Complete the following program:
@@ -16,12 +17,34 @@
 
 int bittest(uint32_t num, int i)
 {
+    int _false = 0, _true = 1;
+    if ((num & (1 << i)) != 0)
+    {
+        return _true;
+    }
+    else
+    {
+        return _false;
+    }
+
 }
 
 void printbinary(uint32_t num)
 {
+    for (int i = 31; i >= 0; i--)
+    {
+        printf("%d", bittest(num, i));
+    }
+    printf(" %u", num);
 }
 
 int main(void)
 {
+    for (int i = 0; i <= 31; i++)
+    {
+        printf("%2d: ", i);
+        printbinary((int) pow(2, i));
+        printf("\n");
+    }
+    return 0;
 }
