@@ -10,23 +10,12 @@
 
 int main(void)
 {
-    for (float i; i < 33.0; i++)
+    printf("Dec\tOct\tHex\n");
+    float i;
+    int j;
+    for (i, j; i < 33, j < 33; i++, j++)
     {
-        printf("%5.2f\n", i);
-    }
-
-    printf("---\n");
-
-    for (int i; i < 33; i++)
-    {
-        printf("%5o\n", i);
-    }
-
-    printf("---\n");
-
-    for (int i; i < 33; i++)
-    {
-        printf("%5x\n", i);
+        printf("%2.0f\t%2o\t%2x\n", i, j, j);
     }
 
   // Main should always have a integer return value.  0 indicates success,

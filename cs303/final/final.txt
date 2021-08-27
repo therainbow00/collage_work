@@ -1,0 +1,211 @@
+    303             Final                                 05/06/2021
+
+
+Directions: Log into Zoom.
+            Turn on your computer camera.
+            Log into your account on the cs server.
+            This file,  final.txt, is in your home directory.
+            Use nano or other file editor to  answer each
+            question in final.txt. Save (Write) final.txt.
+            Exit the editor. You are Done.
+
+
+
+1) Reduce the fraction: 591737/830407 .
+
+   a = 4115
+   b = 1646
+   r = 823
+
+   a = 1646
+   b = 823
+   r = 0
+
+   591737 / 823 = 719
+   830407 / 823 = 1009
+
+   reduced fraction = 719 / 1009
+
+
+
+
+
+2) [lg 80000] =
+
+2^0 =  1     2^7  =  128    2^14 =    16384
+2^1 =  2     2^8  =  256    2^15 =    32768
+2^2 =  4     2^9  =  512    2^16 =    65536
+2^3 =  8     2^10 = 1024    2^17 =   131072
+2^4 = 16     2^11 = 2048    2^18 =   262144
+2^5 = 32     2^12 = 4096    2^19 =   524288
+2^6 = 64     2^13 = 8192    2^20 =  1048576
+
+answer: 16
+
+3) Use Mathematical Induction to show that:
+
+     S(n):  5+9+13+...+(4*n+1) = 2*n^2 + 3*n
+
+   is true for all positive integers, n.
+
+   5 + 9 + 13 + ... + (4n + 1) =  2n^2 + 3n
+   --------------------------------------
+   5 = 4(1) + 1     9 = 4(2) + 1
+   5 = 4 + 1        9 = 9
+   5 = 5
+
+   5 = 2(1)^2 + 3(1)     5 + 9 = 2(2)^2 + 3(2)
+   5 = 2(1) + 3(1)       5 + 9 = 2(4) + 3(2)
+   5 = 2 + 3             5 + 9 = 8 + 6
+   5 = 5                14 = 14
+
+   2n^2 + 3n + 4(n + 1) + 1 = 2(n + 1)^2 + 3(n + 1)
+   2n^2 + 3n + 4n + 4 + 1 = 2(n + 1)(n + 1) + 3n + 3
+   2n^2 + 3n + 4n + 5 = 2(n^2 + n + n + 1) + 3n + 3
+   2n^2 + 7n + 5 = 2(n^2 + 2n + 1) + 3n + 3
+   2n^2 + 7n + 5 = 2n^2 + 4n + 5 + 3n
+   2n^2 + 7n + 5 = 2n^2 + 7n + 5
+
+   Answer: 2n^2 + 7n + 5 = 2n^2 + 7n + 5
+
+
+
+4. Runtimes. Each code segment below contains STEP.
+   For each segment WRITE the number of times STEP is
+   excuted in terms of variable n.
+
+FORMULAS
+
+1+2+3+...+n = (n^2+n)/2
+1+3+5+...+(2n-1) = n^2
+2+4+6+...+(2n) = n^2 + n
+
+
+a. for i in range(n):
+     for k in range(n):
+       STEP
+
+    answer: n^2
+
+b.  for i in range(1,n+1):
+      for j in range(2*i):
+        STEP
+
+    answer: (n + 1) * i
+
+5.  Arrays as binary trees. Heapsort.
+Show the tree after running siftDown(1).
+
+Given array, A,  below:
+
+value: X  9 40 30 15 13 20 10 12 14
+index: 0  1  2  3  4  5  6  7  8  9      A[1]= 9,  A[9]= 14
+
+
+def siftDown(i):
+  lci = 2*i   #left child index
+  if lci>N:   #node i has no children
+    return
+  bci = lci    #big child index (biggest child so far)
+  rci = lci+1
+  if rci<=N and A[rci]>A[bci]:
+    bci = rci
+  if A[i]<A[bci]:  ##index i violates max heap property
+    A[i],A[bci] = A[bci],A[i]  #swap(i,bci)
+    siftDown(bci)
+
+answer: value: X 40 15 30 14 13 20 10 12  9
+        index: 0  1  2  3  4  5  6  7  8  9
+
+
+6. Write code to find the expected (average) value of  the game below:
+   Expected value: Find the sum of the 10000 outcomes; divide this
+   by 10000, the number of outcomes.
+
+   Fill in the outcomes array according to the probabilites:
+   Outcomes 1,2,6 should appear once each. 3 should appear twice,
+   4 should appear three times and 5 should appear twice.
+
+
+
+#run the experiment 10000 times
+# cube (die): has six sides (faces).
+# throw the cube; One number per face  1,2,3,4,5,6 .
+# outcome is the number on the face that is UP.
+# outcome    probability
+#   1          1/10
+#   2          1/10
+#   3          2/10
+#   4          3/10
+#   5          2/10
+#   6          1/10
+
+import random
+#fill in outcomes
+outcomes = [ ]
+
+outcome = random.sample(outcomes,1)[0]
+answer:
+        d = {1:1, 2:2, 3:3, 4:3, 5:4, 6:4, 7:4, 8:5, 9:5, 10:6}
+
+        s = 0
+        for i in range(10000):
+            coutcome = random.sample(outcomes, 1)[0]
+            s += outcome
+        print(s / 10000)
+        print((1 * 1 + 2 * 1 + 3 * 2 + 4 * 3 + 5 * 2 + 6 * 1) / 10)
+
+
+7. Quicksort. Directions: run partition (see below) on the
+array below.  EACH time the array is changed, write a new copy
+of the array below the last copy.
+
+partition(A,0,7)
+array A = [20, 70, 50, 80, 30, 10, 90, 60]
+A =
+
+
+def partition(A,p,r):
+  x = A[r] #get the pivot
+  i = p-1  #one less than the index where the next "small" number
+           #will be stored
+  for j in range(p,r):
+     if A[j]<=x:
+       i += 1
+       A[i],A[j] = A[j],A[i]  #swap
+  A[i+1],A[r] = A[r],A[i+1]
+  return i+1
+  x = 60
+  i = -1
+  j = 0
+
+  A = [20, 70, 50, 80, 30, 10, 90, 60] j = 0; i = -1, 0
+  A = [20, 70, 50, 80, 30, 10, 90, 60]
+  A = [20, 70, 50, 80, 30, 10, 90, 60] j = 1;
+  A = [20, 70, 50, 80, 30, 10, 90, 60] j = 2; i = 0, 1
+  A = [20, 50, 70, 80, 30, 10, 90, 60]
+  A = [20, 50, 70, 80, 30, 10, 90, 60] j = 3;
+  A = [20, 50, 70, 80, 30, 10, 90, 60] j = 4; i = 1, 2
+  A = [20, 50, 30, 80, 70, 10, 90, 60]
+  A = [20, 50, 30, 80, 70, 10, 90, 60] j = 5; i = 2, 3
+  A = [20, 50, 30, 10, 70, 80, 90, 60]
+  A = [20, 50, 30, 10, 70, 80, 90, 60] j = 6;
+  A = [20, 50, 30, 10, 70, 80, 90, 60] j = 7;
+  A = [20, 50, 30, 10, 60, 80, 90, 70]
+
+  answer: A = [20, 50, 30, 10, 60, 80, 90, 70]
+
+8. Write a table for a machine (Finite State Automaton)
+   that accepts the language, L = {0*1}
+
+            0  |  1
+         s0 s0 |  s1
+   final s1 -  |  -
+
+
+9. Write a table for a machine (Finite State Automaton)
+   that accepts the language, L = {0*1}*
+
+            0  |  1
+   final s0 s0 |  s1
+   final s1 -  |  s0

@@ -13,4 +13,12 @@
 
 int main(void)
 {
+    printf("Input a hex number: ");
+    unsigned int u;
+    scanf("%x", &u);
+
+    printf("The number you entered:\n");
+    printf("    Decimal: %u\n", u);
+    printf("      Octal: %o\n", u);
+    printf("Hexadecimal: %X\n", u);
 }
