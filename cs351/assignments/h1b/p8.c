@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <ctype.h>
 
 /** 2pts
  * Create a program that reads numbers from the input (it should print no
@@ -13,4 +14,28 @@
 
 int main(void)
 {
+    uint32_t c;
+    while ((c = fgetc(stdin)) != EOF)
+    {
+        if (isdigit(c))
+        {
+            for (int i = 31; i >= 0; i--)
+            {
+                if ((c & (1 << i)) != 0)
+                {
+                    printf("1");
+                }
+                else
+                {
+                    printf("0");
+                }
+            }
+            printf("\n");
+        }
+        else if (isalpha(c))
+        {
+            return 0;
+            printf("\n");
+        }
+    }
 }

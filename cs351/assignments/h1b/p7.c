@@ -11,4 +11,59 @@
 
 int main(void)
 {
+    uint32_t num;
+    printf("Input number: ");
+    scanf("%u", &num);
+    int i;
+
+    for (i = 31; i >= 0; i--)
+    {
+        if ((num & (1 << i)) != 0)
+        {
+            printf("1");
+        }
+        else
+        {
+            printf("0");
+        }
+    }
+    printf(" %u", num);
+    printf("\n");
+
+    for (i = 31; i >= 0; i--)
+    {
+        if ((num & (1 << i)) != 0)
+        {
+            printf("0");
+        }
+        else
+        {
+            printf("1");
+        }
+    }
+    //printf(" %d", ~num);
+    printf("\n");
+
+    /*
+    for (int i = 31; i >= 0; i--)
+    {
+        if ((num & (1 << i)) != 0)
+        {
+            if (i == 0)
+            {
+                printf("1");
+            }
+            else
+            {
+                printf("0");
+            }
+        }
+        else
+        {
+            printf("1");
+        }
+    }
+    printf("\n");
+    */
+    return 0;
 }
