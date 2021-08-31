@@ -11,4 +11,11 @@
 
 int main(void)
 {
+    uint32_t num;
+    printf("Input number: ");
+    scanf("%u", &num);
+
+    printf("%u\n", num);
+    printf("%u\n", num & ~(1 << sizeof(num)));
+    return 0;
 }
