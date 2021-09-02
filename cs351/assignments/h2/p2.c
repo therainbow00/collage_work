@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 #define K	1024
 
@@ -11,4 +12,20 @@
 
 int main(void)
 {
+    char s[K];
+    printf("Input: ");
+    fgets(s, K, stdin);
+
+    for (int i = 0; s[i] != '\n'; i++)
+    {
+        if (i % 3 == 0)
+        {
+            printf("%c", s[i]);
+        }
+        else
+        {
+            printf(" ");
+        }
+    }
+    printf("\n");
 }

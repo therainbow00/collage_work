@@ -9,4 +9,29 @@
 
 int main(void)
 {
+    /*
+    char character, num;
+    printf("   ");
+    for (num = 2; num <= 7; num++)
+    {
+        printf(" %x", num);
+    }
+    printf("\n");
+    printf("  -------------");
+    printf("\n");
+    for (character = 0; character <= 15; character++)
+    {
+        printf(" %X: %c", character, character);
+        printf("\n");
+    }
+    */
+    int i = 0;
+    char ch;
+
+    for (i = 0; i < 256; i++)
+    {
+      printf("%c ", ch);
+      ch = ch + 1;
+    }
+    return 0;
 }
