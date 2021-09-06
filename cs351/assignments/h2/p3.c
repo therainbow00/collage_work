@@ -15,18 +15,9 @@
 int isvowel(char ch)
 {
     int true = 1, false = 0;
-    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
-    {
-        return true;
-    }
-    else if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') return true;
+    else if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') return true;
+    else return false;
 }
 
 int main(void)
@@ -37,14 +28,8 @@ int main(void)
 
     for (int i = 0; s[i] != '\n'; i++)
     {
-        if (isvowel(s[i]) == 1)
-        {
-            printf("%c", s[i]);
-        }
-        else
-        {
-            printf(" ");
-        }
+        if (isvowel(s[i]) == 1) printf("%c", s[i]);
+        else printf(" ");
     }
     printf("\n");
     return 0;

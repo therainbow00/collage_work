@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 
 /** 2pts
  * Complete the program to output an ASCII chart similar to the one found in
@@ -7,31 +9,68 @@
  * lower 4 bits of the character.
  */
 
+int bittest(uint8_t num, int i)
+{
+    int _false = 0, _true = 1;
+    if ((num & (1 << i)))
+    {
+        return _true;
+    }
+    else
+    {
+        return _false;
+    }
+
+}
+
+int printbinary(uint8_t num)
+{
+    for (int i = 7; i >= 0; i--)
+    {
+        return bittest(num, i);
+    }
+}
+
 int main(void)
 {
-    /*
-    char character, num;
-    printf("   ");
-    for (num = 2; num <= 7; num++)
-    {
-        printf(" %x", num);
-    }
-    printf("\n");
-    printf("  -------------");
-    printf("\n");
-    for (character = 0; character <= 15; character++)
-    {
-        printf(" %X: %c", character, character);
-        printf("\n");
-    }
-    */
-    int i = 0;
-    char ch;
+    int k;
+    uint16_t i, j, sum = 0;
 
-    for (i = 0; i < 256; i++)
+    printf("   ");
+    for (i = 0; i <= 15; i++)
     {
-      printf("%c ", ch);
-      ch = ch + 1;
+        for (j = 2; j <= 7; j++)
+        {
+            if (i == 0)
+            {
+                printf("%X ", j);
+            }
+            sum = 0;
+            for (k = 15; k >= 0; k--)
+            {
+                sum += ((i & (1 << k)) | (j & (1 << k)));
+                //printf("%u\n", sum);
+            }
+            //printf("%u\n", sum);
+        }
+        if (i == 0)
+        {
+            printf("\n");
+            printf("---------------");
+        }
+        printf("\n");
+        printf("%d\n", sum);
+        //printf("%X: %c\n", i, count);
+        //count++;
     }
+
+    /*
+    for (k = 32; k <= 127; k++)
+    {
+        printf("%X: %c\n", k, k);
+    }
+    0000000000000010 0000000000000000 =
+
+    */
     return 0;
 }
