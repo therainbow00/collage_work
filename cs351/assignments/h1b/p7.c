@@ -9,6 +9,28 @@
  * followed by the decimal value.  Print the numbers as though they were signed.
  */
 
+ int bittest(uint32_t num, int i)
+ {
+     int _false = 0, _true = 1;
+     if ((num & (1 << i)) != 0)
+     {
+         return _true;
+     }
+     else
+     {
+         return _false;
+     }
+
+ }
+
+ void printbinary(uint32_t num)
+ {
+     for (int i = 31; i >= 0; i--)
+     {
+         printf("%d", bittest(num, i));
+     }
+ }
+
 int main(void)
 {
     uint32_t num;
@@ -16,6 +38,12 @@ int main(void)
     scanf("%u", &num);
 
     printf("%u\n", num);
-    printf("%u\n", num & ~(1 << sizeof(num)));
+    printbinary(num);
+    printf("\n");
+
+    num = ~num + 1;
+
+    printbinary(num);
+    printf("\n");
     return 0;
 }

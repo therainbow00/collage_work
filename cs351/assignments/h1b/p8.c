@@ -12,27 +12,28 @@
  * ./p8 < data
  */
 
+ int bittest(uint32_t num, int i)
+ {
+     int _false = 0, _true = 1;
+     if (num & (1 << i)) return _true;
+     else return _false;
+ }
+
+ void printbinary(uint32_t num)
+ {
+     for (int i = 31; i >= 0; i--)
+     {
+         if (bittest(num, i)) printf("#");
+         else printf(" ");
+     }
+ }
+
 int main(void)
 {
     uint32_t c;
-    while ((c = scanf(c)) != EOF)
+    while ((scanf("%u", &c)) == 1)
     {
-        if (isalpha(c))
-        {
-            printf("\n");
-            return 0;
-        }
-        for (int i = 31; i >= 0; i--)
-        {
-            if ((c & (1 << i)) != 0)
-            {
-                printf("1");
-            }
-            else
-            {
-                printf("0");
-            }
-        }
+        printbinary(c);
         printf("\n");
     }
 }
