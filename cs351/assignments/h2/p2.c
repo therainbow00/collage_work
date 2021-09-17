@@ -18,8 +18,15 @@ int main(void)
 
     for (int i = 0; s[i] != '\n'; i++)
     {
-        if (i % 3 == 0) printf("%c", s[i]);
-        else printf(" ");
+        if (i % 3 == 0)
+        {
+            printf("%c", s[i]);
+        }
+        else
+        {
+            printf(" ");
+        }
     }
     printf("\n");
+    return 0;
 }

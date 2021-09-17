@@ -25,7 +25,10 @@ int main(void)
         for (j = 2; j <= 7; j++)
         {
             if (j * 16 + i == 127) printf("DEL");
-            else printf("%c ", j * 16 + i);
+            else printf("%c ", j << 4 | i);
+
+            //int c = h << 4 | l;
+
         }
         printf("\n");
     }
