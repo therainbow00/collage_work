@@ -28,36 +28,20 @@ int main(int argc, char *argv[])
   int num = abs(atoi(argv[1]));
   /* Do not modify the above. */
 
-  int array_num[50], array_num_2[50], i, j, k, count = 0, count_2 = 0, _true = 0;
+  int remainder, reversed = 0, original = num;
 
-  if (argc == 2)
+  while (original != 0)
   {
-      int length = floor(log10(num)) + 1;
-      if (num == 0) length = 1;
-
-      for (i = 0; i < length; i++)
-      {
-          array_num[i] = num % 10;
-          num /= 10;
-      }
-
-      for (k = length - 1; k >= 0; k--)
-      {
-          if (array_num[k]) array_num_2[count_2] = array_num[k];
-          else array_num_2[count_2] = 0;
-          count_2++;
-      }
-
-      for (int l = 0; l < length; l++)
-      {
-          if (array_num[l] == array_num_2[l]) _true = 1;
-          else
-          {
-              printf("not palindrome.\n");
-              break;
-          }
-      }
-      if (_true == 1) printf("palindrome.\n");
+      remainder = original % 10;
+      reversed = reversed * 10 + remainder;
+      original /= 10;
   }
-  return 0;
+  if (num == reversed)
+  {
+      printf("palindrome\n");
+  }
+  else
+  {
+      printf("not palindrome\n");
+  }
 }
