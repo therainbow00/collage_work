@@ -28,85 +28,22 @@ int main(int argc, char *argv[])
   int num = abs(atoi(argv[1]));
   /* Do not modify the above. */
 
-  int i, j, k, count = 0, count_2 = 0, _true = 0, count3 = 0, array_num[50], array_num_2[50];
-  //char array_num[50], array_num_2[50];
-  if (argc == 2)
+  char str[32];
+  int r = 0;
+  do {
+    str[i++] = num % 10;
+    num = num / 10;
+  } while (num > 0);
+  i--;
+  int l = 0, pf = 1;
+  while (l < r)
   {
-      int length = (floor(log10(num))) + 1;
-      printf("length: %d\n", length);
-      for (i = 0; i < 50; i++)
+      if (str[l++]) != str[r--]
       {
-          if (num == 0)
-          {
-              printf("%d ", num);
-          }
-          //array_num[i] = num;
-          //printf("after 'num == '0''\n");
-          //array_num[i] = (char) num;
-          //int result = num % 10;
-          array_num[i] = num % 10;
-          //printf("%c ", array_num[i]);
-          num /= 10;
-          count3++;;
+          pf = 0;
+          break;
       }
-      //printf("\n");
-      printf("count3 = %d\n", count3);
-      //printf("sizeof(num) = %lu\n", sizeof(num));
-      //array_num[i] = '\0';
-      for (j = 0; j < count3; j++)
-      {
-          printf("%d ", array_num[j]);
-          /*
-          if (array_num[j] == NULL)
-          {
-              printf("after 'array_num[j] == 0'\n");
-              printf("%d ", array_num[j]);
-          }
-          */
-          count++;
-          //array_num[i] = num;
-          //num = num / 10;
-      }
-      printf("\n");
-
-      //int count_2 = 0;
-      for (k = count - 1; k >= 0; k--)
-      {
-          if (array_num[k])
-          {
-              array_num_2[count_2] = array_num[k];
-              count_2++;
-              //printf("%c\n", array_num[k]);
-          }
-          //array_num[i] = num;
-          //num = num / 10;
-      }
-
-      for (int m = 0; m < count; m++)
-      {
-          printf("%d ", array_num_2[m]);
-      }
-
-      printf("\n");
-      //int _true = 0;
-      for (int l = 0; l < count; l++)
-      {
-          if (array_num[l] != array_num_2[l])
-          {
-              printf("not palindrome.\n");
-              break;
-          }
-          else
-          {
-              _true = 1;
-          }
-      }
-      if (_true == 1)
-      {
-          printf("palindrome.\n");
-      }
-
-      //printf("%d\n", num);
   }
-  return 0;
-}
+  if (pf) printf("palindrome.\n");
+  else printf("not palindrome.\n");
+

@@ -11,8 +11,17 @@ guidance:
       int chmod(char *path, int mode);
    chmod is system call number 90. Both path and mode are already defined for
    you and remember that both are labels that represent an address:
+================================
+   %define SYS_CALL 90
 
+   section .text
 
+   global _start
+   _start:
+            mov rax, SYS_CALL
+            mov rdi, path
+            mov rsi, [mode]
+            syscall
 
 
 
@@ -31,7 +40,7 @@ guidance:
    mov r15, 0
    mov r14, 20
    mov r13, [r15]
-   mov r13, [r13 + r14]
+   add r13, r14
    dec r14
 
 
@@ -46,11 +55,11 @@ guidance:
   }
 ================================
   cmp rax, 10
-  jg  Greater
-Greater:
-        inc rdx
-        mov rbx, [rbx + rdx]
+  jl  .exit
+  inc rdx
+  add rbx, rdx
 
+  .exit:
 
 
 
@@ -70,5 +79,22 @@ Greater:
     putc(al);
     r15++;
   } while (r15 < 10);
+==============================
+  extern putc
 
+  section .text:
 
+  global _start:
+  _start:
+         mov r15, 0
+         jmp .do
+         .do:
+             cmp r15, 10
+             jge .exit
+             movsx al, [r15]
+             add al, '0'
+             call putc
+             inc r15
+             cmp r15, 10
+             jl .do
+  .exit

@@ -27,37 +27,18 @@ int main(int argc, char *argv[])
   }
 
   int num = atoi(argv[1]), base = atoi(argv[2]);
-  char str[K], digits[] = "0123456789ABCDEF";
-  //strlen(int_str);
-  //int i;
-  //str[i] = '\0';
+  char str[128], *digits[] = "0123456789ABCDEF";
 
-  //char digits[] = "0123456789ABCDEF";
-  //printf("strlen(%lu) - 1 = %lu\n", strlen(str), strlen(str) - 1);
-  int i = 0;
-  for (i = strlen(str) - 1; i > 0; i--)
-  {
+  int i = 127;
+  str[i--] = '\0';
 
-      if (num == 0)
-      {
-          str[i] = '\0';
-          for (int j = 0; j < strlen(str) / 2; j++)
-          {
-              char temp = str[j];
-              str[j] = str[strlen(str)-j-1];
-              str[strlen(str)-j-1] = temp;
-          }
-          printf("%s\n", str + i);
-          break;
-      }
-      else
-      {
-          int d = num % base;
-          str[i] = digits[d];
-          num /= base;
-      }
-  }
-  //printf("%lu\n", strlen(str));
+  do {
+    str[i--] = digits[num % base];
+    num = num / base;
+  } while (num > 0);
+  i++;
+
+  printf("%s\n", str+i);
 
   return 0;
 }

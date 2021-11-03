@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
   }
   uint32_t a = atoi(argv[1]);
   uint32_t b = atoi(argv[2]);
-  //printf("a = %d, b = %d\n", a, b);
+
   int result = 0;
   for (b; b != 0; b >>= 1)
   {
