@@ -25,9 +25,9 @@ int pop(void);
 
 // (1pt):
 char *input;
-int pos = 0;
+int pos;
 int numstack[K];
-int nsp = 0;
+int nsp;
 
 // (1pt)
 // Gets the next character, returns -1 on end of input:
