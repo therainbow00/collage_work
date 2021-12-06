@@ -31,8 +31,21 @@ struct point *get_data(FILE *fp, int *npoints)
     free(value);
     fclose(fp);
 }
+/*
+struct point *get_data(FILE *fp, int *npoints)
+{
+  int max = 10, idx = 0;
+  int a, b;
+  struct point *data = malloc(sizeof(struct point) * max);
 
-
+  while (fscanf(fp, "%d %d", &a, &b) == 2) {
+    if (idx >= max - 1) data = realloc(data, sizeof(struct point) * (max += 10));
+    data[idx++] = (struct point){.x = a, .y = b};
+  }
+  *npoints = idx;
+  return data;
+}
+*/
 /**
  * Do not modify this part of the program.
  */

@@ -27,6 +27,22 @@ char *readfile(FILE *fp)
 
 }
 
+/*
+char *readfile(FILE *fp)
+{
+  int max = 100, idx = 0;
+  int ch;
+  char *buf = malloc(sizeof(char) * max);
+
+  while ((ch = fgetc(fp)) != EOF) {
+    if (idx >= max - 2) buf = realloc(buf, sizeof(char) * (max += 100));
+    buf[idx++] = ch;
+  }
+  buf[idx] = '\0';
+  return buf;
+}
+*/
+
 /**
  * Do not modify this part of the program.
  */

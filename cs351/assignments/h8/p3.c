@@ -30,6 +30,33 @@ struct point *get_data(FILE *fp)
     return head;
 }
 
+/*
+struct point *new_node(int a, int b)
+{
+  struct point *n = malloc(sizeof(struct point));
+  n->x = a;
+  n->y = b;
+  n->next = NULL;
+  return n;
+}
+
+struct point *get_data(FILE *fp)
+{
+  struct point *head = NULL, *tail = NULL, *n;
+  int a, b;
+
+  while (fscanf(fp, "%d %d", &a, &b) == 2) {
+    n = new_node(a, b);
+    if (head == NULL) head = tail = n;
+    else {
+      tail->next = n;
+      tail = n;
+    }
+  }
+  return head;
+}
+*/
+
 /**
  * Do not modify this part of the program.
  */
