@@ -1,0 +1,54 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coderay (1.1.0)
+    diff-lcs (1.2.5)
+    facets (3.0.0)
+    httpclient (2.7.0.1)
+    madeleine (0.9.0)
+    mailfactory (1.4.0)
+      mime-types (>= 1.13.1)
+    method_source (0.8.2)
+    mime-types (3.0)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2015.1120)
+    power_assert (0.2.6)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.1)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
+    runt (0.9.0)
+    slop (3.6.0)
+    soap4r (1.5.8)
+      httpclient (>= 2.1.1)
+    test-unit (3.1.5)
+      power_assert
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  facets
+  madeleine
+  mailfactory
+  pry
+  rspec
+  runt
+  soap4r
+  test-unit
+
+BUNDLED WITH
+   1.10.6
