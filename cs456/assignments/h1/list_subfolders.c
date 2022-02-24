@@ -9,15 +9,17 @@
 int main(int argc, char *argv[])
 {
     if (argc < 2) {
-      perror("Usage: %s <words...>\n", argv[0]);
+      perror(argv[0]);
+      printf("Usage: %s <words...> (need more arguments)\n", argv[0]);
       return 0;
     }
-    printf("argc = %d\n", argc);
+    //printf("argc = %d\n", argc);
 
     if (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "--h") == 0)
     {
-        printf("This program delets a single directory at a time, wiht or with out contents.\n"
-               "Sucessful run: program <argument1/directory>\n");
+        printf("This program lists the contents of the specified directory.\n"
+               "Sucessful run: program <argument1/directory path>\n");
+        return 0;
     }
 
     DIR *d;
@@ -27,14 +29,34 @@ int main(int argc, char *argv[])
 
     if (d == NULL)
     {
-        perror("Canot open (%s)\n", argv[1]);
+        perror(argv[1]);
+        printf("Cannot open (%s), must type full path.\n", argv[1]);
         return 1;
     }
     else
     {
-        while ((dp = readdir(d)) != NULL)
+        if (strcmp(argv[2], "-l") == 0)
         {
-            printf("%s ", dp->d_name);
+            FILE *file = popen("stat", "r");
+            while ((dp = readdir(d)) != NULL)
+            {
+                if (strcmp(dp->d_name, "..") == 0 || strcmp(dp->d_name, ".") == 0)
+                {
+                    continue;
+                }
+                printf("%s\n", dp->d_name);
+            }
+        }
+        else
+        {
+            while ((dp = readdir(d)) != NULL)
+            {
+                if (strcmp(dp->d_name, "..") == 0 || strcmp(dp->d_name, ".") == 0)
+                {
+                    continue;
+                }
+                printf("%s\n", dp->d_name);
+            }
         }
         closedir(d);
     }
