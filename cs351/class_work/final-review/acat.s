@@ -1,4 +1,4 @@
-%define EOF	-1
+%define EOF	    -1
 %define NULL	0
 
 extern fgetc, fputc, fopen, fclose, perror, stdin, stdout

@@ -16,51 +16,23 @@ def print_board(board):
 
 def user_move(board, player):
     move = int(input('Enter your move (1 - 9): '))
-    if move == 1:
-        if board[0][0] == ' ':
-            board[0][0] = player
-        else:
-            print(f'"{move}" already taken.')
-    elif move == 2:
-        if board[0][1] == ' ':
-            board[0][1] = player
-        else:
-            print(f'"{move}" already taken.')
-    elif move == 3:
-        if board[0][2] == ' ':
-            board[0][2] = player
-        else:
-            print(f'"{move}" already taken.')
-    elif move == 4:
-        if board[1][0] == ' ':
-            board[1][0] = player
-        else:
-            print(f'"{move}" already taken.')
-    elif move == 5:
-        if board[1][1] == ' ':
-            board[1][1] = player
-        else:
-            print(f'"{move}" already taken.')
-    elif move == 6:
-        if board[1][2] == ' ':
-            board[1][2] = player
-        else:
-            print(f'"{move}" already taken.')
-    elif move == 7:
-        if board[2][0] == ' ':
-            board[2][0] = player
-        else:
-            print(f'"{move}" already taken.')
-    elif move == 8:
-        if board[2][1] == ' ':
-            board[2][1] = player
-        else:
-            print(f'"{move}" already taken.')
-    elif move == 9:
-        if board[2][2] == ' ':
-            board[2][2] = player
-        else:
-            print(f'"{move}" already taken.')
+    place = 1
+    row = 0
+    found = False
+    if move >= 1 and move <= 9:
+        for times in range(len(board)):
+            for col in range(len(board)):
+                if move == place and board[row][col] == ' ':
+                    board[row][col] = player
+                    found = True
+                    break
+                else:
+                    place += 1
+            if found == True:
+                break
+            row += 1
+    else:
+        print(f'Invalid move "{move}".')
 
 def check_for_winner(board, player):
     #check rows
@@ -70,6 +42,7 @@ def check_for_winner(board, player):
         return player
     if board[2][0] == player and board[2][1] == player and board[2][2] == player:
         return player
+
     #check cols
     if board[0][0] == player and board[1][0] == player and board[2][0] == player:
         return player

@@ -31,4 +31,4 @@ for e in range(1000):
     random.shuffle(A)
     qs(A, 0, 100)
     #change partition so it counts when 11 and 15 get compared
-#print(count / 1000)
+print(count / 1000)
