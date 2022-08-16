@@ -1,0 +1,49 @@
+42 ->  00101010  A
+5  ->* 00000101  N
+       -1-1----
+       00101010
+     0010101000
+    -----------
+      1101 0010
+
+128 + 64 + 16 + 2
+
+result = 0
+while (N != 0):
+  if (N & 1):
+    result = result + A
+  A = A << 1
+  N = N >> 1
+
+
+A = 101010000
+N = 000000000
+
+result = 00101010 + 10101000
+
+	  1000R10
+     ---------
+101 | 00101010
+      00101000
+        ------
+        000010
+
+Scanf (conversion from ASCII to integer):
+
+digits = "0123456789ABCDEF";
+digits[i] where ch == digits[i], i then is the value of the digit
+
+char str[] = {'3', '0', '5', '\0'};
+
+int value = 0;
+int i = 0;
+int base = 10;
+while (str[i] != '\0'):
+  value = value * base;
+  str[i] = toupper(str[i]);
+  int index = 0;
+  for(index = 0; digits[index] != '\0'; index++)
+    if (digits[index] == str[i]) break;
+  if (index > 15) break;
+  value = value + index;
+  i = i + 1;

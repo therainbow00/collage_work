@@ -14,16 +14,11 @@ int main(void)
 {
     printf("Input a: ");
     uint32_t a, b;
-    //349587, 34598745
     scanf("%u", &a);
 
     printf("Input b: ");
     scanf("%u", &b);
 
-    //uint32_t a_uint = (uint32_t) a;
-    //uint32_t b_uint = (uint32_t) b;
-
-    //printing a in binary
     printf("a = ");
     for (int i = 31; i >= 0; i--)
     {
@@ -38,7 +33,6 @@ int main(void)
     }
     printf("\n");
 
-    //printing b in binary
     printf("b = ");
     for (int j = 31; j >= 0; j--)
     {
@@ -53,7 +47,6 @@ int main(void)
     }
     printf("\n");
 
-    //printing c in binary
     printf("c = ");
     for (int k = 31; k >= 0; k--)
     {

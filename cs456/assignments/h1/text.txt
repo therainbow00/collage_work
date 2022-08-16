@@ -1,0 +1,5 @@
+In modern operating systems, the operating system controls access to all devices and thus needs to handle all the Input/Output operations that a program wishes to do. Unix & Linux are no exception. I/O under Unix/Linux is performed by making system calls, or making a request of the kernel to fetch or store data via the devices that the kernel controls access to.
+
+To maintain the state of I/O operations, the kernel maintains a set of file descriptors, integer values starting at 0 and increasing to some limit (typically processes under Linux are limited to 1024 file descriptors, however that might be raised to 4096, perhaps higher with changes to the kernel.) Each descriptor represents an opened file, though a file may actually represent many things under Unix/Linux, such as devices, memory objects, network connections, just about anything that data can be read from and/or written to. Thus the notion that everything is a file.
+
+Normally each process is given three opened descriptors at startup by the shell program that is used to find and run programs.
