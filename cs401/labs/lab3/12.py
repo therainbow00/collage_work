@@ -23,12 +23,13 @@ for m in range(1, 13):
     Sales.append(read_csv(f"https://cs.indstate.edu/~lmay1/assets/sales-data/sales-{m:0>2}.csv"))
 
 totals_product_month = {}
-
-for l in range(len(products)):
-    totals_product_month[products[l]['ProductId']] = 0
+total_year = []
 
 for i in range(len(Sales)):
     sale = Sales[i]
+    for l in range(len(products)):
+        totals_product_month[products[l]['ProductId']] = 0
+
     for line in sale:
         search = line['ProductId']
         product = [p for p in products if p['ProductId'] == search][0]
