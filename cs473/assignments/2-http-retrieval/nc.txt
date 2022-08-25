@@ -1,0 +1,21 @@
+
+Instructions: https://cs.indstate.edu/~acox/cs473/content/assignments/hw-http-retrieval/
+
+
+1. List any headers in the get-project-gutenberg.txt request here.
+
+
+2. Reconstruct the URL from the host and the path provided in
+   get-project-gutenberg.txt.
+
+
+3. What is the HTTP request verb being used in the 
+   get-project-gutenberg.txt request?
+  
+
+4. What is the HTTP response code?
+
+
+5. What is the URL specified in the returned Location header?
+ 
+

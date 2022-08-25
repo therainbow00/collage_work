@@ -1,0 +1,21 @@
+
+Instructions: https://cs.indstate.edu/~acox/cs473/content/assignments/hw-http-retrieval/
+
+
+1. What is the HTTP Status code (hint: it should be a number) for the HTTP request?
+
+answer: 200
+
+2. What does that HTTP status mean?
+
+answer: that the connection was successful
+--------------------------------------------------------------------------------
+
+
+3. What is the HTTP Status code now?
+
+answer: 304
+
+4. What does that HTTP status mean?
+
+answer: connection successful but there was no need to retransmit the request
