@@ -1,0 +1,2 @@
+set path = (/u1/class/cs49912/Node/node-v18.7.0-linux-x64/bin $path)
+setenv PORT 49912

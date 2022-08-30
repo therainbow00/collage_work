@@ -1,4 +1,2 @@
-<verb> <path> HTTP/1.1
-Host: <hostname>
-
-
+GET /info/ HTTP/1.1
+Host:  cs.indstate.edu
