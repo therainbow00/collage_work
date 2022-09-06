@@ -104,8 +104,10 @@ int main(void)
 
                                 printf("%6s ", read_dir->d_name);
                                 printf("[");
-                                for (int i = 6; file[i] != '\n'; i++) printf("%c", file[i]);
-
+                                for (int i = 6; file[i] != '\n'; i++)
+                                {
+                                    printf("%c", file[i]);
+                                }
                                 printf("]");
                                 printf("\n");
                                 close(target1);

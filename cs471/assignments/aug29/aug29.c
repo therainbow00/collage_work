@@ -3,7 +3,7 @@
 
 void print_to_binary(int num)
 {
-    int mask = 1 << 12, count = 0, test = 0;
+    int mask = 1 << 32, count = 0, test = 0;
     while (mask)
     {
         if (num & mask || test > 0)
