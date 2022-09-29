@@ -1,0 +1,49 @@
+To write to a file on an ext2 image:
+
+0. Read the data from the source file.
+1. Parse the path of the destination.
+     path: /etc/xyz/abc.txt
+     find: etc will be in the root directory
+           xyz in the /etc directory
+           create a file named abc.txt in the xyz directory
+2. Find a free block (use the block bitmap)
+3. Find a free inode (use the inode bitmap)
+4. Append a new entry to the xyz directory.
+      - inode number ( 4 bytes )
+      - record length ( 2 bytes )
+      - name length ( 1 bytes )
+      - type (will always be 1)
+      - compute length of the record: 8 + name length (round up to a multiple
+        of 4)
+5. Update the  block and inode bitmaps
+6. Store data in the block that you found (step 2)
+7. Fill in the inode data.
+      - permissions (0644 + file flag)
+      - size
+      - dates (mtime)
+      - number of blocks (512 bytes blocks -- 2*1)
+      - store the block that was allocated in the blocks array (the one with
+        15 elements)
+      - user and group id  ( getuid() and getgid() )
+      - links count = 1
+
+List of modules (Python):
+
+1. struct pack (same as unpack, but for writing)
+2. time
+3. os ( getuid, getgid )
+
+how to find root directory:
+    1. find superblock
+        superblock = 1024
+        superblock is the first entry that has number in it, and isn't a one line address
+    2. find block descriptor:
+        multiply superblock address by 2: 1024 * 2 = 2048
+    3. locate inode table:
+        inode table is offset by 12 (8 bytes long): 1024 * 8 = 8192
+    4. locate block of root directory:
+        8192 is fake becasue it stores bad inodes. Go to the next block or 8192 + 256 (inode size) = real inode table.
+        Add 8448 to 40 because that is where the block is @ for root directory = 8448
+        Go to 8448, 8448 + 40 to locate the root directory address = 40
+        1024 * 40 = 40960 = root directory
+        

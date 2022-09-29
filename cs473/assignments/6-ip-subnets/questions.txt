@@ -1,0 +1,33 @@
+
+Directions: Answer the following questions. You may leave your answers in terms of factors of 2 (eg: 2^8 - 2) where convenient.
+            All questions are worth 2 points each, all or nothing.
+
+
+1. What is the network component of the IP address 10.0.0.7/8 ?
+   (Alternatively, you can consider the address as 10.0.0.7 with a subnet mask of 255.0.0.0 )
+
+Answer: 10.0
+
+
+2. What is the host component of the IP address 10.10.0.7/8?
+   (Alternatively, you can consider the address as 10.10.0.7 with a subnet mask of 255.0.0.0 )
+
+Answer: 0.7/8
+
+
+3. Given the IP address 192.168.1.0/24 , how many usable host addresses are there?
+   (HINT: remember to consider the network address and the broadcast address)
+
+Answer: 2^8 - 2
+
+
+4. If you consider the full range of networks denoted by the shorthand subnet notation 134.115.100.100/16, how many total
+   networks can be created?
+
+Answer: 2^16
+
+
+5. If you consider the full range of networks denoted by the shorthand subnet notation 134.115.100.100/16, how many usable
+   host addresses PER network can be created?
+
+Answer: 2^16 - 2

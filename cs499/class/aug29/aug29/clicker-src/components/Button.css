@@ -1,0 +1,7 @@
+.button {
+    font-size: 10vmin;
+    white-space: pre-line;
+}
+.button-bin {
+    grid-column: 1 / span 3;
+}

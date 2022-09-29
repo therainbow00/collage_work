@@ -1,0 +1,25 @@
+     8	13:22	cd /u1/junk/cs499
+     9	13:22	dir
+    10	13:22	ls
+    11	13:22	cd aug22
+    12	13:22	ls
+    13	13:22	clear
+    14	13:23	which node
+    15	13:28	sudo sh
+    16	13:29	setenv PORT 3099
+    17	13:30	vi server01.js
+    18	13:34	node server01.js
+    19	13:34	vi server01.js
+    20	13:34	printenv
+    21	13:36	vi server01.js
+    22	13:44	cat server01.js
+    23	13:44	node server.js
+    24	13:44	cd
+    25	13:45	cd /u1/junk/cs499/aug22
+    26	13:45	ls
+    27	13:45	node server01.js
+    28	13:48	cp server01.js server02.js
+    29	13:48	vi server02.js
+    30	13:49	node server02.js
+    31	13:51	ls
+    32	13:51	history > history.txt
