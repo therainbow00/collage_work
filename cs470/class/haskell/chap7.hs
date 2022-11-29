@@ -7,7 +7,7 @@ data Shape = Circle Float Float Float | Rectangle Float Float Float Float
 -- Rectangle topleftx toplefty bottomrightx  bottomrighty
 area :: Shape -> Float
 area (Circle _ _ r) = pi * r ^ 2
-area (Rectangle x1 y1 x2 y2) = (abs (x2-x1)) * (abs (y2-y1)) 
+area (Rectangle x1 y1 x2 y2) = (abs (x2 - x1)) * (abs (y2 - y1)) 
 
 --let c1 = Circle 0 0 5
 --area c1
@@ -49,7 +49,7 @@ treeElem x (Node a left right)
 
 
 treeInsert2 :: (Ord a) => Tree a -> a -> Tree a
-treeInsert2  EmptyTree  x= singleton x
+treeInsert2  EmptyTree  x = singleton x
 treeInsert2 (Node a left right) x
       | x == a = Node x left right
       | x < a   = Node a (treeInsert2 left x ) right
@@ -66,7 +66,3 @@ treeInsert2 (Node a left right) x
 
 
  
-
-
-
-

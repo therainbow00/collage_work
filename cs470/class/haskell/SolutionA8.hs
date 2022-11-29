@@ -26,8 +26,9 @@ treeElem x (Node a left right)
     | x < a = treeElem x left
     | x > a = treeElem x right
 
-nums = [8,6,4,1,7,3,5]
-numsTree = foldr treeInsert EmptyTree nums
+--nums = [8,6,4,1,7,3,5]
+--let numsTree2 = foldl treeInsert EmptyTree nums
+--numsTree = foldr treeInsert EmptyTree nums
 
 
 
@@ -38,5 +39,5 @@ height ::  Tree a -> Integer
 height EmptyTree = 0
 height (Node x left right) = 1 + (max (height left) (height right))
 
---height numsTree 
-
+--height numsTree
+--height numsTree2

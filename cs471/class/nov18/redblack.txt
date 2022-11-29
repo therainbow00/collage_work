@@ -1,0 +1,16 @@
+The Red-Black tree is a binary search tree that has the following properties:
+
+1. Every node is either red or black.
+2. The root is black.
+3. All leaf (nil) nodes are black.
+4. Every path from the root to a leaf has the same number of black nodes.
+5. No red nodes can have red children.
+6. When inserting, do a binary search tree insert, new node is red, then you
+fix the problem.
+
+Fixing the problems:
+
+1. The uncle of the new node is red.
+
+2. The uncle of the new node is black.
+

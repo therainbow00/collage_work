@@ -1,0 +1,6 @@
+/u1/h8/acox/teach/cs473/cs473-fall22/code/sockets/CMakeFiles/edit_cache.dir
+/u1/h8/acox/teach/cs473/cs473-fall22/code/sockets/CMakeFiles/tcp-connect.dir
+/u1/h8/acox/teach/cs473/cs473-fall22/code/sockets/CMakeFiles/tcp-server.dir
+/u1/h8/acox/teach/cs473/cs473-fall22/code/sockets/CMakeFiles/rebuild_cache.dir
+/u1/h8/acox/teach/cs473/cs473-fall22/code/sockets/CMakeFiles/tcp-multi-connect.dir
+/u1/h8/acox/teach/cs473/cs473-fall22/code/sockets/CMakeFiles/unix-server.dir
