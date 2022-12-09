@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/cs473/class/sockets"
+    "cmake.sourceDirectory": "${workspaceFolder}/cs473/class/sockets",
+    "cmake.configureOnOpen": false
 }

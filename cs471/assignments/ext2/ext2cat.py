@@ -23,6 +23,7 @@ def main():
 
         pos = file.seek(inode_table)
         read = file.read(pos)
+        print(struct.unpack('<2H5I2H18I', read[:100]))
         
         slash = 0
         index = 0
@@ -364,7 +365,7 @@ def main():
                                 read = file.read(pos)
                                 entry_table = struct.unpack('<IH2B255c', read[:263])
                                 entry_size = entry_inode_table[2]
-                                print(''.join(map(chr, read[:entry_size])))
+                                #print(''.join(map(chr, read[:entry_size])))
 
     
                         elif entry_file_type == 2:
@@ -406,7 +407,7 @@ def main():
                                 read = file.read(pos)
                                 entry_table = struct.unpack('<IH2B255c', read[:263])
                                 entry_size = entry_inode_table[2]
-                                print(''.join(map(chr, read[:entry_size])))
+                                #print(''.join(map(chr, read[:entry_size])))
                                 
                     else:
                         name = root_table[4]

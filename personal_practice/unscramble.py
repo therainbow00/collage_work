@@ -1,7 +1,7 @@
 print("Welcome to Scramble, ENJOY!")
 print("An animal word has been scrambled, unscramble it and win the game.")
-print("If the answer if corrct, than the + sign will apear.")
-print("If the answer if incorrct, than the - sign will apear.")
+print("If the answer if correct, than the + sign will appear.")
+print("If the answer if incorrect, than the - sign will appear.")
 print("All names are case sensitive.")
 
 import sys

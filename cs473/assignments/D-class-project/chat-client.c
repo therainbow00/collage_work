@@ -12,107 +12,52 @@
 #include <netinet/in.h>
 
 #define BUFFER_SIZE     4096
-#define MAX_N_TOKENS    10
-#define MAX_CONNECTIONS 1024
 #define TRUE            1
 
-void usage(int argc, char *argv[]) {
+void usage(char *argv[]) {
   printf("usage: %s <port-number>\n", argv[0]);
 }
 
 int main(int argc, char *argv[]) {
   if( argc < 2 ) {
-      usage(argc, argv);
+      usage(argv);
       return 0;
   }
 
-  struct sockaddr_in addr;
+  struct sockaddr_in server_addr;
   int port = atoi(argv[1]);
-  int socket_fd;
+  int client_socket;
   
   char buffer[BUFFER_SIZE];
 
-  if ((socket_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+  if ((client_socket = socket(AF_INET, SOCK_STREAM, 0)) < 0)
   {
-      perror("socket_fd");
+      perror("socket");
       return -1;
   }
 
-  addr.sin_family = AF_INET;
-  addr.sin_addr.s_addr = INADDR_ANY;
-  addr.sin_port = htons(port);
+  server_addr.sin_family = AF_INET;
+  server_addr.sin_addr.s_addr = INADDR_ANY;
+  server_addr.sin_port = htons(port);
 
-  if ((bind(socket_fd, (struct sockaddr*)&addr, sizeof(addr))) < 0)
+  int con = connect(client_socket, (struct sockaddr *)&server_addr, sizeof(server_addr));
+  if (con < 0)
   {
-      perror("bind");
-      return -1;
-  }
-
-  struct connection *clients; // clients linked list
-
-  struct pollfd clientFds[MAX_CONNECTIONS];
-  int numberClients = 0;
-  
-  struct pollfd socketfd[100];
-  socketfd->fd = socket_fd;
-  socketfd->events = POLLIN;
-  socketfd->revents = 0;
-
-  if ((listen(socket_fd, MAX_CONNECTIONS)) < 0)
-  {
-      perror("listen");
+      perror("connect");
       return -1;
   }
   
-  clientFds[numberClients] = *socketfd;
-  numberClients++;
-
-  for(;;) {
-
-      int return_events = poll(clientFds, numberClients, -1);
-      if (return_events < 0)
-      {
-          perror("poll");
-          return -1;
-      }
-
-      if (clientFds[0].revents & POLLIN)
-      {
-          int new_accept = accept(clientFds[0].fd, NULL, NULL);
-          
-          struct pollfd new_accept_fd;
-          new_accept_fd.fd = new_accept;
-          new_accept_fd.events = POLLIN;
-          new_accept_fd.revents = 0;
-          
-          clientFds[numberClients++] = new_accept_fd;
-          return_events -= 1;
-      }
+  while (TRUE)
+  {
+      scanf("%s", buffer);
       
-      int current_poll_fd = 1;
-      while (return_events > 0 && current_poll_fd < MAX_CONNECTIONS)
+      if (strcmp(buffer, "quit") == 0) break;
+      else if (send(client_socket, buffer, BUFFER_SIZE, 0) < 0)
       {
-          if (clientFds[current_poll_fd].revents & POLLIN)
-          {
-              int bytesRead = read(clientFds[current_poll_fd].fd, buffer, sizeof(buffer) - 1);
-
-              buffer[bytesRead] = '\0';
-
-              if (strlen(buffer) == 0)
-              {
-                close(clientFds[current_poll_fd].fd);
-                fprintf(stdout, "[clientFds_index: %d, fd: %d]: DISCONNECTED\n"), current_poll_fd, clientFds[current_poll_fd].fd;
-                clientFds[current_poll_fd] = clientFds[numberClients - 1];
-                numberClients--;
-                continue;
-              }
-              else
-              {
-                fprintf(stdout, "[clientFds_index: %d, fd: %d]: %s\n", current_poll_fd, clientFds[current_poll_fd].fd, buffer);
-              }
-              return_events -= 1;
-          }
-          current_poll_fd++;
+          perror("send");
+          break;
       }
   }
+  close(client_socket);
+  return 0;
 }
