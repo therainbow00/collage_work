@@ -1,10 +1,11 @@
-#!/bin/python3
+#!/usr/bin/env python3
 
 import math
 import os
 import random
 import re
 import sys
+from tkinter import *
 
 
 '''
@@ -55,14 +56,13 @@ Sample Output
 
 def sockMerchant(n, ar):
     check = 0
-    array_length = len(ar)
     biggest = 0
     pairs = 0
     count = 0
     if 1 <= n <= 100:
         ar.sort()
         color = 0
-        while color < array_length:
+        while color < n:
             if 1 <= ar[color] <= 100:
                 if ar[color] > biggest:
                     biggest = ar[color]
@@ -71,7 +71,7 @@ def sockMerchant(n, ar):
         for i in range(1, biggest + 1, 1):
             count = 0
             check = 0
-            for j in range(array_length):
+            for j in range(n):
                 if ar[j] == i:
                     count += 1
                     check = 1

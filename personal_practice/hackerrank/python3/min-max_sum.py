@@ -50,7 +50,16 @@ Sample Output
 
 
 def miniMaxSum(arr):
-    pass
+    min = 0
+    max = 0
+    array_length = len(arr)
+    for number in range(array_length - 1):
+        if 1 <= arr[number] <= int (pow(10, 9)):
+            min += arr[number]
+    for number in range(1, array_length, 1):
+        if 1 <= arr[number] <= int (pow(10, 9)):
+            max += arr[number]
+    print(min, max)
     # Write your code here
 
 
