@@ -1,0 +1,30 @@
+
+Two types of threads:
+  1. sender (ids 0 to 9)
+  2. receiver (ids 0 to 9)
+
+10 of each.
+
+Global variable:
+
+unsigned int flags = 0;
+
+At some time after start, the sender doing something.
+
+   print the time in nanoseconds
+
+   set a bit in a word indicating that it has printed the time (it's done)
+   flags |= (1 << id)   where id is the id of the sender
+
+The receiver waits until the sender indicates that it's done,
+then it prints the time.
+
+   to check if the sender is done, the receiver must ask if
+
+      flags & ( 1 << id) is zero or not
+
+Flags must be protected by a mutex.
+
+printf("S %2d %12ld\n", id, getnanoseconds());
+printf("R %2d %12ld\n", id, getnanoseconds());
+

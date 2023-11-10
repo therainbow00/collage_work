@@ -1,0 +1,40 @@
+sbfields = [
+    "s_inodes_count",
+    "s_blocks_count",
+    "s_r_blocks_count",
+    "s_free_blocks_count",
+    "s_free_inodes_count",
+    "s_first_data_block",
+    "s_log_block_size",
+    "s_log_frag_size",
+    "s_blocks_per_group",
+    "s_frags_per_group",
+    "s_inodes_per_group",
+    "s_mtime",
+    "s_wtime",
+    "s_mnt_count",
+    "s_max_mnt_count",
+    "s_magic",
+    "s_state",
+    "s_errors",
+    "s_minor_rev_level",
+    "s_lastcheck",
+    "s_checkinterval",
+    "s_creator_os",
+    "s_rev_level",
+    "s_def_resuid",
+    "s_def_resgid",
+    "s_first_ino",
+    "s_inode_size",
+    "s_block_group_nr"
+]
+
+bgdtfields = [
+    "bg_block_bitmap",
+    "bg_inode_bitmap",
+    "bg_inode_table",
+    "bg_free_blocks_count",
+    "bg_free_inodes_count",
+    "bg_used_dirs_count",
+]
+

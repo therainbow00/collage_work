@@ -1,0 +1,96 @@
+
+1. Buddy System (bit operation practice)
+    Will give scenario and some change:
+
+Given Buddy Table, Min Block Size 2, and 8 bytes of Memory available.
+
+       pid      address       size
+        23            0          4
+        34            4          2
+         0            6          2
+
+Process 34 exits, give the new table.
+
+
+       pid      address       size
+        23            0          4
+         0            4          4
+
+Example 2:
+
+       total size 16 bytes
+       min block size 2 bytes
+
+       pid      address       size
+         0            0         16
+
+process 25 begins and wants 5 bytes
+
+       pid      address       size
+        25            0          8
+         0            8          8
+
+process 26 begins and wants 7 bytes
+
+       pid      address       size
+        25            0          8
+        26            8          8
+
+process 25 exits
+
+       pid      address       size
+         0            0          8     addr=0000 size=1000 xor=1000
+        26            8          8
+
+process 27 begins and wants 1 bytes
+
+       pid      address       size
+        27            0          2    addresses 0 1
+         0            2          2    addresses 2 3
+         0            4          4    addresses 4 5 6 7
+        26            8          8    addresses 8 to 15
+
+process 29 begins and wants 3 bytes
+
+       pid      address       size
+        27            0          2    addresses 0 1
+         0            2          2    addresses 2 3
+        29            4          4    addresses 4 5 6 7
+        26            8          8    addresses 8 to 15
+
+pid 27 exits
+
+       pid      address       size
+         0            0          4   0000 ^ 0100 = 0100
+        29            4          4
+        26            8          8
+
+2. File systems (ext2).
+
+     How it works.
+
+     Execute: chmod +r filename.txt
+
+     What needs to be done to change the access permissions?
+
+     a. Find filename.txt in current directory
+     b. Get the inode number from the entry for filename.txt
+     c. Go to the inode table, and find the inode.
+     d. Update the mode (i_mode) field in the inode.
+        
+     What changes?
+
+     20 points (10 points each)
+
+     a. i_mode field in the inode
+     b. m_time field (last time the inode was changed)
+     c. a_time field (last time the inode was accessed)
+
+3. Concurrent/semaphore programming.  Complexity <= boat problem.
+
+
+4. Building red/black trees.
+
+     Given a scenario.
+
+     Insert X.
