@@ -1,0 +1,9 @@
+Complete the steps in the .c file as specified there.
+You can test Jeff's program with the *jeff.o file in this directory.
+
+Points: 10 points total
+ bst_num_nodes - 3
+ bst_free - 3
+ correct calculations - 1
+ printing appropriately - 1
+ loop to test multiple seeds - 2

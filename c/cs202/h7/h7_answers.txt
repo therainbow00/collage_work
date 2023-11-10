@@ -1,0 +1,79 @@
+2) For credit - these will be for credit and handin will happen with handin as usual.  Run handin --checkout h7 to checkout the assignment and see how to hand it in.
+Note - the "keys" that are being used here are letters, to drive home the point that in many of these data structures we would really be doing lookups based on strings (name, etc.).  When you need to think about the keys as numbers (for the hash table), use a=0, b=1, etc.
+
+2a) Unsorted array (insert at end, swap on delete)
+insert b, i, d, f, delete f, insert a, delete b, insert e, c, delete a, insert h, g
+
+Answers: b, i, d, f -> b, i, d -> b, i, d, a -> a, i, d -> a, i, d, e, c -> c, i, d, e -> c, i, d, e, h, g -> c, i, d, e, h, g
+             ================
+
+2b) Sorted array (shift on delete)
+insert b, i, d, f, delete f, insert a, delete b, insert e, c, delete a, insert h, g
+
+Answers: b, i, d, f -> b, i, d -> b, i, d, a -> a, i, d -> a, i, d, e, c -> c, i, d, e -> c, i, d, e, h, g -> c, d, e, g, h, i
+             ================
+
+2c) Linked list (insert before head)
+insert b, i, d, f, delete f, insert a, delete b, insert e, c, delete a, insert  h, g
+
+Answers: b, i, d, f -> b, i, d -> a, b, i, d -> a, i, d -> e, c, a, i, d -> e, c, i, d -> h, g, e, c, i, d -> g, h, c, e, d, i
+             ================
+
+2d) Stack
+push b, i, d, f, pop, push a, pop, push e, c, pop, push h, g
+
+Answers: b, i, d, f -> b, i, d -> b, i, d, a -> b, i, d -> b, i, d, e, c -> b, i, d, e -> b, i, d, e, h, g -> b, i, d, e, h, g
+             ================
+
+2e) Queue
+enqueue b, i, d, f, dequeue, enqueue a, dequeue, enqueue e, c, dequeue, enqueue h, g
+
+Answers: b, i, d, f -> b, i, d -> b, i, d, a, -> b, i, d, -> b, i, d, e, c -> b, i, d, e -> b, i, d, e, h, g -> f, a, e, c, h, g (enqueue at end, dequeue at front)
+                ================
+
+2f) Binary search tree
+insert b, i, d, f, delete f, insert a, delete b, insert e, c, delete a, insert  h, g
+
+Answers:
+                         i
+                        d
+                       c e
+                          h
+                         g
+                      ======
+
+2g) Hash table (chaining for collisions, hash function h(k) = k**2 % 10)
+insert b, i, d, f, delete f, insert a, delete b, insert e, c, delete a, insert  h, g
+
+Answers:
+table
+-------------------
+index  |contents
+  0    |      |
+  1    |      |
+  2    |      |
+  3    |      |
+  4    |    --|-> c <-> i
+  5    |      |
+  6    |    --|-> g <-> e
+  7    |      |
+  8    |      |
+  9    |    --|-> h <-> d
+
+2h) Heap (min-heap)
+push b, i, d, f, pop, push a, pop, push e, c, pop, push h, g
+
+Answers:             d
+                   /  \
+                  e    g
+                 / \   /
+                f   h i
+a = 0
+b = 1
+c = 2
+d = 3
+e = 4
+f = 5
+g = 6
+h = 7
+i = 8
