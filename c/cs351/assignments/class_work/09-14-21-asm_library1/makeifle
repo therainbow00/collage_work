@@ -1,0 +1,20 @@
+AS=nasm -felf64
+LD=ld
+
+alpha: alpha.o lib.o
+	$(LD) -o alpha alpha.o lib.o
+
+alpha.o: alpha.s
+	$(AS) alpha.s
+
+hello:	hello.o lib.o
+	$(LD) -o hello hello.o lib.o
+
+hello.o: hello.s
+	$(AS) hello.s
+
+lib.o: lib.s
+	$(AS) lib.s
+
+clean:
+	rm -f *.o
