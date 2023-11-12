@@ -1,0 +1,29 @@
+"*":
+  core:
+    disabledPackages: [
+      "linter-pyflakes"
+    ]
+    telemetryConsent: "limited"
+    uriHandlerRegistration: "always"
+  editor:
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    softWrapHangingIndent: 2
+    tabLength: 4
+  "exception-reporting":
+    userId: "0b298460-f625-48f5-b77a-aa212b4c4f30"
+  "linter-ui-default": {}
+  minimap:
+    plugins:
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      linter: true
+      linterDecorationsZIndex: 0
+      pigments: true
+      pigmentsDecorationsZIndex: 0
+      selection: true
+      selectionDecorationsZIndex: 0
+  welcome:
+    showOnStartup: false
