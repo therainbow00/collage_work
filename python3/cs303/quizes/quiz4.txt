@@ -1,0 +1,37 @@
+1.  Arrays as binary trees.
+
+    Given array, A,  below:
+
+value: X 10 15 31 60 50 21 11 20 30 45
+index: 0  1  2  3  4  5  6  7  8  9 10     A[1]=10,  A[9]=30, A[10]=45
+
+a) How many numbers are stored in the tree?
+answer: 10 numbers
+
+b) How many levels does the tree have?
+answer: 4 levels
+
+c) How many nodes are at level 0?
+answer: 1 node
+
+d) How many nodes are at level 2?
+answer: 4 nodes
+
+e) How many nodes are in the bottom level?
+answer: 3 nodes
+
+
+2 Run siftDown(2)  index=2
+  Show the results below:
+
+           (15)2
+    (60)4         (50)5
+(20)8  (30)9  (45)10
+==========================
+
+answer:          (60)2
+        (30)4             (50)5
+    (20)8    (15)9   (45)10
+
+correct: value: x 10 60 31 30 50 21 11 20 15 45
+         index: 0  1  2  3  4  5  6  7  8  9 10

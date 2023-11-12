@@ -1,0 +1,37 @@
+finite state automata (machines)
+Machine M(S, I, f, s0, F)
+
+S finite set of States
+I finite set of (inputs) Alphabet 0, 1
+f function f(Cstate, Cinput) = next state
+s0 start state is: special state where execution starts
+F set of final states
+
+examples:
+table for function f        start state s0; F = {s3}
+
+      0      1
+====================
+s0   s1     s0
+s1   s0     s3
+s2   s0     s1
+s3   s3     s3
+
+A word made out the alphabet characters is said to be
+ACCEPTED by the machine if it moves the machine from the
+start to a final state.
+
+Let L be the set of all words accepted by the machine.
+
+I = {0, 1}
+
+a) write a machine that accepts all words that start with 00
+-> s0 -> 0 -> s1 -> 0 -> s2 -> 0, 1 -> s2
+s0 -> 1 -> s3 -> 0, 1 -> s3 / s1 -> 1 -> s3 -> 0, 1 -> s3
+
+b) write a machine that accepts all words that contain 00 somewhere
+c) write a machine that accepts all words that that do NOT contain 00 somewhere
+d) write a machine that accepts all strings that end with 00
+e) write a machine that accepts strings that contain that least 2 0's
+
+"accepted set of words is exactly what the discription is"

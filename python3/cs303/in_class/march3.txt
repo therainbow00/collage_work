@@ -1,0 +1,50 @@
+probability and expected value
+
+game: got a die, has 6 sides: 1, 2, 3, 4, 5, 6
+      throw the die onto the floor. You get paid in dollars
+      what ever number is on top. Example: it is a 2 is the number
+      on the top you are paid $2. Before you throw, you pay $2 for
+      the right to throw the die. what is the net value of this game
+      to you.
+
+analysis:   1/6 of the time you will throw a 1
+            1/6 of the time you will throw a 2
+            1/6 of the time you will throw a 3
+
+            1/6 of the time you will throw a 6
+
+expected value = 1/6(1 + 2 + 3 + 4 + 5 + 6) - 2
+= 21/6 - 2 =  $1.5
+
+1/6 probability that you throw a given number
+$1.50 expected value; average value per game to the player
+
+use this to compute average runtimes
+
+=========================================
+
+heap_sort analysis:
+    worst case
+
+1. read in the numbers into the array, A, starting at index 1.
+   going to index N (where the last number is stored).
+
+    so the node at index i has its left child at index 2(i)
+    provided 2(i) <= N
+    so the node at index i has its right child at index 2(i) + 1
+    provided 2(i) + 1 <= N
+
+2. make the heap into a max-heap (the value at node i is >= the
+   values at its children.)
+
+3. use the max-heap to sort
+
+claim: step 2 can be accomplished with fewer than N swaps.
+step 2 starts at node N//2 - 1, all the way to
+node 1.
+                 V1
+            V2        V3        worst case need     1 swap N = 3 2 levels
+
+                 V1
+        V2                V3
+    V4      V5        V6       V7       worst case      4 swaps N = 7 3 levels

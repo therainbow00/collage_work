@@ -1,0 +1,11 @@
+A) language = {011*, 101*}
+
+B)       0  |  1
+      s0 s1 |  -
+      s1 -  |  s2
+final s2 s2 |  -
+
+C)       0  |  1
+final s0 s1 |  -
+      s1 -  | s2
+final s2 s2 |  -

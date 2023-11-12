@@ -1,0 +1,43 @@
+303                                 Quiz 1                   01/29/2021
+
+Directions: Log into Zoom.
+            Turn on your computer camera.
+            Log into your account on the cs server.
+            This file,  quiz1.txt, is in your home directory.
+            Use nano or other file editor to  answer each
+            question in quiz1.txt. Save (Write) quiz1.txt.
+            Exit the editor. You are Done.  See you Tuesday!
+
+1) Reduce the fraction: 2411687/6174319.
+a = 100070
+b = 90063
+r = 10007
+
+a = 90063
+b = 10007
+r = 0
+
+2411687 / 10007 = 241
+6174319 / 10007 = 617
+
+reduced fraction = 241 / 617
+
+2) Prove sqrt(7) is irrational.
+sqrt(7) = a / b
+7 = a^2 / b^2
+7 * b^2 = a^2
+7 | a^2
+7 | (a * a)
+7 | a
+
+a = 7 * c
+
+7 * b^2 = a^2
+7 * b^2 = (7 * c) * (7 * c)
+7 * b^2 = 49 * c^2
+b^2 = 7 * c^2
+7 | b^2
+7 | b * b
+7 | b
+
+Contradiction

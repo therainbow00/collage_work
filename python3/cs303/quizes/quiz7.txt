@@ -1,0 +1,19 @@
+A) {0, 101*}
+
+B)           0      1
+       s0 |  s2   | s1
+ final s1 |  s1   | -
+ final s2 |  -    | -
+
+B) correct       0      1
+            s0 | s2   | s1
+            s1 | s1   | s1
+            s2 | -    | -
+
+C)           0      1
+ final s0 |  -    | s1
+       s1 |  s0   | s1
+
+C) correct      0      1
+           s0 | s0   | s1
+           s1 | s0   | s1

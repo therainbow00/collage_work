@@ -1,0 +1,78 @@
+1.  file: game.py
+    Due 3/18
+    Plays the Monty Hall game 10000 times
+    Each game hides a fabulous prize behind one door (pd)
+    Then the "contestant" picks a door (cc)
+    Then the contestant tries two stategies
+       a) Keep (stick) the original pick.
+       b) Switches to the door (nc) that is DIFFERENT
+          from Monty's door (nc != md ) and DIFFERENT
+	  from the first pick (nc!=cc)
+
+    the program counts the number of wins
+      from stategy a) cc==pd
+
+    the program counts the number of wins
+      from stategy b) nc==pd
+
+
+
+The program prints out the number of wins that the first
+stategy produces. And the number of wins that the second
+stategy produces.
+
+2. file: Bday.py
+   Due 3/19
+   There are 365 days in a year.
+   There is a party (pre covid).
+   Get the number of people at the party from the user.
+   How many people do you need so that the probability is larger than
+   0.5 that two of them have the same birthday?
+
+   Get party size (pz) from the user.
+   Repeat 1000 times:
+     Make a party. That is
+       Make a collection of pz birthdays
+         note:  random.randint(1,365)   is a birthday
+       If two numbers in the collection are equal,
+       then two people have the same birthday and COUNT this collection
+
+   When the loop ends, the count is the number of times that a party
+   of size pz  has at least two people with the same Bday. The
+   probability is   Count/1000   since there were 1000 parties.
+   Print this value out.  Run the program with different sizes.  For
+   what size does the probability become over 0.5?
+
+3. Modular Arithmetic.  Below is the mod 5  (%5)  multiplication table.
+   Due 3/19
+         y
+
+    * 0 1 2 3 4
+    0 0 0 0 0 0
+    1 0 1 2 3 4         entries:   (x*y)%5
+ x  2 0 2 4 1 3
+    3 0 3 1 4 2
+    4 0 4 3 2 1
+
+WRITE: file  ass5.py
+It should check that mod 5  multiplication is associative:
+
+    a*(b*c) == (a*b)*c
+
+    2  3 4      2 3  4
+    2   2        1   4
+      4            4
+
+4. example: if a * b = 0, than at least one of a, b is also 0
+    modular arithemetic mod 6
+
+0, 1, 2, 3, 4, 5
+
+    (2 * 3) % 6 = 0neither 2 nor 3 is 0
+
+mod 7
+0, 1, 2, 3, 4, 5, 6
+
+1 * 7 = 7
+
+if the modulus is a prime number, then  a * b = 0 means at least one
