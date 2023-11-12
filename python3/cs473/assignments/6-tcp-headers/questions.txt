@@ -1,0 +1,43 @@
+
+Directions: Given the following hex dump of a TCP header, determine the following values. A useful depiction of the
+            TCP header structure can be found here:
+                https://en.wikipedia.org/wiki/Transmission_Control_Protocol#TCP_segment_structure
+
+            Each answer/sub-answer is worth 1 point (total 5 points)
+
+
+TCP header hex dump:
+--------------------------------------------------------------------------------
+0000  c5 42 01 bb 21 06 ca ac  78 60 07 a9 50 10 02 03
+0010  18 2c 00 00
+--------------------------------------------------------------------------------
+
+
+
+1a. Provide a brief description of your process for locating and calculating the source port number.
+Answer: The source port number is 16 bits, so that is 2 bytes in size. Take the first two hex numbers, ex: c5 42, convert to decimal, decimal = 50498, which is than the source port number. 
+
+
+
+
+1b. What is the source port number (decimal)?
+Oxc542 = 50498
+Answer: 50498
+
+
+--------------------------------------------------------------------------------
+2a. Provide a brief description of your process for locating and calculating the destination port number.
+Answer: The destination port number is 16 bits, so that is 2 bytes in size. Take the second two hex numbers, ex: 01 bb, convert to decimal, decimal = 443, which is than the destination port number.
+
+
+
+
+2b. What is the destination port number (decimal)?
+Ox01bb = 443
+Answer: 443
+
+
+
+--------------------------------------------------------------------------------
+3. What is the integer value of the data offset section?
+Answer: 80
