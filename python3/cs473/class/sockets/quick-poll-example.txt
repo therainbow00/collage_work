@@ -1,0 +1,19 @@
+
+
+struct pollfd input = {
+  .fd = 0,
+  .events = POLLIN | POLLOUT,
+  // returned events below
+  .revents = 0
+}
+
+
+int numberFdsWithEvents = poll(&input, 1, -1);
+
+if( input.revents & POLLIN ) {
+  // now available for reading
+}
+
+if( input.revents & POLLOUT ) {
+  // go ahead and do writing
+}
