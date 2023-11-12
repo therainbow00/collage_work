@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/tcp-multi-connect.dir/tcp-poll.c.o CMakeFiles/tcp-multi-connect.dir/dynamic-buffer.c.o -o tcp-multi-connect 

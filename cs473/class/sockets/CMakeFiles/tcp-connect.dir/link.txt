@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/tcp-connect.dir/tcp-connect.c.o -o tcp-connect 

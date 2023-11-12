@@ -1,4 +1,0 @@
-
-execl("/usr/bin/ls", "-l", "-a", (char*) NULL);
-
-execlp("ls", "-la", (char*) NULL);
