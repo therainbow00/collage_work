@@ -73,4 +73,3 @@ print("Your score:",correct,"/",word_length, "---", percent)
 print(f"Guessed letters: {usersWord}")
 print(f"Word: {answer}")
 print("===========================================")
-
