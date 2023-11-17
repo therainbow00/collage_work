@@ -13,6 +13,7 @@ word = list(answer)
 scrambledWord = list(answer)
 random.shuffle(scrambledWord)
 print(scrambledWord)
+print('-' * len(scrambledWord))
 
 correct = 0
 
