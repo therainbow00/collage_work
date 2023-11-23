@@ -42,7 +42,6 @@ def characterCount(letter):
         print(usersWord.append(letter))
         sys.exit(0)
 
-done = False
 guess = input("Guess a letter: ")
 while (guess != 'quit'):
     if len(usersWord) > 0:
@@ -65,6 +64,7 @@ while (guess != 'quit'):
     if (count == word_length):
         break
     guess = input("Guess a letter: ")
+    count += 1
 
 percent = format(correct / word_length, ".0%")
 
