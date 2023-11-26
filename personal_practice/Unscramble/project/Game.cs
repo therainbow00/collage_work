@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
@@ -22,9 +22,9 @@ namespace program
             WriteLine("All names are case sensitive.");
 
             Random rand = new Random();
-            string[] animals_name = new string[] { "lion", "Elephant", "tiger", "Giraffe", "kangaroo", "zebra", "cheetah", "Dolphin", "koala", "rhinoceros", "Penguin", "jaguar", "gazelle", "hippopotamus", "leopard", "squirrel", "crocodile", "Eagle", "armadillo", "platypus", "buffalo", "antelope", "Albatross", "gorilla", "otter", "chameleon", "hedgehog", "Mongoose", "parrot", "Panda", "vulture", "seagull", "mongoose", "whale", "koala", "Pangolin", "dolphin", "octopus", "llama", "quokka", "iguana", "cockatoo", "orca", "lemur", "macaw", "sloth", "okapi", "quokka", "yak", "Puffin", "firefly", "giraffe", "robin", "iguana", "meerkat", "humpback", "ostrich", "lynx", "ocelot", "marmoset", "jellyfish", "warthog", "yak", "numbat", "panther", "rabbit", "vulture", "penguin", "Armadillo", "hedgehog", "chameleon", "flamingo", "pelican", "zebu", "llama", "lynx", "narwhal", "rooster", "hamster", "eagle", "toucan", "starling", "woodpecker", "weasel", "quail", "dromedary", "ostrich", "tarsier", "marmoset", "jaguar", "pangolin", "impala", "elephant", "parrot", "dolphin", "antelope", "rhinoceros", "vulture", "yak"};
-            int index = rand.Next(animals_name.Length);
-            string answer = animals_name[index];
+            string[] animals_name = new string[] { "lion", "Elephant", "tiger", "Giraffe", "kangaroo", "zebra", "cheetah", "Dolphin", "koala", "rhinoceros", "Penguin", "jaguar", "gazelle", "hippopotamus", "leopard", "squirrel", "crocodile", "Eagle", "armadillo", "platypus", "buffalo", "antelope", "Albatross", "gorilla", "otter", "chameleon", "hedgehog", "Mongoose", "parrot", "Panda", "vulture", "seagull", "mongoose", "whale", "koala", "Pangolin", "dolphin", "octopus", "llama", "quokka", "iguana", "cockatoo", "orca", "lemur", "macaw", "sloth", "okapi", "quokka", "yak", "Puffin", "firefly", "giraffe", "robin", "iguana", "meerkat", "humpback", "ostrich", "lynx", "ocelot", "marmoset", "jellyfish", "warthog", "yak", "numbat", "panther", "rabbit", "vulture", "penguin", "Armadillo", "hedgehog", "chameleon", "flamingo", "pelican", "zebu", "llama", "lynx", "narwhal", "rooster", "hamster", "eagle", "toucan", "starling", "woodpecker", "weasel", "quail", "dromedary", "ostrich", "tarsier", "marmoset", "jaguar", "pangolin", "impala", "elephant", "parrot", "dolphin", "antelope", "rhinoceros", "vulture", "yak" };
+            int animalIndex = rand.Next(animals_name.Length);
+            string answer = animals_name[animalIndex];
             string word = answer;
             WriteLine(word);
             string scrambledWord = shuffleWord(answer, rand);
@@ -54,12 +54,12 @@ namespace program
                         }
                     }
                 }
-                List<char> characterList = word.ToCharArray().ToList();
+
                 if (letter.Any(char.IsDigit))
                 {
-                    WriteLine(new string('-', 30));
+                    WriteLine(new string('-', 50));
                     WriteLine($"Guess must be a letter. You lost, score {correct}/{word.Length}");
-                    WriteLine(new string('-', 30));
+                    WriteLine(new string('-', 50));
                     Environment.Exit(0);
                 }
                 else if (letter.Length > 1)
@@ -75,7 +75,7 @@ namespace program
                     usersWord.Add(character);
                     for (int i = 0; i < word.Length; i++) if (character == word[i]) correct++;
                 }
-                
+
                 if (count == word.Length) break;
                 else count++;
                 Write("Guess a letter: ");
@@ -84,13 +84,13 @@ namespace program
                 if (string.IsNullOrWhiteSpace(letter) && letter != "quit") break;
             }
 
-            if (usersWord.Count > 0) Write("\nGuessed letters: ");
-            foreach (char charcharter in usersWord) Write(charcharter);
             decimal wordLength = word.Length;
             string percent = ((correct / wordLength) * 100).ToString("0") + '%';
             WriteLine("\n==========================");
             WriteLine($"Your score: {correct}/{word.Length} --- {percent}");
-            WriteLine($"Word: {word}");
+            if (usersWord.Count > 0) Write("Guessed letters: ");
+            foreach (char charcharter in usersWord) Write(charcharter);
+            WriteLine($"\nWord: {word}");
             WriteLine("==========================");
         }
 
