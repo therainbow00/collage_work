@@ -36,24 +36,11 @@ namespace program
             int count = 1;
             bool charFound = false;
             Write("\nGuess a letter: ");
-            string guess = ReadLine();
-            string letter = guess;
+            string? guess = ReadLine();
+            string? letter = guess;
             while (!string.IsNullOrWhiteSpace(letter) && letter != "quit")
             {
-                if (usersWord.Count > 0)
-                {
-                    for (int num = 0; num < usersWord.Count; num++)
-                    {
-                        if (letter[0] == usersWord[num]) charFound = true;
-                        if (charFound)
-                        {
-                            WriteLine(new string('-', 30));
-                            WriteLine(" Letter already guessed");
-                            WriteLine(new string('-', 30));
-                            Environment.Exit(0);
-                        }
-                    }
-                }
+                if (usersWord.Count > 0) alreadyGuessed(usersWord, letter, charFound);
 
                 if (letter.Any(char.IsDigit))
                 {
@@ -62,18 +49,11 @@ namespace program
                     WriteLine(new string('-', 50));
                     Environment.Exit(0);
                 }
-                else if (letter.Length > 1)
-                {
-                    WriteLine(new string('-', 50));
-                    WriteLine($" Guess only one character. You lost, score {correct}/{word.Length}");
-                    WriteLine(new string('-', 50));
-                    Environment.Exit(0);
-                }
+                else if (letter.Length > 1) characterCount(correct, word);
                 else
                 {
                     char character = letter[0];
-                    usersWord.Add(character);
-                    for (int i = 0; i < word.Length; i++) if (character == word[i]) correct++;
+                    checkingTheLetter(word, character, usersWord, ref correct);
                 }
 
                 if (count == word.Length) break;
@@ -116,6 +96,35 @@ namespace program
             }
 
             return new string(charArray);
+        }
+
+        static void checkingTheLetter(string word, char character, List<char> list, ref decimal correct)
+        {
+            list.Add(character);
+            for (int i = 0; i < word.Length; i++) if (character == word[i]) correct++;
+        }
+
+        static void characterCount(decimal correct, string word)
+        {
+            WriteLine(new string('-', 50));
+            WriteLine($" Guess only one character. You lost, score {correct}/{word.Length}");
+            WriteLine(new string('-', 50));
+            Environment.Exit(0);
+        }
+
+        static void alreadyGuessed(List<char> list, string input, bool found)
+        {
+            for (int num = 0; num < list.Count; num++)
+            {
+                if (input[0] == list[num]) found = true;
+                if (found)
+                {
+                    WriteLine(new string('-', 30));
+                    WriteLine(" Letter already guessed");
+                    WriteLine(new string('-', 30));
+                    Environment.Exit(0);
+                }
+            }
         }
     }
 }

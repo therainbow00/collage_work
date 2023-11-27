@@ -8,13 +8,113 @@ print("All names are case sensitive.")
 import sys
 import random
 
-animals_names = ["lion", "Elephant", "tiger", "Giraffe", "kangaroo", "zebra", "cheetah", "Dolphin", "koala", "rhinoceros", "Penguin", "jaguar", "gazelle", "hippopotamus", "leopard", "squirrel", "crocodile", "Eagle", "armadillo", "platypus", "buffalo", "antelope", "Albatross", "gorilla", "otter", "chameleon", "hedgehog", "Mongoose", "parrot", "Panda", "vulture", "seagull", "mongoose", "whale", "koala", "Pangolin", "dolphin", "octopus", "llama", "quokka", "iguana", "cockatoo", "orca", "lemur", "macaw", "sloth", "okapi", "quokka", "yak", "Puffin", "firefly", "giraffe", "robin", "iguana", "meerkat", "humpback", "ostrich", "lynx", "ocelot", "marmoset", "jellyfish", "warthog", "yak", "numbat", "panther", "rabbit", "vulture", "penguin", "Armadillo", "hedgehog", "chameleon", "flamingo", "pelican", "zebu", "llama", "lynx", "narwhal", "rooster", "hamster", "eagle", "toucan", "starling", "woodpecker", "weasel", "quail", "dromedary", "ostrich", "tarsier", "marmoset", "jaguar", "pangolin", "impala", "elephant", "parrot", "dolphin", "antelope", "rhinoceros", "vulture", "yak"]
+animals_names = [
+    "lion",
+    "Elephant",
+    "tiger",
+    "Giraffe",
+    "kangaroo",
+    "zebra",
+    "cheetah",
+    "Dolphin",
+    "koala",
+    "rhinoceros",
+    "Penguin",
+    "jaguar",
+    "gazelle",
+    "hippopotamus",
+    "leopard",
+    "squirrel",
+    "crocodile",
+    "Eagle",
+    "armadillo",
+    "platypus",
+    "buffalo",
+    "antelope",
+    "Albatross",
+    "gorilla",
+    "otter",
+    "chameleon",
+    "hedgehog",
+    "Mongoose",
+    "parrot",
+    "Panda",
+    "vulture",
+    "seagull",
+    "mongoose",
+    "whale",
+    "koala",
+    "Pangolin",
+    "dolphin",
+    "octopus",
+    "llama",
+    "quokka",
+    "iguana",
+    "cockatoo",
+    "orca",
+    "lemur",
+    "macaw",
+    "sloth",
+    "okapi",
+    "quokka",
+    "yak",
+    "Puffin",
+    "firefly",
+    "giraffe",
+    "robin",
+    "iguana",
+    "meerkat",
+    "humpback",
+    "ostrich",
+    "lynx",
+    "ocelot",
+    "marmoset",
+    "jellyfish",
+    "warthog",
+    "yak",
+    "numbat",
+    "panther",
+    "rabbit",
+    "vulture",
+    "penguin",
+    "Armadillo",
+    "hedgehog",
+    "chameleon",
+    "flamingo",
+    "pelican",
+    "zebu",
+    "llama",
+    "lynx",
+    "narwhal",
+    "rooster",
+    "hamster",
+    "eagle",
+    "toucan",
+    "starling",
+    "woodpecker",
+    "weasel",
+    "quail",
+    "dromedary",
+    "ostrich",
+    "tarsier",
+    "marmoset",
+    "jaguar",
+    "pangolin",
+    "impala",
+    "elephant",
+    "parrot",
+    "dolphin",
+    "antelope",
+    "rhinoceros",
+    "vulture",
+    "yak",
+]
 answer = random.choice(animals_names)
 word = list(answer)
 scrambledWord = list(answer)
 random.shuffle(scrambledWord)
 print(scrambledWord)
-print('_ ' * len(scrambledWord))
+print("_ " * len(scrambledWord))
 
 correct = 0
 
@@ -25,16 +125,18 @@ word_length = len(word)
 
 characterFound = False
 
+
 def checkingTheLetters(number, letter):
     if letter == word[number]:
         global correct
         correct += 1
 
+
 def characterCount(letter):
     if len(letter) > 1:
-        print("\n----------------------")
-        print("Guess only one letter.")
-        print("----------------------")
+        print("-" * 30)
+        print(" Guess only one letter.")
+        print("-" * 30)
         sys.exit(0)
     elif letter == "":
         global word_length
@@ -42,17 +144,23 @@ def characterCount(letter):
         print(usersWord.append(letter))
         sys.exit(0)
 
+
 guess = input("Guess a letter: ")
-while (guess != 'quit'):
+while guess != "quit":
     if len(usersWord) > 0:
         for num in range(len(usersWord)):
             if guess == usersWord[num]:
                 characterFound = True
             if characterFound:
-                print('-' * 30)
-                print('Letter already guessed')
-                print('-' * 30)
+                print("-" * 30)
+                print(" Letter already guessed")
+                print("-" * 30)
                 sys.exit(0)
+    if guess.isdigit():
+        print("-" * 50)
+        print(f" Character must not be a digit, score: {correct}/{word_length}")
+        print("-" * 50)
+        sys.exit(0)
 
     for number in range(word_length):
         if number <= len(answer):
@@ -61,7 +169,7 @@ while (guess != 'quit'):
 
     usersWord.append(guess)
 
-    if (count == word_length):
+    if count == word_length:
         break
     guess = input("Guess a letter: ")
     count += 1
@@ -69,7 +177,7 @@ while (guess != 'quit'):
 percent = format(correct / word_length, ".0%")
 
 print("===========================================")
-print("Your score:",correct,"/",word_length, "---", percent)
+print("Your score:", correct, "/", word_length, "---", percent)
 print(f"Guessed letters: {usersWord}")
 print(f"Word: {answer}")
 print("===========================================")
