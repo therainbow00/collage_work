@@ -13,8 +13,8 @@ namespace program
     {
         static void Main(string[] args)
         {
-            House house = new("some", 5);
-            Random rand = new Random();
+            /*House house = new("some", 5);
+            Random rand = new Random();*/
 
             /*house.print();
             house.addMember(rand.Next(1, 5));

@@ -48,7 +48,7 @@ namespace program
                         if (charFound)
                         {
                             WriteLine(new string('-', 30));
-                            WriteLine("Letter already guessed");
+                            WriteLine(" Letter already guessed");
                             WriteLine(new string('-', 30));
                             Environment.Exit(0);
                         }
@@ -58,14 +58,14 @@ namespace program
                 if (letter.Any(char.IsDigit))
                 {
                     WriteLine(new string('-', 50));
-                    WriteLine($"Guess must be a letter. You lost, score {correct}/{word.Length}");
+                    WriteLine($" Guess must be a letter. You lost, score {correct}/{word.Length}");
                     WriteLine(new string('-', 50));
                     Environment.Exit(0);
                 }
                 else if (letter.Length > 1)
                 {
                     WriteLine(new string('-', 50));
-                    WriteLine($"Guess only one character. You lost, score {correct}/{word.Length}");
+                    WriteLine($" Guess only one character. You lost, score {correct}/{word.Length}");
                     WriteLine(new string('-', 50));
                     Environment.Exit(0);
                 }
@@ -81,17 +81,26 @@ namespace program
                 Write("Guess a letter: ");
                 guess = ReadLine();
                 letter = guess;
-                if (string.IsNullOrWhiteSpace(letter) && letter != "quit") break;
             }
 
             decimal wordLength = word.Length;
             string percent = ((correct / wordLength) * 100).ToString("0") + '%';
             WriteLine("\n==========================");
-            WriteLine($"Your score: {correct}/{word.Length} --- {percent}");
-            if (usersWord.Count > 0) Write("Guessed letters: ");
-            foreach (char charcharter in usersWord) Write(charcharter);
-            WriteLine($"\nWord: {word}");
-            WriteLine("==========================");
+            WriteLine($" Your score: {correct}/{word.Length} --- {percent}");
+
+            if (usersWord.Count > 0)
+            {
+                Write(" Guessed letters: ");
+                foreach (char charcharter in usersWord) Write(charcharter);
+                WriteLine($"\n Word: {word}");
+                WriteLine("==========================");
+            }
+            else if (usersWord.Count == 0)
+            {
+                WriteLine($" Word: {word}");
+                WriteLine("==========================");
+            }
+
         }
 
         static string shuffleWord(string word, Random rand)
