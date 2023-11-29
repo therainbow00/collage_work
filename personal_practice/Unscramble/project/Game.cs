@@ -26,9 +26,9 @@ namespace program
             int animalIndex = rand.Next(animals_name.Length);
             string answer = animals_name[animalIndex];
             string word = answer;
-            WriteLine(word);
+            //WriteLine(word);
             string scrambledWord = shuffleWord(answer, rand);
-            WriteLine(scrambledWord);
+            //WriteLine(scrambledWord);
             foreach (int index in scrambledWord) Write("- ");
 
             List<char> usersWord = new List<char>();
@@ -40,7 +40,7 @@ namespace program
             string? letter = guess;
             while (!string.IsNullOrWhiteSpace(letter) && letter != "quit")
             {
-                if (usersWord.Count > 0) alreadyGuessed(usersWord, letter, charFound);
+                if (letter.Length > 1) characterCount(correct, word);
 
                 if (letter.Any(char.IsDigit))
                 {
@@ -49,7 +49,7 @@ namespace program
                     WriteLine(new string('-', 50));
                     Environment.Exit(0);
                 }
-                else if (letter.Length > 1) characterCount(correct, word);
+                else if (usersWord.Count > 0) alreadyGuessed(usersWord, letter, charFound);
                 else
                 {
                     char character = letter[0];
@@ -81,6 +81,8 @@ namespace program
                 WriteLine("==========================");
             }
 
+            WriteLine("Type any character to exit...");
+            ReadLine();
         }
 
         static string shuffleWord(string word, Random rand)
