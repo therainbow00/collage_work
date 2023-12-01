@@ -13,7 +13,7 @@ answer = random.choice(animals_names)
 word = list(answer)
 scrambledWord = list(answer)
 random.shuffle(scrambledWord)
-#print(scrambledWord)
+
 print("_ " * len(scrambledWord))
 
 correct = 0
@@ -54,8 +54,7 @@ while guess != "quit":
         print(f" Guess must be a letter, score: {correct}/{word_length}")
         print("-" * 50)
         sys.exit(0)
-
-    if len(usersWord) > 0:
+    elif len(usersWord) > 0:
         for num in range(len(usersWord)):
             if guess == usersWord[num]:
                 characterFound = True
@@ -83,3 +82,4 @@ print(" Your score:", correct, "/", word_length, "---", percent)
 print(f" Guessed letters: {usersWord}")
 print(f" Word: {answer}")
 print("===========================================")
+input('Type anything to exit...')

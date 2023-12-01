@@ -26,9 +26,8 @@ namespace program
             int animalIndex = rand.Next(animals_name.Length);
             string answer = animals_name[animalIndex];
             string word = answer;
-            //WriteLine(word);
-            string scrambledWord = shuffleWord(answer, rand);
-            //WriteLine(scrambledWord);
+            string scrambledWord = ShuffleWord(answer, rand);
+
             foreach (int index in scrambledWord) Write("- ");
 
             List<char> usersWord = new List<char>();
@@ -40,21 +39,18 @@ namespace program
             string? letter = guess;
             while (!string.IsNullOrWhiteSpace(letter) && letter != "quit")
             {
-                if (letter.Length > 1) characterCount(correct, word);
+                if (letter.Length > 1) CharacterCount(correct, word);
 
-                if (letter.Any(char.IsDigit))
+                else if (letter.Any(char.IsDigit))
                 {
                     WriteLine(new string('-', 50));
                     WriteLine($" Guess must be a letter. You lost, score {correct}/{word.Length}");
                     WriteLine(new string('-', 50));
                     Environment.Exit(0);
                 }
-                else if (usersWord.Count > 0) alreadyGuessed(usersWord, letter, charFound);
-                else
-                {
-                    char character = letter[0];
-                    checkingTheLetter(word, character, usersWord, ref correct);
-                }
+                else if (usersWord.Count > 0) AlreadyGuessed(usersWord, letter);
+                char character = letter[0];
+                CheckingTheLetter(word, character, usersWord, ref correct);
 
                 if (count == word.Length) break;
                 else count++;
@@ -81,11 +77,11 @@ namespace program
                 WriteLine("==========================");
             }
 
-            WriteLine("Type any character to exit...");
+            WriteLine("Type anything to exit...");
             ReadLine();
         }
 
-        static string shuffleWord(string word, Random rand)
+        static string ShuffleWord(string word, Random rand)
         {
             char[] charArray = word.ToCharArray();
 
@@ -100,13 +96,13 @@ namespace program
             return new string(charArray);
         }
 
-        static void checkingTheLetter(string word, char character, List<char> list, ref decimal correct)
+        static void CheckingTheLetter(string word, char character, List<char> list, ref decimal correct)
         {
             list.Add(character);
             for (int i = 0; i < word.Length; i++) if (character == word[i]) correct++;
         }
 
-        static void characterCount(decimal correct, string word)
+        static void CharacterCount(decimal correct, string word)
         {
             WriteLine(new string('-', 50));
             WriteLine($" Guess only one character. You lost, score {correct}/{word.Length}");
@@ -114,12 +110,11 @@ namespace program
             Environment.Exit(0);
         }
 
-        static void alreadyGuessed(List<char> list, string input, bool found)
+        static void AlreadyGuessed(List<char> list, string input)
         {
             for (int num = 0; num < list.Count; num++)
             {
-                if (input[0] == list[num]) found = true;
-                if (found)
+                if (input[0] == list[num])
                 {
                     WriteLine(new string('-', 30));
                     WriteLine(" Letter already guessed");

@@ -1,13 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Unscramble.Models;
 
 namespace Unscramble.Controllers
 {
-    public class gameController : Controller
+    public class GameController : Controller
     {
         // GET: gameController
+        [HttpPost]
         public ActionResult Index()
         {
+            GameModel model = new GameModel();
             return View();
         }
 
