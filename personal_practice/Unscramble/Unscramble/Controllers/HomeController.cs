@@ -13,9 +13,14 @@ namespace Unscramble.Controllers
             _logger = logger;
         }
 
+        [Route("/Home")]
         public IActionResult Index()
         {
-            return View();
+            var model = new GameModel()
+            {
+                Guess = "Hello"
+            };
+            return View(model);
         }
 
         public IActionResult Privacy()

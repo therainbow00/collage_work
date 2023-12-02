@@ -1,3 +1,14 @@
-﻿@{
+﻿@using Unscramble.Controllers;
+@{
     ViewData["Title"] = "Home Page";
 }
+
+@model ActionResult
+<h1>Index</h1>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item</li>
+    }
+</ul>
