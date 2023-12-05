@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
 using Unscramble.Models;
 
@@ -13,14 +14,12 @@ namespace Unscramble.Controllers
             _logger = logger;
         }
 
-        [Route("/Home")]
+        [HttpGet]
         public IActionResult Index()
         {
-            var model = new GameModel()
-            {
-                Guess = "Hello"
-            };
-            return View(model);
+            /*string model = "index";
+            return View(model);*/
+            return View();
         }
 
         public IActionResult Privacy()

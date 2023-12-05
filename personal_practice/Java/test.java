@@ -8,43 +8,71 @@ public class test {
         TestSomething test = new TestSomething();
         Total total = new Total(rand.nextInt(100));
 
-        SetNumbers(rand, test);
+        SetNumbersInt(rand, test);
+        SetNumbersDecimal(rand, test);
         System.out.printf("The greater number is: %d (Number 1 was: %d | Number 2 was: %d)\n",
                 test.Greater(test.GetNum1(), test.GetNum2()), test.GetNum1(), test.GetNum2());
         System.out.println("Total: " + total.GetNum());
+        System.out.printf("The greater number is: %f (Number 3 was: %f | Number 4 was: %f)\n",
+                test.Greater(test.GetNum3(), test.GetNum4()), test.GetNum3(), test.GetNum4());
     }
 
-    static void SetNumbers(Random rand, TestSomething test) {
-        int length = 0;
+    static void SetNumbersInt(Random rand, TestSomething test) {
+        int length;
         length = rand.nextInt(100);
-        test.SetNum1(length);
+        test.SetNum1Or3(length);
         length = rand.nextInt(100);
-        test.SetNum2(length);
+        test.SetNum2Or4(length);
     }
 
+    static void SetNumbersDecimal(Random rand, TestSomething test) {
+        double length;
+        length = rand.nextInt(100);
+        test.SetNum1Or3(length);
+        length = rand.nextInt(100);
+        test.SetNum2Or4(length);
+    }
 }
 
 class TestSomething {
     private int num1;
     private int num2;
+    private double num3;
+    private double num4;
 
     protected int GetNum1() {
         return num1;
     }
 
-    protected int SetNum1(int num) {
+    protected int SetNum1Or3(int num) {
         return num1 = num;
+    }
+
+    protected double SetNum1Or3(double num) {
+        return num3 = num;
     }
 
     protected int GetNum2() {
         return num2;
     }
 
-    protected int SetNum2(int num) {
+    protected double GetNum3() {
+        return num3;
+    }
+
+    protected double GetNum4() {
+        return num4;
+    }
+
+    protected int SetNum2Or4(int num) {
         return num2 = num;
     }
 
-    public int PrintNums(int length) {
+    protected double SetNum2Or4(double num) {
+        return num4 = num;
+    }
+
+    protected int PrintNums(int length) {
         int temp = 0;
         for (int i = 0; i < length; i++) {
             temp += i;
@@ -52,7 +80,14 @@ class TestSomething {
         return temp;
     }
 
-    public int Greater(int num1, int num2) {
+    protected int Greater(int num1, int num2) {
+        if (num1 < num2) {
+            return num2;
+        }
+        return num1;
+    }
+
+    protected double Greater(double num1, double num2) {
         if (num1 < num2) {
             return num2;
         }
@@ -67,15 +102,15 @@ class Total extends TestSomething {
         return total;
     }
 
-    protected int SetNum(int num) {
+    protected int SetTotal(int num) {
         return total = num;
     }
 
-    public Total(int num) {
-        SetNum(PrintNums(num));
+    protected Total(int num) {
+        SetTotal(PrintNums(num));
     }
 
-    public int GetTotal() {
+    protected int GetTotal() {
         return GetNum();
     }
 }

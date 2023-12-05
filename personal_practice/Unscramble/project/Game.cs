@@ -33,7 +33,7 @@ namespace program
             List<char> usersWord = new List<char>();
             decimal correct = 0m;
             int count = 1;
-            bool charFound = false;
+
             Write("\nGuess a letter: ");
             string? guess = ReadLine();
             string? letter = guess;

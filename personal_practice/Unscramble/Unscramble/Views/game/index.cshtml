@@ -1,14 +1,23 @@
-﻿@using Unscramble.Controllers;
+﻿@using Unscramble.Models;
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Game Page";
 }
 
-@model ActionResult
-<h1>Index</h1>
+@model GameModel
 
-<ul>
-    @foreach (var item in Model)
+<div class="text-center">
+    <h1 class="display-4">Scramble</h1>
+    @if (!string.IsNullOrEmpty(Model.Guess))
     {
-        <li>@item</li>
+        <form>
+            <h3>Guess a Character: </h3>
+            
+            <input type="text" class="form-control" input="guess"/>
+            <button type="button" onclick="@Model.Guess">Enter</button>
+        </form>
+        <h2>Current Guess: @Model.Guess</h2>
     }
-</ul>
+    <div class="restart">
+        <button class="restart">Restart</button>
+    </div>
+</div>
