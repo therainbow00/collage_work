@@ -1,33 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using static System.Console;
-using Microsoft.IdentityModel.Tokens;
+﻿using static System.Console;
 
-namespace program
+namespace Scramble
 {
-    class Game
+    class Scramble
     {
         public static void Main(string[] args)
         {
-            WriteLine("Welcome to Scramble, ENJOY!");
-            WriteLine("An animal word has been scrambled, unscramble it and win game.");
-            WriteLine("If you guess the same letter twice, the game ends");
-            WriteLine("Each input must only be 1 character");
-            WriteLine("You must type a character or the game ends");
-            WriteLine("All names are case sensitive.");
+            WriteLine("===================================================================");
+            WriteLine("= Welcome to Scramble, ENJOY!");
+            WriteLine("= An animal word has been scrambled, unscramble it and win game.");
+            WriteLine("= If you guess the same letter twice, the game ends");
+            WriteLine("= Each input must only be 1 character");
+            WriteLine("= You must type a character or the game ends");
+            WriteLine("= All names are case sensitive.");
+            WriteLine("===================================================================");
+            Scramble scramble = new();
+            Random rand = new();
 
+            scramble.Game(scramble.GetWord(), rand, scramble);
+        }
+        private string? Guess { get; set; }
+        string GetWord()
+        {
             Random rand = new Random();
             string[] animals_name = new string[] { "lion", "Elephant", "tiger", "Giraffe", "kangaroo", "zebra", "cheetah", "Dolphin", "koala", "rhinoceros", "Penguin", "jaguar", "gazelle", "hippopotamus", "leopard", "squirrel", "crocodile", "Eagle", "armadillo", "platypus", "buffalo", "antelope", "Albatross", "gorilla", "otter", "chameleon", "hedgehog", "Mongoose", "parrot", "Panda", "vulture", "seagull", "mongoose", "whale", "koala", "Pangolin", "dolphin", "octopus", "llama", "quokka", "iguana", "cockatoo", "orca", "lemur", "macaw", "sloth", "okapi", "quokka", "yak", "Puffin", "firefly", "giraffe", "robin", "iguana", "meerkat", "humpback", "ostrich", "lynx", "ocelot", "marmoset", "jellyfish", "warthog", "yak", "numbat", "panther", "rabbit", "vulture", "penguin", "Armadillo", "hedgehog", "chameleon", "flamingo", "pelican", "zebu", "llama", "lynx", "narwhal", "rooster", "hamster", "eagle", "toucan", "starling", "woodpecker", "weasel", "quail", "dromedary", "ostrich", "tarsier", "marmoset", "jaguar", "pangolin", "impala", "elephant", "parrot", "dolphin", "antelope", "rhinoceros", "vulture", "yak" };
             int animalIndex = rand.Next(animals_name.Length);
             string answer = animals_name[animalIndex];
-            string word = answer;
+            //string word = answer;
+            return answer;
+        }
 
+        void Game(string answer, Random rand, Scramble scramble)
+        {
             string scrambledWord = ShuffleWord(answer, rand);
+            string word = answer;
 
             foreach (int index in scrambledWord) Write("- ");
 
@@ -36,8 +42,8 @@ namespace program
             int count = 1;
 
             Write("\nGuess a letter: ");
-            string? guess = ReadLine();
-            string? letter = guess;
+            scramble.Guess = ReadLine();
+            string? letter = scramble.Guess;
             while (!string.IsNullOrWhiteSpace(letter) && letter != "quit")
             {
                 if (letter.Length > 1) CharacterCount(correct, word);
@@ -56,8 +62,8 @@ namespace program
                 if (count == word.Length) break;
                 else count++;
                 Write("Guess a letter: ");
-                guess = ReadLine();
-                letter = guess;
+                scramble.Guess = ReadLine();
+                letter = scramble.Guess;
             }
 
             decimal wordLength = word.Length;
@@ -82,7 +88,7 @@ namespace program
             ReadLine();
         }
 
-        static string ShuffleWord(string word, Random rand)
+        string ShuffleWord(string word, Random rand)
         {
             char[] charArray = word.ToCharArray();
 
@@ -97,13 +103,13 @@ namespace program
             return new string(charArray);
         }
 
-        static void CheckingTheLetter(string word, char character, List<char> list, ref decimal correct)
+        void CheckingTheLetter(string word, char character, List<char> list, ref decimal correct)
         {
             list.Add(character);
             for (int i = 0; i < word.Length; i++) if (character == word[i]) correct++;
         }
 
-        static void CharacterCount(decimal correct, string word)
+        void CharacterCount(decimal correct, string word)
         {
             WriteLine(new string('-', 50));
             WriteLine($" Guess only one character. You lost, score {correct}/{word.Length}");
@@ -111,7 +117,7 @@ namespace program
             Environment.Exit(0);
         }
 
-        static void AlreadyGuessed(List<char> list, string input)
+        void AlreadyGuessed(List<char> list, string input)
         {
             for (int num = 0; num < list.Count; num++)
             {
@@ -126,3 +132,4 @@ namespace program
         }
     }
 }
+
