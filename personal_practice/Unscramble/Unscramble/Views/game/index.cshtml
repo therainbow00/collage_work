@@ -11,13 +11,13 @@
     {
         <form>
             <h3>Guess a Character: </h3>
-            
-            <input type="text" input="guess"/>
+
+            <input type="text" class="col-md-6 offset-md-3 form-group" input="guess" />
             <button type="button" onclick="@Model.Guess">Enter</button>
         </form>
         <h2>Current Guess: @Model.Guess</h2>
     }
     <div class="restart">
-        <button class="restart">Restart</button>
+        <button class="restart" onclick="location.href = '/Home'">Restart</button>
     </div>
 </div>
