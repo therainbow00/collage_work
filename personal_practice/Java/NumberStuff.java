@@ -10,11 +10,11 @@ public class NumberStuff
         Nums nums = new Nums();
         NumFunctions numFunctions = new NumFunctions();
         int num = Integer.parseInt(args[0]);
-        Total total;
-
+        
         for (int i = 1; i <= num; i++) 
         {
-            total = new Total(rand.nextInt(101));
+            Total total = new Total();
+            //total = new Total(rand.nextInt(101));
             SetNumbersInt(rand, numFunctions);
             SetNumbersDecimal(rand, numFunctions);
             PrintStuff(numFunctions, total, rand, i);
@@ -35,9 +35,9 @@ public class NumberStuff
     {
         double length;
         length = rand.nextInt(100);
-        numFunctions.SetNum1Or3(length);
+        numFunctions.SetNum1Or3(length + .75);
         length = rand.nextInt(100);
-        numFunctions.SetNum2Or4(length);
+        numFunctions.SetNum2Or4(length + .02);
     }
 
     static void PrintStuff(NumFunctions numFunctions, Total total, Random rand, int index)
@@ -52,11 +52,12 @@ public class NumberStuff
 
         System.out.printf("The greater number is: %d (Number 1 was: %d | Number 2 was: %d)\n", numFunctions.Greater(numFunctions.GetNum1(), numFunctions.GetNum2()), numFunctions.GetNum1(), numFunctions.GetNum2());
 
-        System.out.println("Total: " + total.GetTotal());
+        total.SetTotal(numFunctions.GetNum1(), numFunctions.GetNum2());
+        System.out.println("Total: " + total.GetTotalInt());
         System.out.printf("The greater number is: %.0f (Number 3 was: %.0f | Number 4 was: %.0f)\n", numFunctions.Greater(numFunctions.GetNum3(), numFunctions.GetNum4()), numFunctions.GetNum3(), numFunctions.GetNum4());
 
-        total = new Total(rand.nextInt(101));
-        System.out.println("Total: " + total.GetTotal());
+        total.SetTotal(numFunctions.GetNum3(), numFunctions.GetNum4());
+        System.out.println("Total: " + total.GetTotalDouble());
 
         for (int l = 1; l <= 70; l++) {System.out.print("=");}
 
@@ -77,19 +78,22 @@ class Nums extends Done
 
 class Total extends Nums 
 {
-    private int total;
+    private int totalInt;
+    private double totalDouble;
 
-    protected int GetTotal() {return total;}
+    protected int GetTotalInt() {return totalInt;}
+    protected double GetTotalDouble() {return totalDouble;}
 
-    protected void SetTotal(int num) {total = num;}
-    protected int PrintNums(int length)
+    protected void SetTotal(int num, int num2) {totalInt = num + num2;}
+    protected void SetTotal(double num, double num2) {totalDouble = num + num2;}
+    /*protected int PrintNums(int length)
     {
         int temp = 0;
         for (int i = 0; i < length; i++) {temp += i;}
         return temp;
-    }
+    }*/
 
-    protected Total(int num) {SetTotal( PrintNums(num));}
+    //protected Total(int num) {SetTotal(PrintNums(num));}
 }
 
 class NumFunctions extends Nums 
@@ -106,8 +110,8 @@ class NumFunctions extends Nums
     protected void SetNum2Or4(int num) {num2 = num;}
     protected void SetNum2Or4(double num) {num4 = num;}
 
-    protected int Greater(int num1, int num2) {if (num1 < num2) {return num2;} return num1;}
-    protected double Greater(double num1, double num2) {if (num1 < num2) {return num2;} return num1;}
+    protected int Greater(int num1, int num2) {if (num1 < num2) return num2;return num1;}
+    protected double Greater(double num1, double num2) {if (num1 < num2) return num2; return num1;}
 }
 
 

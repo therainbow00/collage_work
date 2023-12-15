@@ -1,4 +1,5 @@
 ﻿@using Unscramble.Models;
+
 @{
     ViewData["Title"] = "Game Page";
 }
@@ -7,15 +8,29 @@
 
 <div class="text-center">
     <h1 class="display-4">Scramble</h1>
-    @if (!string.IsNullOrEmpty(Model.Guess))
-    {
-        <form>
-            <h3>Guess a Character: </h3>
 
-            <input type="text" class="col-md-6 offset-md-3 form-group" input="guess" />
-            <button type="button" onclick="@Model.Guess">Enter</button>
-        </form>
-        <h2>Current Guess: @Model.Guess</h2>
+    <form method="post">
+        <h3>Guess a Character: </h3>
+
+        <input type="text" name="Guess"/>
+        <button type="submit">Enter</button>
+    </form>
+    @if (!string.IsNullOrWhiteSpace(Model.Guess))
+    {
+        @if (Model.usersWord != null)
+        {
+            <ul>
+                @foreach (var character in Model.usersWord)
+                {
+                    <li>Guessed letters: @character</li>
+                    <li>@Model.usersWord.Count</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>Guess not added to list. List is empty</p>
+        }
     }
     <div class="restart">
         <button class="restart" onclick="location.href = '/Home'">Restart</button>

@@ -11,7 +11,17 @@ namespace Unscramble.Models
 {
     public class GameModel
     {
-        public string Guess { get; set; }
+        public string? Guess { get; set; }
+        public List<char> usersWord { get; set; }
+
+        public List<char> AddToList(string input)
+        {
+            if (usersWord != null)
+            {
+                usersWord.Add(input[0]);
+            }
+            return new List<char>(usersWord);
+        }
     }
 
     class Game
@@ -25,6 +35,7 @@ namespace Unscramble.Models
             WriteLine("You must type a character or the game ends");
             WriteLine("All names are case sensitive.");
         }
+
         public void GameStart()
         {
             Random rand = new Random();
