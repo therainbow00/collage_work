@@ -12,15 +12,17 @@ namespace Unscramble.Models
     public class GameModel
     {
         public string? Guess { get; set; }
-        public List<char> usersWord { get; set; }
+        public List<char>? usersWord { get; set; }
 
-        public List<char> AddToList(string input)
+        public List<char> AddToList(string input, List<char> currentList)
         {
-            if (usersWord != null)
-            {
-                usersWord.Add(input[0]);
-            }
-            return new List<char>(usersWord);
+            currentList.Add(input[0]);
+            return new List<char>(currentList);
+        }
+
+        public GameModel()
+        {
+            List<char> usersWord = new List<char>();
         }
     }
 

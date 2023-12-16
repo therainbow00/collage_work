@@ -10,16 +10,17 @@ namespace Unscramble.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var model = new GameModel();
-            return View(model);
+            return View();
         }
         [HttpPost]
-        public ActionResult Index(GameModel model)
+        public ActionResult Index(string Guess)
         {
-            List<char> newList = model.usersWord;
-            newList.Add(model.Guess);
+            GameModel model = new();
+            model.Guess = Guess;
 
-            return View();
+            model.usersWord.Add(model.Guess[0]);
+
+            return View(model);
         }
 
         // GET: gameController/Details/5
