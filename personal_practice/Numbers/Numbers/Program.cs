@@ -9,20 +9,24 @@ namespace Numbers
     {
         internal static void Main(string[] args)
         {
-            Random rand = new Random();
-            Nums nums = new Nums();
-            NumFunctions numFunctions = new NumFunctions();
+            Random rand = new();
+            Nums nums = new();
+            NumFunctions numFunctions = new();
             Write("Number of loops: ");
             string? input = ReadLine();
-            int num = int.Parse(input);
-            Total total;
+            int num = 0;
+            if (input == "")
+            {
+                input = "1";
+                num = int.Parse(input);
+            }
+            else num = int.Parse(input);
 
             for (int i = 1; i <= num; i++)
             {
-                total = new(rand.Next(101));
                 SetNumbersInt(rand, numFunctions);
                 SetNumbersDecimal(rand, numFunctions);
-                PrintStuff(numFunctions, total, rand, i);
+                PrintStuff(numFunctions, rand, i);
             }
             WriteLine(nums.Print());
         }
@@ -45,8 +49,9 @@ namespace Numbers
             numFunctions.SetNum2Or4(length + .56);
         }
 
-        static void PrintStuff(NumFunctions numFunctions, Total total, Random rand, int index)
+        static void PrintStuff(NumFunctions numFunctions, Random rand, int index)
         {
+            Total total;
             for (int l = 1; l <= 33; l++) Write("=");
             Write($" {index} ");
 
@@ -57,11 +62,12 @@ namespace Numbers
 
             WriteLine($"The greater number is: {numFunctions.Greater(numFunctions.Num1, numFunctions.Num2)} (Number 1 was: {numFunctions.Num1} | Number 2 was: {numFunctions.Num2})");
 
-            WriteLine("Total: " + total.TotalNumber);
+            total = new(numFunctions.Num1, numFunctions.Num2);
+            WriteLine("Total: " + total.TotalNumberInt);
             WriteLine($"The greater number is: {numFunctions.Greater(numFunctions.Num3, numFunctions.Num4).ToString("0")} (Number 3 was: {numFunctions.Num3.ToString("0")} | Number 4 was: {numFunctions.Num4.ToString("0")})");
 
-            total = new Total(rand.Next(101));
-            WriteLine("Total: " + total.TotalNumber);
+            total = new(numFunctions.Num3, numFunctions.Num4);
+            WriteLine("Total: " + total.TotalNumberDouble);
 
             for (int l = 1; l <= 70; l++) Write("=");
 
@@ -82,22 +88,25 @@ namespace Numbers
 
     internal class Total : Nums
     {
-        private int totalNumber;
+        private int totalNumberInt;
+        private double totalNumberDouble;
 
-        public Total(int num) { TotalNumber = (PrintNums(num)); }
+        public Total(int num1, int num2) { TotalNumberInt = (PrintNums(num1, num2)); }
+        public Total(double num1, double num2) { TotalNumberDouble = (PrintNums(num1, num2)); }
 
-        public int TotalNumber
+        public int TotalNumberInt
         {
-            get { return totalNumber; }
-            set { totalNumber = value; }
+            get { return totalNumberInt; }
+            set { totalNumberInt = value; }
+        }
+        public double TotalNumberDouble
+        {
+            get { return totalNumberDouble; }
+            set { totalNumberDouble = value; }
         }
 
-        private int PrintNums(int length)
-        {
-            int temp = 0;
-            for (int i = 0; i < length; i++) temp += i;
-            return temp;
-        }
+        private int PrintNums(int num1, int num2) { return num1 + num2; }
+        private double PrintNums(double num1, double num2) { return num1 + num2; }
     }
 
     internal class NumFunctions : Nums

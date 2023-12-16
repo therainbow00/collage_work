@@ -17,14 +17,14 @@
     </form>
     @if (!string.IsNullOrWhiteSpace(Model.Guess))
     {
-        <u>Letter: @Model.Guess</u>
+        <p>Letter: @Model.Guess</p>
         @if (Model.usersWord != null)
         {
             <ul>
                 @foreach (var character in Model.usersWord)
                 {
-                    <u>Guessed letters: @character</u>
-                    <u>@Model.usersWord.Count</u>
+                    <li>Guessed letters: @character</li>
+                    <li>@Model.usersWord.Count</li>
                 }
             </ul>
         }

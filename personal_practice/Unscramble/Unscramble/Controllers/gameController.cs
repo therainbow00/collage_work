@@ -6,11 +6,13 @@ namespace Unscramble.Controllers
 {
     public class GameController : Controller
     {
+        //public List<char> user { get; set; }
         // GET: gameController
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            GameModel model = new();
+            return View(model);
         }
         [HttpPost]
         public ActionResult Index(string Guess)
@@ -18,7 +20,12 @@ namespace Unscramble.Controllers
             GameModel model = new();
             model.Guess = Guess;
 
-            model.usersWord.Add(model.Guess[0]);
+            if (model.usersWord == null)
+            {
+                model.usersWord = new List<char>();
+            }
+            model.AddToList(model.Guess, model.usersWord);
+            //model.usersWord.Add(model.Guess[0]);
 
             return View(model);
         }
