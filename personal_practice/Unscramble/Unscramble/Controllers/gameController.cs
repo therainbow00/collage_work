@@ -12,19 +12,14 @@ namespace Unscramble.Controllers
         public ActionResult Index()
         {
             GameModel model = new();
+            model.usersWord = new List<char>();
             return View(model);
         }
         [HttpPost]
-        public ActionResult Index(string Guess)
+        public ActionResult Index(List<char> List)
         {
             GameModel model = new();
-            model.Guess = Guess;
-
-            if (model.usersWord == null)
-            {
-                model.usersWord = new List<char>();
-            }
-            model.AddToList(model.Guess, model.usersWord);
+            model.AddToList(model.Guess, List);
             //model.usersWord.Add(model.Guess[0]);
 
             return View(model);

@@ -29,6 +29,7 @@ namespace Numbers
                 PrintStuff(numFunctions, rand, i);
             }
             WriteLine(nums.Print());
+            ReadLine();
         }
 
         static void SetNumbersInt(Random rand, NumFunctions numFunctions)
