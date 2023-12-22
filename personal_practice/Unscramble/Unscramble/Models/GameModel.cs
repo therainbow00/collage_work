@@ -9,24 +9,19 @@ using static System.Console;
 
 namespace Unscramble.Models
 {
-    public class GameModel
+    internal class GameModel
     {
         public string Guess { get; set; }
-        public List<char> usersWord = new List<char>();
+        public List<char> usersWord = new List<char>(5) { 'a' };
 
-        public List<char> AddToList(string input, List<char> currentList)
+        public void AddToList(string input)
         {
-            currentList.Add(input[0]);
-            return new List<char>(currentList);
+            usersWord.Add(input[0]);
         }
 
-        public GameModel()
-        {
-            List<char> usersWord = new List<char>();
-        }
     }
 
-    class Game
+    internal class Game
     {
         public void Introduction()
         {

@@ -1,26 +1,44 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Unscramble.Models;
 
 namespace Unscramble.Controllers
 {
     public class GameController : Controller
     {
-        //public List<char> user { get; set; }
+        private GameModel model = new();
+        private List<char> user = new List<char>();
         // GET: gameController
         [HttpGet]
         public ActionResult Index()
         {
-            GameModel model = new();
-            model.usersWord = new List<char>();
+            /*_model = new GameModel();
+            if (_model.usersWord == null)
+            {
+                _model.usersWord = new List<char>();
+            }*/
+            //model = new();
+            //model.usersWord = new List<char>() {'a'};
+
             return View(model);
         }
         [HttpPost]
-        public ActionResult Index(List<char> List)
+        public ActionResult Index(string guess)
         {
-            GameModel model = new();
-            model.AddToList(model.Guess, List);
-            //model.usersWord.Add(model.Guess[0]);
+            model.Guess = guess;
+            if (guess != "quit")
+            {
+                //_model.usersWord.Add(_model.Guess[0]);
+                user.Add(model.Guess[0]);
+                model.usersWord.Add(model.Guess[0]);
+            }
+            /*if (_model == null)
+            {
+                _model = new GameModel();
+                _model.usersWord = new List<char>();
+            }*/
 
             return View(model);
         }
