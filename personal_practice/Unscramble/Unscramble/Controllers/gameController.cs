@@ -19,7 +19,7 @@ namespace Unscramble.Controllers
             {
                 _model.usersWord = new List<char>();
             }*/
-            //model = new();
+            model = new();
             //model.usersWord = new List<char>() {'a'};
 
             return View(model);
@@ -28,7 +28,8 @@ namespace Unscramble.Controllers
         public ActionResult Index(string guess)
         {
             model.Guess = guess;
-            if (guess != "quit")
+            model.guessLength = guess.Length;
+            if (guess != "quit" && guess.Length < 2)
             {
                 //_model.usersWord.Add(_model.Guess[0]);
                 user.Add(model.Guess[0]);

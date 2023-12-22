@@ -16,7 +16,10 @@
     </form>
     @if (Model.Guess != "quit")
     {
-        //<p>Letter: @Model.Guess</p>
+        @if (Model.guessLength > 1)
+        {
+            <script type="text/javascript">window.location.href = "/Home"</script>
+        }
         @if (Model.usersWord != null)
         {
             <p>Guessed letters</p>
@@ -35,8 +38,7 @@
     }
     else
     {
-        <script type="text/javascript">
-            window.location.href = "/Home"</script>
+        <script type="text/javascript">window.location.href = "/Home"</script>
     }
     <div class="restart">
         <button class="restart" onclick="location.href = '/Home'">Restart</button>
