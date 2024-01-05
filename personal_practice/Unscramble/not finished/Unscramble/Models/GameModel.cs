@@ -9,11 +9,11 @@ using static System.Console;
 
 namespace Unscramble.Models
 {
-    internal class GameModel
+    public class GameModel
     {
         public string Guess { get; set; }
         public int guessLength { get; set; }
-        public List<char> usersWord = new List<char>(5) { 'a' };
+        public List<char> usersWord = new List<char>(3);
 
         public void AddToList(string input)
         {
