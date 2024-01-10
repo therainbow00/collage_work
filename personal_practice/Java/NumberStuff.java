@@ -86,14 +86,6 @@ class Total extends Nums
 
     protected void SetTotal(int num, int num2) {totalInt = num + num2;}
     protected void SetTotal(double num, double num2) {totalDouble = num + num2;}
-    /*protected int PrintNums(int length)
-    {
-        int temp = 0;
-        for (int i = 0; i < length; i++) {temp += i;}
-        return temp;
-    }*/
-
-    //protected Total(int num) {SetTotal(PrintNums(num));}
 }
 
 class NumFunctions extends Nums 
