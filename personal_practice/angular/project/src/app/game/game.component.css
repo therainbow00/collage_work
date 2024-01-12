@@ -1,24 +1,25 @@
-.results
+span
 {
-  display: grid;
-  column-gap: 14px;
-  row-gap: 14px;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
-  margin-top: 50px;
-  justify-content: space-around;
+  font-size: large;
+  color: chocolate;
+}
+
+.multiple
+{
+  border: 5px solid purple;
+  width: 15%;
 }
 
 input[type="text"]
 {
-  border: solid 1px var(--primary-color);
+  border: 8% solid yellow;
   padding: 10px;
-  border-radius: 8px;
   margin-right: 4px;
   display: inline-block;
   width: 10%;
 }
 
-@media (min-width: 500px) and (max-width: 768px) {
+/*@media (min-width: 500px) and (max-width: 768px) {
   .results {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -32,4 +33,11 @@ input[type="text"]
   .results {
     grid-template-columns: 1fr;
   }
+}*/
+
+div
+{
+  font-size: medium;
+  color: blue;
+  font-weight: bold;
 }

@@ -1,8 +1,7 @@
 <form (ngSubmit)="Display()">
    <input type="text" [(ngModel)]="User" [ngModelOptions]="{standalone: true}" placeholder="Enter a character"/>
    <button type="submit">Enter</button>
-   <p>input: {{userInput?.character}}</p>
-   <ul>
-      <li *ngFor="let item of list">{{item}}</li>
-   </ul>
+   <div class="multiple" *ngIf="list.length == 2">Word:
+      <span class="rounder" *ngFor="let item of list; let last = last">{{item}}{{!last? ', ': ''}}</span>
+   </div>
 </form>
