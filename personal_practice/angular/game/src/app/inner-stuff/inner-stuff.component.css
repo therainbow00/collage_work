@@ -1,0 +1,59 @@
+span.rounder {
+  font-size: large;
+  color: chocolate;
+}
+
+div.multiple {
+  border: 15px solid purple;
+  width: 15%;
+}
+
+input[type="text"] {
+  border: 8% solid yellow;
+  padding: 10px;
+  margin-right: 4px;
+  display: inline-block;
+  width: 10%;
+  position: center;
+}
+
+div[class="chosenWord"]
+{
+  font-size: large;
+  color: black;
+  border: 10% double black;
+}
+
+/*@media (min-width: 500px) and (max-width: 768px) {
+  .results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  input[type="text"] {
+    width: 70%;
+  }
+}
+
+@media (max-width: 499px) {
+  .results {
+    grid-template-columns: 1fr;
+  }
+}*/
+
+div span {
+  font-size: medium;
+  color: blue;
+  font-weight: bold;
+}
+
+div p {
+  font-size: medium;
+  color: yellowgreen;
+  font-weight: bold;
+}
+
+div {
+  font-size: medium;
+  color: purple;
+  font-weight: bold;
+}
