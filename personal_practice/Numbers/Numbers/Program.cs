@@ -28,7 +28,6 @@ namespace Numbers
                 SetNumbersDecimal(rand, numFunctions);
                 PrintStuff(numFunctions, rand, i);
             }
-            WriteLine(nums.Print());
             ReadLine();
         }
 
@@ -44,10 +43,16 @@ namespace Numbers
         static void SetNumbersDecimal(Random rand, NumFunctions numFunctions)
         {
             double length;
+            string setNumber;
+            double newNumber;
             length = rand.Next(100);
-            numFunctions.SetNum1Or3(length + .75);
+            setNumber = $".{rand.Next(100)}";
+            newNumber = Convert.ToDouble(setNumber) + length;
+            numFunctions.SetNum1Or3(length + newNumber);
             length = rand.Next(100);
-            numFunctions.SetNum2Or4(length + .56);
+            setNumber = $".{rand.Next(100)}";
+            newNumber = Convert.ToDouble(setNumber) + length;
+            numFunctions.SetNum2Or4(length + newNumber);
         }
 
         static void PrintStuff(NumFunctions numFunctions, Random rand, int index)
@@ -61,14 +66,16 @@ namespace Numbers
 
             WriteLine();
 
-            WriteLine($"The greater number is: {numFunctions.Greater(numFunctions.Num1, numFunctions.Num2)} (Number 1 was: {numFunctions.Num1} | Number 2 was: {numFunctions.Num2})");
+            WriteLine($"The greater number is: {numFunctions.Greater(numFunctions.Num1, numFunctions.Num2)}, the two number were [{numFunctions.Num1} and {numFunctions.Num2}]");
 
             total = new(numFunctions.Num1, numFunctions.Num2);
-            WriteLine("Total: " + total.TotalNumberInt);
-            WriteLine($"The greater number is: {numFunctions.Greater(numFunctions.Num3, numFunctions.Num4).ToString("0")} (Number 3 was: {numFunctions.Num3.ToString("0")} | Number 4 was: {numFunctions.Num4.ToString("0")})");
+            WriteLine(numFunctions.Num1 + " + " + numFunctions.Num2 + " = " + total.TotalNumberInt);
+
+
+            WriteLine($"The greater number is: {numFunctions.Greater(numFunctions.Num3, numFunctions.Num4).ToString("0.00")} the two number were [{numFunctions.Num3.ToString("0.00")} and {numFunctions.Num4.ToString("0.00")}]");
 
             total = new(numFunctions.Num3, numFunctions.Num4);
-            WriteLine("Total: " + total.TotalNumberDouble);
+            WriteLine(numFunctions.Num3.ToString("0.00") + " + " + numFunctions.Num4.ToString("0.00") + " = " + total.TotalNumberDouble.ToString("0.00"));
 
             for (int l = 1; l <= 70; l++) Write("=");
 
@@ -76,15 +83,13 @@ namespace Numbers
         }
     }
 
-    internal class Nums : Done
+    internal class Nums
     {
         protected int num1;
         protected int num2;
 
         protected double num3;
         protected double num4;
-
-        public override string Print() { return "Done"; }
     }
 
     internal class Total : Nums
@@ -92,8 +97,8 @@ namespace Numbers
         private int totalNumberInt;
         private double totalNumberDouble;
 
-        public Total(int num1, int num2) { TotalNumberInt = (PrintNums(num1, num2)); }
-        public Total(double num1, double num2) { TotalNumberDouble = (PrintNums(num1, num2)); }
+        public Total(int num1, int num2) { TotalNumberInt = AddNums(num1, num2); }
+        public Total(double num1, double num2) { TotalNumberDouble = AddNums(num1, num2); }
 
         public int TotalNumberInt
         {
@@ -106,8 +111,8 @@ namespace Numbers
             set { totalNumberDouble = value; }
         }
 
-        private int PrintNums(int num1, int num2) { return num1 + num2; }
-        private double PrintNums(double num1, double num2) { return num1 + num2; }
+        private int AddNums(int num1, int num2) { return num1 + num2; }
+        private double AddNums(double num1, double num2) { return num1 + num2; }
     }
 
     internal class NumFunctions : Nums
@@ -142,7 +147,4 @@ namespace Numbers
         public int Greater(int num1, int num2) { if (num1 < num2) return num2; return num1; }
         public double Greater(double num1, double num2) { if (num1 < num2) return num2; return num1; }
     }
-
-
-    internal abstract class Done { public abstract string Print(); }
 }

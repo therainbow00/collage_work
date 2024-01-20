@@ -1,27 +1,32 @@
-span.rounder {
-  font-size: large;
-  color: chocolate;
-}
-
-div.multiple {
-  border: 15px solid purple;
-  width: 15%;
-}
-
-input[type="text"] {
-  border: 8% solid yellow;
-  padding: 10px;
-  margin-right: 4px;
-  display: inline-block;
-  width: 10%;
-  position: center;
-}
-
-div[class="chosenWord"]
+.multiple
 {
   font-size: large;
-  color: black;
-  border: 10% double black;
+  font-weight: bold;
+  color: chocolate;
+  border-bottom: 5px solid purple;
+  margin-top: 2%;
+  width: fit-content;
+}
+
+input
+{
+  border: 8% solid yellow;
+  padding: 10px;
+}
+
+.chosenWord
+{
+  font-size: large;
+  font-weight: bold;
+  color: blue;
+  border: 5px solid rgb(255, 187, 0);
+  width: fit-content;
+  transition: all 1.5s ease;
+}
+
+.chosenWord:hover
+{
+  margin-left: 2%;
 }
 
 /*@media (min-width: 500px) and (max-width: 768px) {
@@ -40,7 +45,7 @@ div[class="chosenWord"]
   }
 }*/
 
-div span {
+/*div span {
   font-size: medium;
   color: blue;
   font-weight: bold;
@@ -57,3 +62,4 @@ div {
   color: purple;
   font-weight: bold;
 }
+*/

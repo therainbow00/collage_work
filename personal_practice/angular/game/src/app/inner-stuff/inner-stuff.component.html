@@ -1,13 +1,14 @@
 <form (ngSubmit)="Display()">
   <input type="text" [(ngModel)]="User" [ngModelOptions]="{standalone: true}" placeholder="Enter a character" />
   <button type="submit">Enter</button>
-  <div class="multiple" *ngIf="usersWord.length == 4">Word:
+  <div class="multiple" *ngIf="count == randomWord.length">Guessed letters:
     <span class="rounder" *ngFor="let item of usersWord; let last = last">{{item}}{{!last? ', ': ''}}</span>
   </div>
   <div>{{scrambledWord}}:
-    <span *ngFor="let letter of randomWordCharacters; let last = last">{{letter}}{{!last? ', ': ''}}</span>
+    <span *ngFor="let letter of scrambledCharacters; let last = last">{{letter}}{{!last? ', ': ''}}</span>
   </div>
-  <div class="chosenWord" class="multiple">Chosen word:
+  <div class="chosenWord" [ngStyle]="count == randomWord.length?{'border-color':'green'} : {'border-color':'red'}">Chosen word:
     <span>{{randomWord}}</span>
   </div>
+  <h1>{{count}}</h1>
 </form>

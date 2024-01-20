@@ -16,7 +16,6 @@ export class InnerStuffComponent {
 
   number: number = Math.floor(Math.random() * (100 - 1 + 1) + 1);
   randomWord: string = this.word[this.number];
-  //randomWordCharacters: string[] = [];
 
   Convert(): string
   {
@@ -30,14 +29,27 @@ export class InnerStuffComponent {
     return characters.join('');
   }
   scrambledWord: string = this.Convert();
-  randomWordCharacters: string[] = this.scrambledWord.split('');
+  scrambledCharacters: string[] = this.scrambledWord.split('');
+  count: number = 0;
+
+  CheckCharacter(letter: string): void
+  {
+    for (let i = 0; i < this.scrambledCharacters.length; i++)
+    {
+      if (letter == this.scrambledCharacters[i])
+      {
+        this.usersWord.push(this.User);
+        this.count++;
+      }
+    }
+  }
 
   Display(): void
   {
     if (this.User.trim() != '')
     {
-        this.usersWord.push(this.User);
-        this.User = '';
+      this.CheckCharacter(this.User);
+      this.User = '';
     }
   }
 }
