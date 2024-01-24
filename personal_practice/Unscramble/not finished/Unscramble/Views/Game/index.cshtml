@@ -1,4 +1,4 @@
-﻿@model GameModel
+﻿@model List<char>
 
 @{
     ViewData["Title"] = "Game Page";
@@ -9,11 +9,17 @@
     <h1 class="display-4">Scramble</h1>
 
     <h3 class="guess-character">Guess a Character: </h3>
-    <form action="Index" method="post">
+    <form action="/Game/Index" method="post">
         <input type="text" name="guess" placeholder="Enter character"</>
         <button type="submit">Enter</button>
     </form>
-    @if (Model.Guess != "quit")
+    @foreach (var character in Model)
+    {
+        <span>@character</span>
+    }
+    <p class="length">Length: @Model.Count</p>
+
+    @*if (Model.Guess != "quit")
     {
         @if (Model.guessLength > 1)
         {
@@ -39,6 +45,7 @@
     {
         <script type="text/javascript">window.location.href = "/Home"</script>
     }
+    *@
     <div class="restart">
         <button class="restart" onclick="location.href = '/Home'">Restart</button>
     </div>

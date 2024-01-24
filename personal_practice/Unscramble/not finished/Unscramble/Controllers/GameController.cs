@@ -8,24 +8,32 @@ namespace Unscramble.Controllers
 {
     public class GameController : Controller
     {
-        private GameModel model;
+        private GameModel model = new();
+        private static List<char> list = new List<char>();
         // GET: gameController
+        [Route("/Game/Index")]
         public ActionResult Index()
         {
-            GameModel model = new GameModel();
+            //GameModel model = new GameModel();
             //model.usersWord = new List<char>(3);
+            //list = new List<char>();
 
-            return View(model);
+            return View(list);
         }
         [HttpPost]
-        public ActionResult Index(GameModel model, string guess)
+        [Route("/Game/Index")]
+        public ActionResult Index(string guess)
         {
             model.Guess = guess;
             model.guessLength = guess.Length;
             if (guess != "quit" && guess.Length < 2)
             {
                 //_model.usersWord.Add(_model.Guess[0]);
-                model.usersWord.Add(model.Guess[0]);
+                list.Add(model.Guess[0]);
+            }
+            else
+            {
+                list = new List<char>();
             }
             /*if (_model == null)
             {
@@ -33,7 +41,7 @@ namespace Unscramble.Controllers
                 _model.usersWord = new List<char>();
             }*/
 
-            return View(model);
+            return RedirectToAction("Index");
         }
 
         [Route("/Game/Rules")]
