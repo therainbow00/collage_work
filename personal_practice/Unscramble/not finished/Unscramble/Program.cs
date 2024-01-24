@@ -1,4 +1,4 @@
-using System.Web.Mvc;
+using System.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +23,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

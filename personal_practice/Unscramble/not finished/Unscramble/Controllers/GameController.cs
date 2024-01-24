@@ -8,17 +8,17 @@ namespace Unscramble.Controllers
 {
     public class GameController : Controller
     {
-        //private readonly GameModel model = new();
+        private GameModel model;
         // GET: gameController
         public ActionResult Index()
         {
             GameModel model = new GameModel();
-            model.usersWord = new List<char>(5);
+            //model.usersWord = new List<char>(3);
 
             return View(model);
         }
         [HttpPost]
-        public ActionResult Add(GameModel model, string guess)
+        public ActionResult Index(GameModel model, string guess)
         {
             model.Guess = guess;
             model.guessLength = guess.Length;
@@ -36,8 +36,9 @@ namespace Unscramble.Controllers
             return View(model);
         }
 
+        [Route("/Game/Rules")]
         // GET: gameController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Rules()
         {
             return View();
         }

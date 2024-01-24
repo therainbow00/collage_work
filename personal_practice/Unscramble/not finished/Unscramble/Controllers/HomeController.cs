@@ -17,11 +17,10 @@ namespace Unscramble.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            /*string model = "index";
-            return View(model);*/
             return View();
         }
 
+        [Route("Home/privacy")]
         public IActionResult Privacy()
         {
             return View();
@@ -31,6 +30,11 @@ namespace Unscramble.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Rules()
+        {
+            return View();
         }
     }
 }

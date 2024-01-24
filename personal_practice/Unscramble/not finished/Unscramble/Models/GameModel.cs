@@ -13,13 +13,7 @@ namespace Unscramble.Models
     {
         public string Guess { get; set; }
         public int guessLength { get; set; }
-        public List<char> usersWord = new List<char>(3);
-
-        public void AddToList(string input)
-        {
-            usersWord.Add(input[0]);
-        }
-
+        public List<char> usersWord = new List<char>();
     }
 
     internal class Game
