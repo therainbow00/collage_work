@@ -13,29 +13,30 @@ namespace Unscramble.Models
     {
         public string Guess { get; set; }
         public int guessLength { get; set; }
-        public List<char> usersWord = new List<char>();
+        public List<char> usersWord { get; set; }
+        public bool Restart = false;
+        public string wordScrambled { get; set; }
+        public Game game = new Game();
+        public string Word { get; set; }
+
+        public GameModel()
+        {
+            usersWord = new List<char>();
+        }
     }
 
-    internal class Game
+    public class Game
     {
-        public void Introduction()
-        {
-            WriteLine("Welcome to Scramble, ENJOY!");
-            WriteLine("An animal word has been scrambled, unscramble it and win game.");
-            WriteLine("If you guess the same letter twice, the game ends");
-            WriteLine("Each input must only be 1 character");
-            WriteLine("You must type a character or the game ends");
-            WriteLine("All names are case sensitive.");
-        }
-
-        public void GameStart()
+        public string GameStart()
         {
             Random rand = new Random();
             string[] animals_name = new string[] { "lion", "Elephant", "tiger", "Giraffe", "kangaroo", "zebra", "cheetah", "Dolphin", "koala", "rhinoceros", "Penguin", "jaguar", "gazelle", "hippopotamus", "leopard", "squirrel", "crocodile", "Eagle", "armadillo", "platypus", "buffalo", "antelope", "Albatross", "gorilla", "otter", "chameleon", "hedgehog", "Mongoose", "parrot", "Panda", "vulture", "seagull", "mongoose", "whale", "koala", "Pangolin", "dolphin", "octopus", "llama", "quokka", "iguana", "cockatoo", "orca", "lemur", "macaw", "sloth", "okapi", "quokka", "yak", "Puffin", "firefly", "giraffe", "robin", "iguana", "meerkat", "humpback", "ostrich", "lynx", "ocelot", "marmoset", "jellyfish", "warthog", "yak", "numbat", "panther", "rabbit", "vulture", "penguin", "Armadillo", "hedgehog", "chameleon", "flamingo", "pelican", "zebu", "llama", "lynx", "narwhal", "rooster", "hamster", "eagle", "toucan", "starling", "woodpecker", "weasel", "quail", "dromedary", "ostrich", "tarsier", "marmoset", "jaguar", "pangolin", "impala", "elephant", "parrot", "dolphin", "antelope", "rhinoceros", "vulture", "yak" };
             int animalIndex = rand.Next(animals_name.Length);
             string answer = animals_name[animalIndex];
             string word = answer;
-            string scrambledWord = shuffleWord(answer, rand);
+            return word;
+
+            /*string scrambledWord = shuffleWord(answer, rand);
             foreach (int index in scrambledWord) Write("- ");
 
             List<char> usersWord = new List<char>();
@@ -90,10 +91,12 @@ namespace Unscramble.Models
 
             WriteLine("Type any character to exit...");
             ReadLine();
+            */
         }
 
-        static string shuffleWord(string word, Random rand)
+        public string shuffleWord(string word)
         {
+            Random rand = new Random();
             char[] charArray = word.ToCharArray();
 
             for (int i = charArray.Length - 1; i > 0; i--)
@@ -107,13 +110,13 @@ namespace Unscramble.Models
             return new string(charArray);
         }
 
-        static void checkingTheLetter(string word, char character, List<char> list, ref decimal correct)
+        public void checkingTheLetter(string word, char character, List<char> list, ref decimal correct)
         {
             list.Add(character);
             for (int i = 0; i < word.Length; i++) if (character == word[i]) correct++;
         }
 
-        static void characterCount(decimal correct, string word)
+        public void characterCount(decimal correct, string word)
         {
             WriteLine(new string('-', 50));
             WriteLine($" Guess only one character. You lost, score {correct}/{word.Length}");
@@ -121,7 +124,7 @@ namespace Unscramble.Models
             Environment.Exit(0);
         }
 
-        static void alreadyGuessed(List<char> list, string input, bool found)
+        public void alreadyGuessed(List<char> list, string input, bool found)
         {
             for (int num = 0; num < list.Count; num++)
             {

@@ -8,32 +8,46 @@ namespace Unscramble.Controllers
 {
     public class GameController : Controller
     {
-        private GameModel model = new();
+        private static GameModel model = new();
         private static List<char> list = new List<char>();
+
         // GET: gameController
         [Route("/Game/Index")]
         public ActionResult Index()
         {
-            //GameModel model = new GameModel();
+            //GameModel model = new();
             //model.usersWord = new List<char>(3);
             //list = new List<char>();
 
-            return View(list);
+            return View(model);
         }
         [HttpPost]
-        [Route("/Game/Index")]
-        public ActionResult Index(string guess)
+        [Route("/Game/Add")]
+        public ActionResult Add(string guess)
         {
+            if (model.usersWord.Count < 1 && guess == null)
+            {
+                model.Word = model.game.GameStart();
+                model.wordScrambled = model.game.shuffleWord(model.Word);
+            }
             model.Guess = guess;
             model.guessLength = guess.Length;
-            if (guess != "quit" && guess.Length < 2)
+            if (guess == "quit")
             {
                 //_model.usersWord.Add(_model.Guess[0]);
+                return Redirect("~/Home/Index");
+            }
+            else if (guess.Length < 2)
+            {
                 list.Add(model.Guess[0]);
+                model.usersWord.Add(model.Guess[0]);
             }
             else
             {
                 list = new List<char>();
+                model.usersWord = new List<char>();
+                model.Word = model.game.GameStart();
+                model.wordScrambled = model.game.shuffleWord(model.Word);
             }
             /*if (_model == null)
             {
@@ -52,9 +66,13 @@ namespace Unscramble.Controllers
         }
 
         // GET: gameController/Create
+        [Route("/Game/Create")]
         public ActionResult Create()
         {
-            return View();
+            model.Word = model.game.GameStart();
+            model.wordScrambled = model.game.shuffleWord(model.Word);
+            model.usersWord = new List<char>();
+            return RedirectToAction("Index");
         }
 
         // POST: gameController/Create
