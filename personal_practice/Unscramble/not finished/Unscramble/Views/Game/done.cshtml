@@ -1,0 +1,48 @@
+﻿@model GameModel
+
+@{
+    ViewData["Title"] = "Game Page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Scramble</h1>
+
+    @if (Model.resultInt <= 33 && Model.resultInt >= 0)
+    {
+        <p class="result" style="background: linear-gradient(to right, red,red @Model.resultInt%, white @Model.resultInt%, white)">
+            Result: @Model.correct / @Model.Word.Length
+            <span class="presult"> - @Model.resultInt%</span>
+        </p>
+    }
+    else if (Model.resultInt >= 33 && Model.resultInt <= 70)
+    {
+        <p class="result" style="background: linear-gradient(to right,yellow,yellow @Model.resultInt%, white @Model.resultInt%, white)">
+            Result: @Model.correct / @Model.Word.Length
+            <span class="presult"> - @Model.resultInt%</span>
+        </p>
+    }
+    else
+    {
+        <p class="result" style="background: linear-gradient(to right,lightgreen, lightgreen @Model.resultInt%, white @Model.resultInt%, white)">
+            Result: @Model.correct / @Model.Word.Length
+            <span class="presult"> - @Model.resultInt%</span>
+        </p>
+    }
+
+    <p class="guessed">Guessed letters:
+    @for (int character = 0; character < Model.usersWord.Count; character++) {<span>@Model.usersWord[character]</span>}
+    </p>
+    <p class="word">Word: @Model.Word</p>
+    <!--<p class="length">Length: @Model.usersWord.Count</p>-->
+
+    @*<p class="in-letter-form">Word in letter form: 
+        @foreach (var character in Model.Word)
+        {
+            <span>@character</span>
+        }
+    </p>
+    *@
+    <button class="restart" onclick="location.href = '/Home'">Restart</button>
+</div>
+

@@ -21,10 +21,14 @@ body {
     margin-bottom: 60px;
 }
 
+    body.text-center {
+        background-color: red;
+    }
+
 h3.guess-character {
     border-bottom: 3px solid black;
     width: fit-content;
-    margin-left: 37%;
+    margin-left: 39%;
 }
 
     h3.guess-character:hover {
@@ -39,26 +43,42 @@ p.rules {
     background-color: lightgreen;
 }
 
-    p.length {
-        border: 3px double red;
-        border-width: 4px;
-        width: fit-content;
-        margin-left: 46%;
-        background-color: lightgreen;
+span.presult {
+    position: absolute;
+    margin-left: .5%;
+    opacity: 0%;
+}
+
+p.result {
+    font-weight: bold;
+    margin-top: 1%;
+    margin-left: 45%;
+    width: fit-content;
+    border: 2px solid black;
+    border-radius: 5px;
+    background: linear-gradient(to right, white);
+}
+
+    p.result:hover span.presult {
+        position: relative;
+        margin-left: 0%;
+        opacity: 100%;
     }
 
-        p.length:hover {
-            border: 3px double black;
-            border-width: 4px;
-            width: fit-content;
-            margin-left: 46%;
-            background-color: red;
-        }
+p.length {
+    border: 3px double red;
+    border-width: 4px;
+    width: fit-content;
+    margin-left: 46%;                              
+    background-color: white;
+    font-weight: bold;
+    align-content: center;
+}
 
-    p:hover {
-        background-color: lightblue;
-        border-color: black;
-    }
+p:hover {
+    background-color: lightblue;
+    border-color: black;
+}
 
 p.guessed {
     margin-left: 43%;
@@ -69,10 +89,15 @@ p.guessed {
 
 p.in-letter-form {
     width: fit-content;
-    margin-left: 38%;
+    margin-left: 42%;
     background-color: white;
 }
 
     p.in-letter-form:hover {
         border-bottom: 3px solid black;
     }
+
+button
+{
+    margin-top: 1%;
+}

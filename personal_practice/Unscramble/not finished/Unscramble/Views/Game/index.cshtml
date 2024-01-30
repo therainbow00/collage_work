@@ -7,54 +7,27 @@
 
 <div class="text-center">
     <h1 class="display-4">Scramble</h1>
+    
+    <!--<p class="wordScrambled">Word scrambled: @Model.wordScrambled</p>-->
+    <h2>
+        @foreach (var space in Model.wordScrambled) {<span>_ </span>}
+    </h2>
 
     <h3 class="guess-character">Guess a Character: </h3>
-    <form action="@Url.Action("Add")" method="post">
-        <input type="text" name="guess" placeholder="Enter character"</>
+
+    <form action="Add" method="post">
+        <input type="text" name="guess" placeholder="Enter character"</input>
         <button type="submit">Enter</button>
     </form>
-    <p class="guessed">Guessed letters:
-        @foreach (var character in Model.usersWord)
-        {
-            <span>@character</span>
-        }
-    </p>
-    <p class="word">Word: @Model.Word</p>
-    <p class="wordScrambled">Word scrambled: @Model.wordScrambled</p>
-    <p class="length">Length: @Model.usersWord.Count</p>
-    <p class="in-letter-form">Word in letter form: 
+
+    <!--<p class="length">Length: @Model.usersWord.Count</p>-->
+
+    @*<p class="in-letter-form">Word in letter form: 
         @foreach (var character in Model.Word)
         {
             <span>@character</span>
         }
     </p>
-
-    @*if (Model.Guess != "quit")
-    {
-        @if (Model.guessLength > 1)
-        {
-            <script type="text/javascript">window.location.href = "/Home"</script>
-        }
-        @if (Model.usersWord != null)
-        {
-            <p>Guessed letters</p>
-            <ul>
-                @foreach (var character in Model.usersWord)
-                {
-                    <li>@character</li>
-                }
-            </ul>
-            <p>Length: @Model.usersWord.Count</p>
-        }
-        else
-        {
-            <p>Guess not added to list. List is empty</p>
-        }
-    }
-    else
-    {
-        <script type="text/javascript">window.location.href = "/Home"</script>
-    }
     *@
     <button class="restart" onclick="location.href = '/Home'">Restart</button>
 </div>

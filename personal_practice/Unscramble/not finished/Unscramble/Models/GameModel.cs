@@ -18,6 +18,12 @@ namespace Unscramble.Models
         public string wordScrambled { get; set; }
         public Game game = new Game();
         public string Word { get; set; }
+        public double num2 { get; set; } = 10;
+        public string result { get; set; }
+        public int resultInt { get; set; }
+        public int count { get; set; }
+        public decimal correct { get; set; } = 0m;
+        public string errorMessage { get; set; }
 
         public GameModel()
         {
@@ -110,18 +116,16 @@ namespace Unscramble.Models
             return new string(charArray);
         }
 
-        public void checkingTheLetter(string word, char character, List<char> list, ref decimal correct)
+        public void checkingTheLetter(string word, char character, List<char> list, ref int correct)
         {
             list.Add(character);
             for (int i = 0; i < word.Length; i++) if (character == word[i]) correct++;
         }
 
-        public void characterCount(decimal correct, string word)
+        public bool characterCount(decimal correct, string word)
         {
-            WriteLine(new string('-', 50));
             WriteLine($" Guess only one character. You lost, score {correct}/{word.Length}");
-            WriteLine(new string('-', 50));
-            Environment.Exit(0);
+            return false;
         }
 
         public void alreadyGuessed(List<char> list, string input, bool found)
