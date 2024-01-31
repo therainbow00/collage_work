@@ -14,21 +14,14 @@ namespace Unscramble.Models
         public string Guess { get; set; }
         public int guessLength { get; set; }
         public List<char> usersWord { get; set; }
-        public bool Restart = false;
         public string wordScrambled { get; set; }
         public Game game = new Game();
         public string Word { get; set; }
-        public double num2 { get; set; } = 10;
         public string result { get; set; }
         public int resultInt { get; set; }
         public int count { get; set; }
-        public decimal correct { get; set; } = 0m;
+        public decimal correct { get; set; }
         public string errorMessage { get; set; }
-
-        public GameModel()
-        {
-            usersWord = new List<char>();
-        }
     }
 
     public class Game
@@ -41,63 +34,6 @@ namespace Unscramble.Models
             string answer = animals_name[animalIndex];
             string word = answer;
             return word;
-
-            /*string scrambledWord = shuffleWord(answer, rand);
-            foreach (int index in scrambledWord) Write("- ");
-
-            List<char> usersWord = new List<char>();
-            decimal correct = 0m;
-            int count = 1;
-            bool charFound = false;
-            Write("\nGuess a letter: ");
-            string? guess = ReadLine();
-            string? letter = guess;
-            while (!string.IsNullOrWhiteSpace(letter) && letter != "quit")
-            {
-                if (letter.Length > 1) characterCount(correct, word);
-
-                if (letter.Any(char.IsDigit))
-                {
-                    WriteLine(new string('-', 50));
-                    WriteLine($" Guess must be a letter. You lost, score {correct}/{word.Length}");
-                    WriteLine(new string('-', 50));
-                    Environment.Exit(0);
-                }
-                else if (usersWord.Count > 0) alreadyGuessed(usersWord, letter, charFound);
-                else
-                {
-                    char character = letter[0];
-                    checkingTheLetter(word, character, usersWord, ref correct);
-                }
-
-                if (count == word.Length) break;
-                else count++;
-                Write("Guess a letter: ");
-                guess = ReadLine();
-                letter = guess;
-            }
-
-            decimal wordLength = word.Length;
-            string percent = ((correct / wordLength) * 100).ToString("0") + '%';
-            WriteLine("\n==========================");
-            WriteLine($" Your score: {correct}/{word.Length} --- {percent}");
-
-            if (usersWord.Count > 0)
-            {
-                Write(" Guessed letters: ");
-                foreach (char charcharter in usersWord) Write(charcharter);
-                WriteLine($"\n Word: {word}");
-                WriteLine("==========================");
-            }
-            else if (usersWord.Count == 0)
-            {
-                WriteLine($" Word: {word}");
-                WriteLine("==========================");
-            }
-
-            WriteLine("Type any character to exit...");
-            ReadLine();
-            */
         }
 
         public string shuffleWord(string word)
@@ -122,25 +58,10 @@ namespace Unscramble.Models
             for (int i = 0; i < word.Length; i++) if (character == word[i]) correct++;
         }
 
-        public bool characterCount(decimal correct, string word)
+        public bool alreadyGuessed(List<char> list, string input, ref bool found)
         {
-            WriteLine($" Guess only one character. You lost, score {correct}/{word.Length}");
-            return false;
-        }
-
-        public void alreadyGuessed(List<char> list, string input, bool found)
-        {
-            for (int num = 0; num < list.Count; num++)
-            {
-                if (input[0] == list[num]) found = true;
-                if (found)
-                {
-                    WriteLine(new string('-', 30));
-                    WriteLine(" Letter already guessed");
-                    WriteLine(new string('-', 30));
-                    Environment.Exit(0);
-                }
-            }
+            foreach (char c in list) if (input[0] == c) found = true;
+            return found;
         }
     }
 }

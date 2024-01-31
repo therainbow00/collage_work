@@ -34,15 +34,7 @@
     @for (int character = 0; character < Model.usersWord.Count; character++) {<span>@Model.usersWord[character]</span>}
     </p>
     <p class="word">Word: @Model.Word</p>
-    <!--<p class="length">Length: @Model.usersWord.Count</p>-->
 
-    @*<p class="in-letter-form">Word in letter form: 
-        @foreach (var character in Model.Word)
-        {
-            <span>@character</span>
-        }
-    </p>
-    *@
     <button class="restart" onclick="location.href = '/Home'">Restart</button>
 </div>
 
