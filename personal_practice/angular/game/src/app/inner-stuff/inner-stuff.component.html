@@ -1,14 +1,16 @@
 <form (ngSubmit)="Display()">
   <input type="text" [(ngModel)]="User" [ngModelOptions]="{standalone: true}" placeholder="Enter a character" />
   <button type="submit">Enter</button>
+  <h1 class="underscore" [ngStyle]="count == scrambledWord.length?{opacity: 0} : {opacity : 100}">
+    <span *ngFor="let letter of scrambledCharacters">{{' _'}}</span>
+  </h1>
   <div class="multiple" *ngIf="count == randomWord.length">Guessed letters:
     <span class="rounder" *ngFor="let item of usersWord; let last = last">{{item}}{{!last? ', ': ''}}</span>
   </div>
-  <div>{{scrambledWord}}:
-    <span *ngFor="let letter of scrambledCharacters; let last = last">{{letter}}{{!last? ', ': ''}}</span>
+  <div class="result" [ngStyle]="count == randomWord.length?{'border-color':'black', background: BackgroundColorGradient(), opacity: 100} : {opacity: 0, background: BackgroundColorGradient()}">Result: {{correct}} / {{randomWord.length}}
+    <span class="span-result"> - {{roundCount}}%</span>
   </div>
-  <div class="chosenWord" [ngStyle]="count == randomWord.length?{'border-color':'green'} : {'border-color':'red'}">Chosen word:
-    <span>{{randomWord}}</span>
+  <div class="chosenWord" [ngStyle]="count == randomWord.length?{opacity: 100} : {opacity: 0}">Chosen word:
+    <span class="span-chosenword">{{randomWord}}</span>
   </div>
-  <h1>{{count}}</h1>
 </form>

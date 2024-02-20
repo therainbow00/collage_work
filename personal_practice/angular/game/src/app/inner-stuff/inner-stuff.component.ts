@@ -30,17 +30,37 @@ export class InnerStuffComponent {
   }
   scrambledWord: string = this.Convert();
   scrambledCharacters: string[] = this.scrambledWord.split('');
+  correct: number = 0;
   count: number = 0;
 
+  roundCount: number = 0;
   CheckCharacter(letter: string): void
   {
+    let found = false;
     for (let i = 0; i < this.scrambledCharacters.length; i++)
     {
-      if (letter == this.scrambledCharacters[i])
-      {
-        this.usersWord.push(this.User);
-        this.count++;
-      }
+      if (letter == this.scrambledCharacters[i]) {this.correct++;}
+      else {found = true;}
+    }
+
+    if (found) {this.usersWord.push(this.User);}
+  }
+
+  AlreadyGuessed(letter: string): void {for (let i = 0; i < this.usersWord.length; i++) {if (letter == this.usersWord[i]) {window.location.reload();}}}
+
+  BackgroundColorGradient(): string
+  {
+    if (0 < this.roundCount && this.roundCount < 33)
+    {
+      return `linear-gradient(to right, red, red ${this.roundCount}% , white ${this.roundCount}%,  white)`;
+    }
+    else if (33 < this.roundCount && this.roundCount < 66)
+    {
+      return `linear-gradient(to right, yellow, yellow ${this.roundCount}% , white ${this.roundCount}%,  white)`;
+    }
+    else
+    {
+      return `linear-gradient(to right, green, green ${this.roundCount}% , white ${this.roundCount}%,  white)`;
     }
   }
 
@@ -48,7 +68,11 @@ export class InnerStuffComponent {
   {
     if (this.User.trim() != '')
     {
-      this.CheckCharacter(this.User);
+      let letter = this.User[0].trim();
+      this.AlreadyGuessed(letter);
+      this.CheckCharacter(letter);
+      this.roundCount = Math.round((this.correct / this.randomWord.length) * 100);
+      this.count++;
       this.User = '';
     }
   }

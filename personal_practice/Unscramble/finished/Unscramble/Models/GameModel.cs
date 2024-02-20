@@ -11,17 +11,17 @@ namespace Unscramble.Models
 {
     public class GameModel
     {
-        public string Guess { get; set; }
+        public string Guess { get; set; } = string.Empty;
         public int guessLength { get; set; }
-        public List<char> usersWord { get; set; }
-        public string wordScrambled { get; set; }
+        public List<char> usersWord { get; set; } = new List<char>();
+        public string wordScrambled { get; set; } = string.Empty;
         public Game game = new Game();
-        public string Word { get; set; }
-        public string result { get; set; }
+        public string Word { get; set; } = string.Empty;
+        public string result { get; set; } = string.Empty;
         public int resultInt { get; set; }
         public int count { get; set; }
         public decimal correct { get; set; }
-        public string errorMessage { get; set; }
+        public string errorMessage { get; set; } = string.Empty;
     }
 
     public class Game

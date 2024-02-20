@@ -2,9 +2,7 @@
 {
   font-size: large;
   font-weight: bold;
-  color: chocolate;
-  border-bottom: 5px solid purple;
-  margin-top: 2%;
+  color: black;
   width: fit-content;
 }
 
@@ -12,21 +10,52 @@ input
 {
   border: 8% solid yellow;
   padding: 10px;
+  margin-left: 40%;
+}
+
+.result
+{
+  font-size: large;
+  font-weight: bold;
+  color: black;
+  border: 5px solid yellow;
+  border-radius: 5px;
+  width: fit-content;
+  transition: all 1.5s ease;
+  margin-top: 1%;
 }
 
 .chosenWord
 {
   font-size: large;
   font-weight: bold;
-  color: blue;
-  border: 5px solid rgb(255, 187, 0);
+  color: black;
+  border-bottom: 5px solid black;
   width: fit-content;
-  transition: all 1.5s ease;
+  margin-top: 1%;
 }
 
-.chosenWord:hover
+.underscore
 {
-  margin-left: 2%;
+  margin-left: 43%;
+  font-weight: bold;
+}
+
+.span-result
+{
+  position: absolute;
+  opacity: 0%;
+}
+
+.result:hover .span-result
+{
+  position: relative;
+  opacity: 100%;
+}
+
+div
+{
+  margin-left: 40%;
 }
 
 /*@media (min-width: 500px) and (max-width: 768px) {
