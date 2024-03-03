@@ -8,17 +8,6 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  /*template: `
-    <main>
-      <header class="brand-name">
-      <img class="brand-logo" src="/personal_practice/angular/project/src/favicon.ico" alt="logo"
-  aria-hidden="true">
-      </header>
-      <section class="content">
-        <app-game></app-game>
-      </section>
-    </main>
-`*/
   imports: [CommonModule, RouterOutlet, GameComponent, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -27,9 +16,8 @@ export class AppComponent {
   title = 'Game';
 
   @Input() user!: Input;
-  getInput: GetInput = {character: `${this.user}`};
-  print()
-  {
+  getInput: GetInput = { character: `${this.user}` };
+  print() {
     alert(`input: ${this.getInput.character}`);
   }
 }

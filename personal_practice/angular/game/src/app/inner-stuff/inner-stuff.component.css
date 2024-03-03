@@ -4,13 +4,18 @@
   font-weight: bold;
   color: black;
   width: fit-content;
+  text-align: center;
+}
+
+form
+{
+  text-align: center;
 }
 
 input
 {
   border: 8% solid yellow;
   padding: 10px;
-  margin-left: 40%;
 }
 
 .result
@@ -22,7 +27,7 @@ input
   border-radius: 5px;
   width: fit-content;
   transition: all 1.5s ease;
-  margin-top: 1%;
+  text-align: center;
 }
 
 .chosenWord
@@ -32,12 +37,11 @@ input
   color: black;
   border-bottom: 5px solid black;
   width: fit-content;
-  margin-top: 1%;
+  text-align: center;
 }
 
 .underscore
 {
-  margin-left: 43%;
   font-weight: bold;
 }
 
@@ -51,11 +55,6 @@ input
 {
   position: relative;
   opacity: 100%;
-}
-
-div
-{
-  margin-left: 40%;
 }
 
 /*@media (min-width: 500px) and (max-width: 768px) {
