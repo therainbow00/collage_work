@@ -10,7 +10,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/check", methods=["POST"])
+@app.route("/game", methods=["POST", "GET"])
 def check():
     if request.method == "POST":
         try:
@@ -21,6 +21,8 @@ def check():
 
         except ValueError:
             return "Invalid input! Please enter a valid character."
+    if request.method == "GET":
+        return render_template("index.html")
 
 
 if __name__ == "__main__":
